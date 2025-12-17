@@ -22,6 +22,7 @@ class QFormLayout;
 class QObject;
 class QVBoxLayout;
 class QLabel;
+class QScrollArea;
 
 namespace ConnectionDetails
 {
@@ -66,6 +67,9 @@ private:
     NetworkManager::Connection::Ptr m_connection;
     NetworkManager::Device::Ptr m_device;
     QString m_accessPointPath;
+    // Cache for KCM path (when using m_connection/m_device directly instead of NetworkModelItem)
+    QString m_cachedDeviceUdi; // Cache the device UDI to detect when device changes
+    QString m_cachedAdapterName; // Cache the human-readable network adapter name
 };
 
 #endif // PLASMA_NM_CONNECTION_STATUS_WIDGET_H

@@ -149,6 +149,7 @@ PUBLIC
     KF6::ColorScheme
     KF6::Completion
     KF6::NetworkManagerQt
+    KF6::Solid
     KF6::WidgetsAddons
     KF6::ModemManagerQt
     Qt::Widgets
@@ -157,7 +158,6 @@ PRIVATE
     KF6::I18n
     KF6::KIOWidgets
     KF6::Notifications
-    KF6::Solid
     KF6::Wallet
     Qt::DBus
     Qt::Network
