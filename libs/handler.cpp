@@ -56,6 +56,7 @@ static const QString KEY_802_11_WIRELESS_SECURITY = QStringLiteral("802-11-wirel
 
 const QString escapeSpecialCharacters(const QString &text)
 {
+    // See https://github.com/zxing/zxing/wiki/Barcode-Contents
     QString result = text;
     result.replace(u'\\', QStringLiteral("\\\\"))
         .replace(u';', QStringLiteral("\\;"))
