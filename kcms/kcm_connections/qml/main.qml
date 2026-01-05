@@ -35,6 +35,7 @@ QQC2.Page {
 
     PlasmaNM.EditorProxyModel {
         id: editorProxyModel
+
         sourceModel: connectionModel
     }
 
@@ -234,12 +235,13 @@ QQC2.Page {
         }
 
         standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
-        title: i18nc("@title:window", "Remove Connection (Konqi)")
+        title: i18nc("@title:window", "Remove Connection")
         subtitle: i18n("Do you want to remove the connection '%1'?", toHtmlEscaped(connectionName))
 
         // QTBUG-122770 accepted signal isn't emitted for Ok button.
         onAccepted: {
             if (connectionPath === connectionView.currentConnectionPath) {
+                // Show panel for connected network
                 var activeName = ""
                 var activePath = ""
                 for (var i = 0; i < editorProxyModel.rowCount(); ++i) {
