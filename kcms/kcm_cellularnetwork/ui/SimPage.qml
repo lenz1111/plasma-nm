@@ -210,6 +210,7 @@ FormCard.FormCardPage {
                     Layout.fillWidth: true
                     text: i18n("Emergency Numbers")
                     elide: Text.ElideRight
+                    textFormat: Text.PlainText
                 }
 
                 Repeater {
@@ -221,6 +222,7 @@ FormCard.FormCardPage {
                         color: Kirigami.Theme.disabledTextColor
                         font: Kirigami.Theme.smallFont
                         elide: Text.ElideRight
+                        textFormat: Text.PlainText
                     }
                 }
             }

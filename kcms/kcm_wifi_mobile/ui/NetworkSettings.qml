@@ -182,6 +182,7 @@ Kirigami.ScrollablePage {
                 visible: ![0, 3, 5].includes(securityCombobox.currentIndex) // only supports WPA PSK, SAE
                 text: "----Not yet implemented----"
                 color: "red"
+                textFormat: Text.PlainText
             }
         }
 
