@@ -50,7 +50,7 @@ QQC2.Page {
         Keys.onDownPressed: event => {
             connectionView.currentIndex = 0
             event.accepted = false
-            // pass to KeyNavigation
+        // pass to KeyNavigation
         }
         KeyNavigation.down: scrollView
 
