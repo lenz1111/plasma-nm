@@ -31,7 +31,10 @@ FormCard.FormCardPage {
             text: profile != null ? profile.name : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileName; below: profileApn }
+        FormCard.FormDelegateSeparator {
+            above: profileName
+            below: profileApn
+        }
 
         FormCard.FormTextFieldDelegate {
             id: profileApn
@@ -39,7 +42,10 @@ FormCard.FormCardPage {
             text: profile != null ? profile.apn : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileApn; below: profileUsername }
+        FormCard.FormDelegateSeparator {
+            above: profileApn
+            below: profileUsername
+        }
 
         FormCard.FormTextFieldDelegate {
             id: profileUsername
@@ -47,7 +53,10 @@ FormCard.FormCardPage {
             text: profile != null ? profile.user : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileUsername; below: profilePassword }
+        FormCard.FormDelegateSeparator {
+            above: profileUsername
+            below: profilePassword
+        }
 
         FormCard.FormTextFieldDelegate {
             id: profilePassword
@@ -55,7 +64,10 @@ FormCard.FormCardPage {
             text: profile != null ? profile.password : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profilePassword; below: profileNetworkType }
+        FormCard.FormDelegateSeparator {
+            above: profilePassword
+            below: profileNetworkType
+        }
 
         FormCard.FormComboBoxDelegate {
             id: profileNetworkType
@@ -68,7 +80,10 @@ FormCard.FormCardPage {
             }
         }
 
-        FormCard.FormDelegateSeparator { above: profileNetworkType; below: profileSave }
+        FormCard.FormDelegateSeparator {
+            above: profileNetworkType
+            below: profileSave
+        }
 
         FormCard.FormButtonDelegate {
             id: profileSave
@@ -76,9 +91,9 @@ FormCard.FormCardPage {
             icon.name: "document-save"
             onClicked: {
                 if (profile == null) { // create new profile
-                    modem.addProfile(profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText);
+                    modem.addProfile(profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText)
                 } else { // edit existing profile
-                    modem.updateProfile(profile.connectionUni, profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText);
+                    modem.updateProfile(profile.connectionUni, profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText)
                 }
                 kcm.pop()
             }

@@ -15,8 +15,6 @@ PlasmaExtras.PasswordField {
     property int/*PlasmaNM.Enums.SecurityType*/ securityType
 
     validator: RegularExpressionValidator {
-        regularExpression: (root.securityType === PlasmaNM.Enums.StaticWep)
-            ? /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26})$/
-            : /^(?:.{8,64})$/
+        regularExpression: (root.securityType === PlasmaNM.Enums.StaticWep) ? /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26})$/ : /^(?:.{8,64})$/
     }
 }

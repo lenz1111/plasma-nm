@@ -31,13 +31,9 @@ RowLayout {
         // preserved, but the state gets out of sync until next relevant
         // notify signal is dispatched. So, we refresh the bindings here.
 
-        onWirelessEnabledChanged: wifiSwitchButton.checked = Qt.binding(() =>
-            wifiSwitchButton.administrativelyEnabled && enabledConnections.wirelessEnabled
-        );
+        onWirelessEnabledChanged: wifiSwitchButton.checked = Qt.binding(() => wifiSwitchButton.administrativelyEnabled && enabledConnections.wirelessEnabled)
 
-        onWwanEnabledChanged: wwanSwitchButton.checked = Qt.binding(() =>
-            wwanSwitchButton.administrativelyEnabled && enabledConnections.wwanEnabled
-        );
+        onWwanEnabledChanged: wwanSwitchButton.checked = Qt.binding(() => wwanSwitchButton.administrativelyEnabled && enabledConnections.wwanEnabled)
     }
 
     PlasmaNM.QrcaHandler {
@@ -63,10 +59,7 @@ RowLayout {
             id: wifiSwitchButton
 
             // can't overload Item::enabled, because it's being used for other things, like Edit Mode on a desktop
-            readonly property bool administrativelyEnabled:
-                !PlasmaNM.Configuration.airplaneModeEnabled
-                && availableDevices.wirelessDeviceAvailable
-                && enabledConnections.wirelessHwEnabled
+            readonly property bool administrativelyEnabled: !PlasmaNM.Configuration.airplaneModeEnabled && availableDevices.wirelessDeviceAvailable && enabledConnections.wirelessHwEnabled
 
             checked: administrativelyEnabled && enabledConnections.wirelessEnabled
             enabled: administrativelyEnabled
@@ -76,7 +69,7 @@ RowLayout {
 
             KeyNavigation.right: wwanSwitchButton.visible ? wwanSwitchButton : wwanSwitchButton.KeyNavigation.right
 
-            onToggled: handler.enableWireless(checked);
+            onToggled: handler.enableWireless(checked)
 
             PlasmaComponents3.ToolTip {
                 text: i18n("Enable Wi-Fi")
@@ -100,7 +93,7 @@ RowLayout {
                     target: handler
                     function onScanningChanged() {
                         if (handler.scanning) {
-                            timer.restart();
+                            timer.restart()
                         }
                     }
                 }
@@ -111,10 +104,7 @@ RowLayout {
             id: wwanSwitchButton
 
             // can't overload Item::enabled, because it's being used for other things, like Edit Mode on a desktop
-            readonly property bool administrativelyEnabled:
-                !PlasmaNM.Configuration.airplaneModeEnabled
-                && availableDevices.modemDeviceAvailable
-                && enabledConnections.wwanHwEnabled
+            readonly property bool administrativelyEnabled: !PlasmaNM.Configuration.airplaneModeEnabled && availableDevices.modemDeviceAvailable && enabledConnections.wwanHwEnabled
 
             checked: administrativelyEnabled && enabledConnections.wwanEnabled
             enabled: administrativelyEnabled
@@ -125,7 +115,7 @@ RowLayout {
             KeyNavigation.left: wifiSwitchButton
             KeyNavigation.right: planeModeSwitchButton.visible ? planeModeSwitchButton : planeModeSwitchButton.KeyNavigation.right
 
-            onToggled: handler.enableWwan(checked);
+            onToggled: handler.enableWwan(checked)
 
             PlasmaComponents3.ToolTip {
                 text: i18n("Enable mobile data")
@@ -147,14 +137,12 @@ RowLayout {
             KeyNavigation.right: hotspotButton.visible ? hotspotButton : hotspotButton.KeyNavigation.right
 
             onToggled: {
-                handler.enableAirplaneMode(checked);
-                PlasmaNM.Configuration.airplaneModeEnabled = checked;
+                handler.enableAirplaneMode(checked)
+                PlasmaNM.Configuration.airplaneModeEnabled = checked
             }
 
             PlasmaComponents3.ToolTip {
-                text: planeModeSwitchButton.checked ?
-                    xi18nc("@info", "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth") :
-                    xi18nc("@info", "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth")
+                text: planeModeSwitchButton.checked ? xi18nc("@info", "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth") : xi18nc("@info", "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth")
             }
         }
     }
@@ -188,9 +176,9 @@ RowLayout {
                 } else if (!handler.hotspotSupported) {
                     return i18nc("@info:tooltip", "Cannot create a hotspot because all wireless radios are in use. Disconnect from the current Wi-Fi network or connect another wireless radio.")
                 } else if (handler.hotspotActive) {
-                    return i18nc("@info:tooltip", "Disable Hotspot");
+                    return i18nc("@info:tooltip", "Disable Hotspot")
                 } else {
-                    return i18nc("@info:tooltip", "Create Hotspot");
+                    return i18nc("@info:tooltip", "Create Hotspot")
                 }
             }
         }
@@ -223,7 +211,7 @@ RowLayout {
         display: PlasmaComponents3.ToolButton.IconOnly
         Accessible.description: {
             if (qrca.available) {
-                return i18nc("@info:tooltip", "Scan QR Code to connect to a Wi-Fi network");
+                return i18nc("@info:tooltip", "Scan QR Code to connect to a Wi-Fi network")
             } else {
                 return i18nc("@info:tooltip", "Install QRCA Barcode Scanner to scan for a QR Code that connects to a Wi-Fi network")
             }

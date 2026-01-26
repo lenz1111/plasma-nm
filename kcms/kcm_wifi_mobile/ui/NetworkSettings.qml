@@ -12,7 +12,7 @@ import org.kde.kcmutils
 import org.kde.kirigamiaddons.formcard 1 as FormCard
 
 Kirigami.ScrollablePage {
-    title: path ?  wirelessSettings["ssid"] : i18n("Add New Connection")
+    title: path ? wirelessSettings["ssid"] : i18n("Add New Connection")
 
     property var path
 
@@ -23,12 +23,7 @@ Kirigami.ScrollablePage {
 
     property var ipRegex: /^(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\.){3}([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))$/
 
-    property bool enabledSave: (ipMethodCombobox.currentIndex == 0
-                                || (ipMethodCombobox.currentIndex == 1
-                                    && manualIPaddress.acceptableInput
-                                    && manualIPgateway.acceptableInput
-                                    && manualIPprefix.acceptableInput
-                                    && manualIPdns.acceptableInput))
+    property bool enabledSave: (ipMethodCombobox.currentIndex == 0 || (ipMethodCombobox.currentIndex == 1 && manualIPaddress.acceptableInput && manualIPgateway.acceptableInput && manualIPprefix.acceptableInput && manualIPdns.acceptableInput))
 
     actions: [
         Kirigami.Action {
@@ -95,38 +90,59 @@ Kirigami.ScrollablePage {
                         text: "placeholder"
                     }
                     function load() {
-                        clear();
-                        append({ "text": i18n("None"), "type": PlasmaNM.Enums.NoneSecurity });
-                        append({ "text": i18n("WEP Key"), "type": PlasmaNM.Enums.StaticWep });
-                        append({ "text": i18n("Dynamic WEP"), "type": PlasmaNM.Enums.DynamicWep });
-                        append({ "text": i18n("WPA/WPA2 Personal"), "type": PlasmaNM.Enums.Wpa2Psk });
-                        append({ "text": i18n("WPA/WPA2 Enterprise"), "type": PlasmaNM.Enums.Wpa2Eap });
-                        append({ "text": i18n("WPA3 Personal"), "type": PlasmaNM.Enums.SAE });
-                        append({ "text": i18n("WPA3 Enterprise"), "type": PlasmaNM.Enums.Wpa3SuiteB192 });
+                        clear()
+                        append({
+                            "text": i18n("None"),
+                            "type": PlasmaNM.Enums.NoneSecurity
+                        })
+                        append({
+                            "text": i18n("WEP Key"),
+                            "type": PlasmaNM.Enums.StaticWep
+                        })
+                        append({
+                            "text": i18n("Dynamic WEP"),
+                            "type": PlasmaNM.Enums.DynamicWep
+                        })
+                        append({
+                            "text": i18n("WPA/WPA2 Personal"),
+                            "type": PlasmaNM.Enums.Wpa2Psk
+                        })
+                        append({
+                            "text": i18n("WPA/WPA2 Enterprise"),
+                            "type": PlasmaNM.Enums.Wpa2Eap
+                        })
+                        append({
+                            "text": i18n("WPA3 Personal"),
+                            "type": PlasmaNM.Enums.SAE
+                        })
+                        append({
+                            "text": i18n("WPA3 Enterprise"),
+                            "type": PlasmaNM.Enums.Wpa3SuiteB192
+                        });
 
                         // See https://networkmanager.dev/docs/api/latest/settings-802-11-wireless-security.html
                         switch (securitySettings["key-mgmt"]) {
                         case "none":
-                            securityCombobox.currentIndex = 0;
-                            break;
+                            securityCombobox.currentIndex = 0
+                            break
                         case "ieee8021x":
-                            securityCombobox.currentIndex = 1;
-                            break;
+                            securityCombobox.currentIndex = 1
+                            break
                         case "wpa-psk":
-                            securityCombobox.currentIndex = 3;
-                            break;
+                            securityCombobox.currentIndex = 3
+                            break
                         case "wpa-eap":
-                            securityCombobox.currentIndex = 4;
-                            break;
+                            securityCombobox.currentIndex = 4
+                            break
                         case "sae":
-                            securityCombobox.currentIndex = 5;
-                            break;
+                            securityCombobox.currentIndex = 5
+                            break
                         case "wpa-eap-suite-b-192":
-                            securityCombobox.currentIndex = 6;
-                            break;
+                            securityCombobox.currentIndex = 6
+                            break
                         default:
-                            securityCombobox.currentIndex = 0;
-                            break;
+                            securityCombobox.currentIndex = 0
+                            break
                         }
                     }
                 }
@@ -158,11 +174,8 @@ Kirigami.ScrollablePage {
                 id: authComboBox
                 text: i18n("Authentication:")
                 currentIndex: 0
-                visible: securityCombobox.currentIndex === 2
-                        || securityCombobox.currentIndex === 4
-                model: [i18n("TLS"), i18n("LEAP"), i18n("FAST"), i18n(
-                        "Tunneled TLS"), i18n(
-                        "Protected EAP")] // more - SIM, AKA, PWD ?
+                visible: securityCombobox.currentIndex === 2 || securityCombobox.currentIndex === 4
+                model: [i18n("TLS"), i18n("LEAP"), i18n("FAST"), i18n("Tunneled TLS"), i18n("Protected EAP")] // more - SIM, AKA, PWD ?
             }
 
             Controls.Label {

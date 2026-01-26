@@ -12,10 +12,10 @@ Kirigami.PasswordField {
     property int securityType
     placeholderText: i18n("Password…")
     validator: RegularExpressionValidator {
-                    regularExpression: if (securityType == PlasmaNM.Enums.StaticWep) {
-                                /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26}){1}$/
-                            } else {
-                                /^(?:.{8,64}){1}$/
-                            }
-                    }
+        regularExpression: if (securityType == PlasmaNM.Enums.StaticWep) {
+            /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26}){1}$/
+        } else {
+            /^(?:.{8,64}){1}$/
+        }
+    }
 }

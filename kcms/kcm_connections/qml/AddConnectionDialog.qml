@@ -13,7 +13,7 @@ import org.kde.plasma.networkmanagement as PlasmaNM
 Window {
     id: dialog
 
-    signal configurationDialogRequested()
+    signal configurationDialogRequested
 
     title: i18nc("@title:window", "Choose a Connection Type")
 

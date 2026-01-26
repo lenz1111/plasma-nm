@@ -19,8 +19,7 @@ QQC2.ItemDelegate {
 
     icon.name: model.KcmConnectionIcon
 
-    property bool passwordIsStatic: (model.SecurityType === PlasmaNM.Enums.StaticWep || model.SecurityType == PlasmaNM.Enums.WpaPsk ||
-                                     model.SecurityType === PlasmaNM.Enums.Wpa2Psk || model.SecurityType == PlasmaNM.Enums.SAE)
+    property bool passwordIsStatic: (model.SecurityType === PlasmaNM.Enums.StaticWep || model.SecurityType == PlasmaNM.Enums.WpaPsk || model.SecurityType === PlasmaNM.Enums.Wpa2Psk || model.SecurityType == PlasmaNM.Enums.SAE)
     property bool predictableWirelessPassword: !model.Uuid && model.Type === PlasmaNM.Enums.Wireless && passwordIsStatic
     property bool isUnknownNewConnection: model.ItemType !== PlasmaNM.NetworkModelItem.UnavailableConnection && delegate.isConnectionDeactivated() && !model.ConnectionPath
 
@@ -92,7 +91,7 @@ QQC2.ItemDelegate {
 
         QQC2.MenuItem {
             icon.name: "list-remove-symbolic"
-            text: i18n("Delete");
+            text: i18n("Delete")
             visible: !delegate.isUnknownNewConnection
 
             onTriggered: {
@@ -103,14 +102,14 @@ QQC2.ItemDelegate {
         QQC2.MenuItem {
             icon.name: "document-export-symbolic"
             visible: model.KcmVpnConnectionExportable
-            text: i18n("Export");
+            text: i18n("Export")
 
             onTriggered: kcm.onRequestExportConnection(model.ConnectionPath)
         }
     }
 
     function isConnectionDeactivated(): bool {
-        return model.ConnectionState === PlasmaNM.Enums.Deactivated;
+        return model.ConnectionState === PlasmaNM.Enums.Deactivated
     }
 
     /* This generates the status description under each connection

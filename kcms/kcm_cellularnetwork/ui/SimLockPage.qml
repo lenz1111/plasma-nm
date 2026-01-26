@@ -77,7 +77,7 @@ FormCard.FormCardPage {
             id: disableSimLockButton
             text: i18n("Disable SIM Lock")
             description: i18n("Disable the SIM lock feature and remove the passcode on the SIM.")
-            onClicked: removePinDialog.open();
+            onClicked: removePinDialog.open()
         }
 
         Kirigami.Separator {
@@ -98,7 +98,7 @@ FormCard.FormCardPage {
         RegularExpressionValidator {
             id: pinValidator
             regularExpression: /[0-9]+/
-        },
+        }, 
         // dialogs
 
         Kirigami.Dialog {
@@ -119,20 +119,18 @@ FormCard.FormCardPage {
                     validator: pinValidator
                 }
             }
-        },
-
+        }, 
         Kirigami.Dialog {
             id: changePinDialog
             title: i18n("Change SIM PIN")
             standardButtons: isValid ? Controls.Dialog.Ok | Controls.Dialog.Cancel : Controls.Dialog.Cancel
             padding: Kirigami.Units.largeSpacing
 
-            property bool isValid: changePinNewPin.text == changePinConfirmPin.text &&
-                                   changePinNewPin.text.length >= 4 && changePinNewPin.text.length <= 8 // SIM PINs are between 4-8 digits
+            property bool isValid: changePinNewPin.text == changePinConfirmPin.text && changePinNewPin.text.length >= 4 && changePinNewPin.text.length <= 8 // SIM PINs are between 4-8 digits
 
             onAccepted: {
                 if (isValid) {
-                    sim.changePin(changePinCurPin.text, changePinNewPin.text);
+                    sim.changePin(changePinCurPin.text, changePinNewPin.text)
                 }
             }
 
@@ -167,15 +165,14 @@ FormCard.FormCardPage {
                     validator: pinValidator
                 }
             }
-        },
-
+        }, 
         Kirigami.Dialog {
             id: removePinDialog
             title: i18n("Remove SIM PIN")
             standardButtons: Controls.Dialog.Ok | Controls.Dialog.Cancel
             padding: Kirigami.Units.largeSpacing
 
-            onAccepted: sim.togglePinEnabled(removePinCurPin.text);
+            onAccepted: sim.togglePinEnabled(removePinCurPin.text)
 
             ColumnLayout {
                 Kirigami.PasswordField {
@@ -184,20 +181,18 @@ FormCard.FormCardPage {
                     validator: pinValidator
                 }
             }
-        },
-
+        }, 
         Kirigami.Dialog {
             id: createPinDialog
             title: i18n("Add SIM PIN")
             standardButtons: isValid ? Controls.Dialog.Ok | Controls.Dialog.Cancel : Controls.Dialog.Cancel
             padding: Kirigami.Units.largeSpacing
 
-            property bool isValid: createPinNewPin.text == createPinConfirmPin.text &&
-                                   createPinNewPin.text.length >= 4 && createPinNewPin.text.length <= 8 // SIM PINs are between 4-8 digits
+            property bool isValid: createPinNewPin.text == createPinConfirmPin.text && createPinNewPin.text.length >= 4 && createPinNewPin.text.length <= 8 // SIM PINs are between 4-8 digits
 
             onAccepted: {
                 if (isValid) {
-                    sim.togglePinEnabled(createPinNewPin.text);
+                    sim.togglePinEnabled(createPinNewPin.text)
                 }
             }
 
@@ -230,4 +225,3 @@ FormCard.FormCardPage {
         }
     ]
 }
-

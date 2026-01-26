@@ -18,27 +18,27 @@ Kirigami.PromptDialog {
     signal donePressed(string password)
 
     function openAndClear() {
-        warning.visible = false;
-        this.open();
-        passwordField.text = "";
-        passwordField.focus = true;
+        warning.visible = false
+        this.open()
+        passwordField.text = ""
+        passwordField.focus = true
     }
 
     standardButtons: Controls.Dialog.Ok | Controls.Dialog.Cancel
 
     onOpened: passwordField.forceActiveFocus()
     onRejected: {
-        dialogRoot.close();
-        passwordField.focus = false;
+        dialogRoot.close()
+        passwordField.focus = false
     }
     onAccepted: {
         if (passwordField.acceptableInput) {
-            dialogRoot.close();
-            handler.addAndActivateConnection(devicePath, specificPath, passwordField.text);
+            dialogRoot.close()
+            handler.addAndActivateConnection(devicePath, specificPath, passwordField.text)
         } else {
-            warning.visible = true;
+            warning.visible = true
         }
-        passwordField.focus = false;
+        passwordField.focus = false
     }
 
     ColumnLayout {

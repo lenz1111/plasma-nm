@@ -76,7 +76,7 @@ ColumnLayout {
                     }
                     maximumHistory: 40
                     fillMode: QuickCharts.HistoryProxySource.FillFromStart
-                },
+                }, 
                 QuickCharts.HistoryProxySource {
                     source: QuickCharts.SingleValueSource {
                         id: download
@@ -92,12 +92,12 @@ ColumnLayout {
                 // Array.reverse() mutates the array but colors.colors is read-only.
                 array: [colors.colors[1], colors.colors[0]]
             }
-            fillColorSource: QuickCharts.ArraySource  {
+            fillColorSource: QuickCharts.ArraySource {
                 array: plotter.colorSource.array.map(color => Qt.lighter(color, 1.5))
             }
             QuickCharts.ColorGradientSource {
                 id: colors
-                baseColor:  Kirigami.Theme.highlightColor
+                baseColor: Kirigami.Theme.highlightColor
                 itemCount: 2
             }
         }

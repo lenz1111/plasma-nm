@@ -19,29 +19,24 @@ PlasmoidItem {
 
     readonly property string kcm: "kcm_networkmanagement"
     readonly property bool kcmAuthorized: KConfig.KAuthorized.authorizeControlModule("kcm_networkmanagement")
-    readonly property bool delayModelUpdates: fullRepresentationItem !== null
-        && fullRepresentationItem.connectionModel !== null
-        && fullRepresentationItem.connectionModel.delayModelUpdates
+    readonly property bool delayModelUpdates: fullRepresentationItem !== null && fullRepresentationItem.connectionModel !== null && fullRepresentationItem.connectionModel.delayModelUpdates
     readonly property bool airplaneModeAvailable: availableDevices.modemDeviceAvailable || availableDevices.wirelessDeviceAvailable
-    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge
-        || Plasmoid.location === PlasmaCore.Types.RightEdge
-        || Plasmoid.location === PlasmaCore.Types.BottomEdge
-        || Plasmoid.location === PlasmaCore.Types.LeftEdge)
+    readonly property bool inPanel: (Plasmoid.location === PlasmaCore.Types.TopEdge || Plasmoid.location === PlasmaCore.Types.RightEdge || Plasmoid.location === PlasmaCore.Types.BottomEdge || Plasmoid.location === PlasmaCore.Types.LeftEdge)
     property alias planeModeSwitchAction: planeAction
 
     toolTipMainText: i18n("Networks")
     toolTipSubText: {
-        const activeConnections = networkStatus.activeConnections;
+        const activeConnections = networkStatus.activeConnections
 
         if (!airplaneModeAvailable) {
-            return activeConnections;
+            return activeConnections
         }
 
         if (PlasmaNM.Configuration.airplaneModeEnabled) {
-            return i18nc("@info:tooltip", "Middle-click to turn off Airplane Mode");
+            return i18nc("@info:tooltip", "Middle-click to turn off Airplane Mode")
         } else {
-            const hint = i18nc("@info:tooltip", "Middle-click to turn on Airplane Mode");
-            return activeConnections ? `${activeConnections}\n${hint}` : hint;
+            const hint = i18nc("@info:tooltip", "Middle-click to turn on Airplane Mode")
+            return activeConnections ? `${activeConnections}\n${hint}` : hint
         }
     }
 
@@ -62,7 +57,7 @@ PlasmoidItem {
 
     Plasmoid.onSecondaryActivated: {
         if (mainWindow.airplaneModeAvailable) {
-            mainWindow.planeModeSwitchAction.trigger();
+            mainWindow.planeModeSwitchAction.trigger()
         }
     }
 
@@ -73,22 +68,22 @@ PlasmoidItem {
             priority: PlasmaCore.Action.LowPriority
             checkable: true
             checked: enabledConnections.wirelessEnabled
-            visible: enabledConnections.wirelessHwEnabled
-                        && availableDevices.wirelessDeviceAvailable
-                        && !PlasmaNM.Configuration.airplaneModeEnabled
-            onTriggered: checked => {handler.enableWireless(checked)}
-        },
+            visible: enabledConnections.wirelessHwEnabled && availableDevices.wirelessDeviceAvailable && !PlasmaNM.Configuration.airplaneModeEnabled
+            onTriggered: checked => {
+                handler.enableWireless(checked)
+            }
+        }, 
         PlasmaCore.Action {
             text: i18n("Enable Mobile Data")
             icon.name: "network-mobile-on"
             priority: PlasmaCore.Action.LowPriority
             checkable: true
             checked: enabledConnections.wwanEnabled
-            visible: enabledConnections.wwanHwEnabled
-                        && availableDevices.modemDeviceAvailable
-                        && !PlasmaNM.Configuration.airplaneModeEnabled
-            onTriggered: checked => {handler.enableWwan(checked)}
-        },
+            visible: enabledConnections.wwanHwEnabled && availableDevices.modemDeviceAvailable && !PlasmaNM.Configuration.airplaneModeEnabled
+            onTriggered: checked => {
+                handler.enableWwan(checked)
+            }
+        }, 
         PlasmaCore.Action {
             id: planeAction
             text: i18n("Enable Airplane Mode")
@@ -101,7 +96,7 @@ PlasmoidItem {
                 handler.enableAirplaneMode(checked)
                 PlasmaNM.Configuration.airplaneModeEnabled = checked
             }
-        },
+        }, 
         PlasmaCore.Action {
             text: i18n("Open Network Login Page…")
             icon.name: "internet-web-browser-symbolic"
@@ -120,7 +115,7 @@ PlasmoidItem {
     }
 
     Component.onCompleted: {
-        plasmoid.setInternalAction("configure", configureAction);
+        plasmoid.setInternalAction("configure", configureAction)
     }
 
     PlasmaNM.EnabledConnections {

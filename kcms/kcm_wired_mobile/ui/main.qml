@@ -48,8 +48,8 @@ SimpleKCM {
             Connections {
                 target: handler
                 function onConnectionActivationFailed(connectionPath, message) {
-                    inlineError.text = message;
-                    inlineError.visible = true;
+                    inlineError.text = message
+                    inlineError.visible = true
                 }
             }
         }
@@ -66,15 +66,15 @@ SimpleKCM {
             property int count: 0
             property int invisibleCount: 0
             function updateCount() {
-                count = 0;
-                invisibleCount = 0;
+                count = 0
+                invisibleCount = 0
                 for (let i = 0; i < connectedRepeater.count; i++) {
-                    let item = connectedRepeater.itemAt(i);
+                    let item = connectedRepeater.itemAt(i)
                     if (item) {
                         if (item.shouldDisplay) {
-                            count++;
+                            count++
                         } else {
-                            invisibleCount++;
+                            invisibleCount++
                         }
                     }
                 }
@@ -94,19 +94,19 @@ SimpleKCM {
 
                     Component.onDestruction: {
                         // needed to show no connection label when unplugging network adapter
-                        savedCard.updateCount();
+                        savedCard.updateCount()
                     }
                 }
 
                 Component.onCompleted: {
-                    savedCard.updateCount();
+                    savedCard.updateCount()
                 }
             }
 
             Connections {
                 target: mobileProxyModel
                 function onCountChanged() {
-                    savedCard.updateCount();
+                    savedCard.updateCount()
                 }
             }
 

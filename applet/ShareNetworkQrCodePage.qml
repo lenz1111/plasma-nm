@@ -60,14 +60,14 @@ ColumnLayout {
 
             onActiveChanged: {
                 if (active) {
-                    barcode.grabToImage((result) => {
+                    barcode.grabToImage(result => {
                         barcode.Drag.mimeData = {
-                            "image/png": result.image,
-                        };
-                        barcode.Drag.active = dragHandler.active;
-                    });
+                            "image/png": result.image
+                        }
+                        barcode.Drag.active = dragHandler.active
+                    })
                 } else {
-                    barcode.Drag.active = false;
+                    barcode.Drag.active = false
                 }
             }
         }

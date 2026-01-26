@@ -22,29 +22,27 @@ SimpleKCM {
     data: [
         PlasmaNM.Handler {
             id: handler
-        },
-
+        }, 
         PlasmaNM.WirelessStatus {
             id: wirelessStatus
-        },
-
+        }, 
         Kirigami.PromptDialog {
             id: hotspotDialog
             title: i18n("Configure Hotspot")
             standardButtons: Kirigami.PromptDialog.Save | Kirigami.PromptDialog.Cancel
 
             onOpened: {
-                hotspotSsidField.text = PlasmaNM.Configuration.hotspotName;
-                hotspotPasswordField.text = PlasmaNM.Configuration.hotspotPassword;
+                hotspotSsidField.text = PlasmaNM.Configuration.hotspotName
+                hotspotPasswordField.text = PlasmaNM.Configuration.hotspotPassword
             }
 
             onAccepted: {
-                PlasmaNM.Configuration.hotspotName = hotspotSsidField.text;
+                PlasmaNM.Configuration.hotspotName = hotspotSsidField.text
                 PlasmaNM.Configuration.hotspotPassword = hotspotPasswordField.text;
 
                 // these properties need to be manually updated since they're not NOTIFYable
-                hotspotSSIDText.description = PlasmaNM.Configuration.hotspotName;
-                hotspotPasswordText.description = PlasmaNM.Configuration.hotspotPassword;
+                hotspotSSIDText.description = PlasmaNM.Configuration.hotspotName
+                hotspotPasswordText.description = PlasmaNM.Configuration.hotspotPassword
             }
 
             ColumnLayout {
@@ -52,15 +50,15 @@ SimpleKCM {
                     text: i18n("Hotspot SSID:")
                 }
                 Controls.TextField {
-                    Layout.fillWidth: true
                     id: hotspotSsidField
+                    Layout.fillWidth: true
                 }
                 Controls.Label {
                     text: i18n("Hotspot Password:")
                 }
                 Controls.TextField {
-                    Layout.fillWidth: true
                     id: hotspotPasswordField
+                    Layout.fillWidth: true
                 }
             }
         }
@@ -75,15 +73,15 @@ SimpleKCM {
             FormCard.FormSwitchDelegate {
                 id: hotspotToggle
                 text: i18n("Hotspot")
-                description: i18n("Share your internet connection with other devices as a Wi-Fi network.");
+                description: i18n("Share your internet connection with other devices as a Wi-Fi network.")
 
                 checked: wirelessStatus.hotspotSSID.length !== 0
 
                 onToggled: {
                     if (hotspotToggle.checked) {
-                        handler.createHotspot();
+                        handler.createHotspot()
                     } else {
-                        handler.stopHotspot();
+                        handler.stopHotspot()
                     }
                 }
             }

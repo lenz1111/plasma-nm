@@ -77,9 +77,7 @@ QQC2.ApplicationWindow {
                 showPassword: true
                 validator: RegularExpressionValidator {
                     // useApMode is a context property
-                    regularExpression: useApMode
-                        ? /^$|^(?:.{8,64}){1}$/
-                        : /^$|^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26}){1}$/
+                    regularExpression: useApMode ? /^$|^(?:.{8,64}){1}$/ : /^$|^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26}){1}$/
                 }
             }
         }
@@ -101,9 +99,7 @@ QQC2.ApplicationWindow {
                 Layout.margins: Kirigami.Units.largeSpacing
                 Layout.bottomMargin: 0
                 type: Kirigami.MessageType.Error
-                text: useApMode
-                    ? i18n("Hotspot password must either be empty or consist of anywhere from 8 up to 64 characters")
-                    : i18n("Hotspot password must either be empty or consist of one of the following:<ul><li>Exactly 5 or 13 any characters</li><li>Exactly 10 or 26 hexadecimal characters:<br/>abcdef, ABCDEF or 0-9</li></ul>")
+                text: useApMode ? i18n("Hotspot password must either be empty or consist of anywhere from 8 up to 64 characters") : i18n("Hotspot password must either be empty or consist of one of the following:<ul><li>Exactly 5 or 13 any characters</li><li>Exactly 10 or 26 hexadecimal characters:<br/>abcdef, ABCDEF or 0-9</li></ul>")
                 visible: handler.hotspotSupported && !hotspotPassword.acceptableInput
             }
         }
@@ -121,10 +117,10 @@ QQC2.ApplicationWindow {
         KeyNavigation.up: hotspotPassword
 
         Component.onCompleted: {
-            const okButton = standardButton(QQC2.DialogButtonBox.Ok);
+            const okButton = standardButton(QQC2.DialogButtonBox.Ok)
             if (okButton) {
-                okButton.enabled = Qt.binding(() => root.acceptableConfiguration());
-                hotspotPassword.KeyNavigation.down = okButton;
+                okButton.enabled = Qt.binding(() => root.acceptableConfiguration())
+                hotspotPassword.KeyNavigation.down = okButton
             }
         }
     }
@@ -144,51 +140,51 @@ QQC2.ApplicationWindow {
     // OK button is enabled.
     function accept() {
         if (acceptableConfiguration()) {
-            saveConfiguration();
-            close();
+            saveConfiguration()
+            close()
         }
     }
 
     function reject() {
-        close();
+        close()
     }
 
     function acceptableConfiguration(): bool {
         if (handler.hotspotSupported) {
-            return hotspotName.text !== "" && hotspotPassword.acceptableInput;
+            return hotspotName.text !== "" && hotspotPassword.acceptableInput
         } else {
-            return true;
+            return true
         }
     }
 
     function loadConfiguration() {
-        unlockModem.checked = PlasmaNM.Configuration.unlockModemOnDetection;
-        manageVirtualConnections.checked = PlasmaNM.Configuration.manageVirtualConnections;
+        unlockModem.checked = PlasmaNM.Configuration.unlockModemOnDetection
+        manageVirtualConnections.checked = PlasmaNM.Configuration.manageVirtualConnections
         systemConnectionsByDefault.checked = PlasmaNM.Configuration.systemConnectionsByDefault;
         // hotspot
-        hotspotLabel.visible = handler.hotspotSupported;
-        hotspotName.visible = handler.hotspotSupported;
-        hotspotPassword.visible = handler.hotspotSupported;
+        hotspotLabel.visible = handler.hotspotSupported
+        hotspotName.visible = handler.hotspotSupported
+        hotspotPassword.visible = handler.hotspotSupported
         if (handler.hotspotSupported) {
-            hotspotName.text = PlasmaNM.Configuration.hotspotName;
-            hotspotPassword.text = PlasmaNM.Configuration.hotspotPassword;
+            hotspotName.text = PlasmaNM.Configuration.hotspotName
+            hotspotPassword.text = PlasmaNM.Configuration.hotspotPassword
         }
     }
 
     function saveConfiguration() {
-        PlasmaNM.Configuration.unlockModemOnDetection = unlockModem.checked;
-        PlasmaNM.Configuration.manageVirtualConnections = manageVirtualConnections.checked;
-        PlasmaNM.Configuration.systemConnectionsByDefault = systemConnectionsByDefault.checked;
+        PlasmaNM.Configuration.unlockModemOnDetection = unlockModem.checked
+        PlasmaNM.Configuration.manageVirtualConnections = manageVirtualConnections.checked
+        PlasmaNM.Configuration.systemConnectionsByDefault = systemConnectionsByDefault.checked
         if (handler.hotspotSupported) {
-            PlasmaNM.Configuration.hotspotName = hotspotName.text;
-            PlasmaNM.Configuration.hotspotPassword = hotspotPassword.text;
+            PlasmaNM.Configuration.hotspotName = hotspotName.text
+            PlasmaNM.Configuration.hotspotPassword = hotspotPassword.text
         }
     }
 
     onVisibleChanged: {
         if (visible) {
-            loadConfiguration();
-            unlockModem.forceActiveFocus(Qt.ActiveWindowFocusReason);
+            loadConfiguration()
+            unlockModem.forceActiveFocus(Qt.ActiveWindowFocusReason)
         }
     }
 }

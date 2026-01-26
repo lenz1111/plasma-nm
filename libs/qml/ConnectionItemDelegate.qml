@@ -16,12 +16,8 @@ FormCard.AbstractFormDelegate {
     id: root
 
     property bool editMode
-    property var map : []
-    property bool predictableWirelessPassword: !Uuid && Type == PlasmaNM.Enums.Wireless &&
-                                                    (SecurityType == PlasmaNM.Enums.StaticWep ||
-                                                     SecurityType == PlasmaNM.Enums.WpaPsk ||
-                                                     SecurityType == PlasmaNM.Enums.Wpa2Psk ||
-                                                     SecurityType == PlasmaNM.Enums.SAE)
+    property var map: []
+    property bool predictableWirelessPassword: !Uuid && Type == PlasmaNM.Enums.Wireless && (SecurityType == PlasmaNM.Enums.StaticWep || SecurityType == PlasmaNM.Enums.WpaPsk || SecurityType == PlasmaNM.Enums.Wpa2Psk || SecurityType == PlasmaNM.Enums.SAE)
     property real rxSpeed: 0
     property real txSpeed: 0
 
@@ -112,7 +108,9 @@ FormCard.AbstractFormDelegate {
                 visible: (Uuid != "") && root.editMode
                 display: Controls.ToolButton.IconOnly
                 onClicked: {
-                    kcm.push("NetworkSettings.qml", {path: model.ConnectionPath})
+                    kcm.push("NetworkSettings.qml", {
+                        path: model.ConnectionPath
+                    })
                 }
             }
             Controls.ToolButton {
@@ -133,22 +131,23 @@ FormCard.AbstractFormDelegate {
         if (Uuid || !predictableWirelessPassword) {
             if (model.ConnectionState == PlasmaNM.Enums.Deactivated) {
                 if (!predictableWirelessPassword && !Uuid) {
-                    handler.addAndActivateConnection(DevicePath, SpecificPath);
+                    handler.addAndActivateConnection(DevicePath, SpecificPath)
                 } else {
-                    handler.activateConnection(model.ConnectionPath, DevicePath, SpecificPath);
+                    handler.activateConnection(model.ConnectionPath, DevicePath, SpecificPath)
                 }
             } else {
-                kcm.push("ConnectionInfo.qml", {details: model.ConnectionDetails,
-                                                connectionName: ItemUniqueName,
-                                                delegate: root})
-
+                kcm.push("ConnectionInfo.qml", {
+                    details: model.ConnectionDetails,
+                    connectionName: ItemUniqueName,
+                    delegate: root
+                })
             }
         } else if (predictableWirelessPassword) {
-            connectionDialog.headingText = i18n("Connect to") + " " + ItemUniqueName;
-            connectionDialog.devicePath = DevicePath;
-            connectionDialog.specificPath = SpecificPath;
-            connectionDialog.securityType = SecurityType;
-            connectionDialog.openAndClear();
+            connectionDialog.headingText = i18n("Connect to") + " " + ItemUniqueName
+            connectionDialog.devicePath = DevicePath
+            connectionDialog.specificPath = SpecificPath
+            connectionDialog.securityType = SecurityType
+            connectionDialog.openAndClear()
         }
     }
 }

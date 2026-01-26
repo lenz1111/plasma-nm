@@ -71,22 +71,23 @@ KCM.SimpleKCM {
                 text: i18n("Mobile data")
                 description: {
                     if (!kcm.modemFound) {
-                        return "";
+                        return ""
                     } else if (!kcm.selectedModem.hasSim) {
                         return i18n("No SIM is inserted.")
-                    } if (!kcm.selectedModem.mobileDataSupported) {
+                    }
+                    if (!kcm.selectedModem.mobileDataSupported) {
                         return i18n("Mobile data is not available with this modem.")
                     } else if (kcm.selectedModem.needsAPNAdded) {
-                        return i18n("An APN needs to be configured to have mobile data.");
+                        return i18n("An APN needs to be configured to have mobile data.")
                     } else {
-                        return i18n("Whether mobile data is enabled.");
+                        return i18n("Whether mobile data is enabled.")
                     }
                 }
 
                 property bool manuallySet: false
                 property bool shouldBeChecked: kcm.selectedModem && kcm.selectedModem.mobileDataEnabled
                 onShouldBeCheckedChanged: {
-                    checked = shouldBeChecked;
+                    checked = shouldBeChecked
                 }
 
                 enabled: kcm.selectedModem && kcm.selectedModem.mobileDataSupported && !kcm.selectedModem.needsAPNAdded
@@ -95,18 +96,21 @@ KCM.SimpleKCM {
                 onCheckedChanged: {
                     // prevent binding loops
                     if (manuallySet) {
-                        manuallySet = false;
-                        return;
+                        manuallySet = false
+                        return
                     }
 
                     if (kcm.selectedModem.mobileDataEnabled != checked) {
-                        manuallySet = true;
-                        kcm.selectedModem.mobileDataEnabled = checked;
+                        manuallySet = true
+                        kcm.selectedModem.mobileDataEnabled = checked
                     }
                 }
             }
 
-            FormCard.FormDelegateSeparator { above: mobileDataSwitch; below: dataUsageButton }
+            FormCard.FormDelegateSeparator {
+                above: mobileDataSwitch
+                below: dataUsageButton
+            }
 
             FormCard.FormButtonDelegate {
                 id: dataUsageButton
@@ -144,9 +148,9 @@ KCM.SimpleKCM {
                         description: i18n("View SIM %1 details.", modelData.displayId)
                         icon.name: "auth-sim-symbolic"
                         onClicked: {
-                            simPage.sim = modelData;
-                            simPage.visible = true;
-                            kcm.push(simPage);
+                            simPage.sim = modelData
+                            simPage.visible = true
+                            kcm.push(simPage)
                         }
                     }
                 }

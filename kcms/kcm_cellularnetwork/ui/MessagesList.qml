@@ -29,12 +29,16 @@ ColumnLayout {
             text: modelData.message
             type: {
                 switch (modelData.type) {
-                    case InlineMessage.Information: return Kirigami.MessageType.Information;
-                    case InlineMessage.Positive: return Kirigami.MessageType.Positive;
-                    case InlineMessage.Warning: return Kirigami.MessageType.Warning;
-                    case InlineMessage.Error: return Kirigami.MessageType.Error;
+                case InlineMessage.Information:
+                    return Kirigami.MessageType.Information
+                case InlineMessage.Positive:
+                    return Kirigami.MessageType.Positive
+                case InlineMessage.Warning:
+                    return Kirigami.MessageType.Warning
+                case InlineMessage.Error:
+                    return Kirigami.MessageType.Error
                 }
-                return Kirigami.MessageType.Error;
+                return Kirigami.MessageType.Error
             }
 
             actions: [

@@ -49,7 +49,8 @@ QQC2.Page {
         }
         Keys.onDownPressed: event => {
             connectionView.currentIndex = 0
-            event.accepted = false // pass to KeyNavigation
+            event.accepted = false
+            // pass to KeyNavigation
         }
         KeyNavigation.down: scrollView
 
@@ -63,7 +64,7 @@ QQC2.Page {
 
         Component.onCompleted: {
             if (scrollView.background) {
-                scrollView.background.visible = true;
+                scrollView.background.visible = true
             }
         }
 
@@ -213,7 +214,7 @@ QQC2.Page {
             QQC2.ToolTip.visible: hovered
 
             onClicked: {
-                root.showConfigurationDialog();
+                root.showConfigurationDialog()
             }
         }
     }
@@ -232,7 +233,7 @@ QQC2.Page {
                     '<': '&lt;',
                     '>': '&gt;'
                 }[tag] || tag
-            });
+            })
         }
 
         standardButtons: Kirigami.Dialog.Ok | Kirigami.Dialog.Cancel
@@ -284,9 +285,7 @@ QQC2.Page {
 
                 Layout.fillWidth: true
                 validator: RegularExpressionValidator {
-                    regularExpression: (passwordPrompt.securityType === PlasmaNM.Enums.StaticWep)
-                        ? /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26})$/
-                        : /^(?:.{8,64})$/
+                    regularExpression: (passwordPrompt.securityType === PlasmaNM.Enums.StaticWep) ? /^(?:.{5}|[0-9a-fA-F]{10}|.{13}|[0-9a-fA-F]{26})$/ : /^(?:.{8,64})$/
                 }
                 onAccepted: passwordPrompt.accept()
             }
@@ -296,9 +295,7 @@ QQC2.Page {
 
                 Layout.fillWidth: true
                 visible: !passwordField.acceptableInput
-                text: (passwordPrompt.securityType === PlasmaNM.Enums.StaticWep)
-                    ? i18nc("@label key is a passcode", "Password must be a valid WEP key")
-                    : i18nc("@label password invalid length message", "Password must be between 8 and 64 characters")
+                text: (passwordPrompt.securityType === PlasmaNM.Enums.StaticWep) ? i18nc("@label key is a passcode", "Password must be a valid WEP key") : i18nc("@label password invalid length message", "Password must be between 8 and 64 characters")
             }
         }
 
@@ -314,7 +311,7 @@ QQC2.Page {
         id: addNewConnectionDialog
 
         onConfigurationDialogRequested: {
-            root.showConfigurationDialog();
+            root.showConfigurationDialog()
         }
     }
 
@@ -325,8 +322,8 @@ QQC2.Page {
     }
 
     function showConfigurationDialog() {
-        configurationDialog.show();
-        configurationDialog.requestActivate();
+        configurationDialog.show()
+        configurationDialog.requestActivate()
     }
 
     function deselectConnections() {

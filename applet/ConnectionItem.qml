@@ -29,8 +29,7 @@ PlasmaExtras.ExpandableListItem {
 
     property bool activating: model.ConnectionState === PlasmaNM.Enums.Activating
     property bool deactivated: model.ConnectionState === PlasmaNM.Enums.Deactivated
-    property bool passwordIsStatic: (model.SecurityType === PlasmaNM.Enums.StaticWep || model.SecurityType == PlasmaNM.Enums.WpaPsk ||
-                                     model.SecurityType === PlasmaNM.Enums.Wpa2Psk || model.SecurityType == PlasmaNM.Enums.SAE)
+    property bool passwordIsStatic: (model.SecurityType === PlasmaNM.Enums.StaticWep || model.SecurityType == PlasmaNM.Enums.WpaPsk || model.SecurityType === PlasmaNM.Enums.Wpa2Psk || model.SecurityType == PlasmaNM.Enums.SAE)
     property bool predictableWirelessPassword: !model.Uuid && model.Type === PlasmaNM.Enums.Wireless && passwordIsStatic
     property bool showSpeed: mainWindow.expanded && model.ConnectionState === PlasmaNM.Enums.Activated
 
@@ -50,12 +49,12 @@ PlasmaExtras.ExpandableListItem {
 
         enabled: {
             if (!connectionItem.expanded) {
-                return true;
+                return true
             }
             if (connectionItem.customExpandedViewContent === passwordDialogComponent) {
-                return connectionItem.customExpandedViewContentItem?.passwordField.acceptableInput ?? false;
+                return connectionItem.customExpandedViewContentItem?.passwordField.acceptableInput ?? false
             }
-            return true;
+            return true
         }
 
         icon.name: isDeactivated ? "network-connect" : "network-disconnect"
@@ -69,17 +68,17 @@ PlasmaExtras.ExpandableListItem {
 
     Keys.onPressed: event => {
         if (!connectionItem.expanded) {
-            event.accepted = false;
-            return;
+            event.accepted = false
+            return
         }
 
         if ((customExpandedViewContent === detailsComponent) && showSpeed) {
             if (event.key === Qt.Key_Right) {
-                customExpandedViewContentItem.detailsTabBar.currentIndex = 1;
-                event.accepted = true;
+                customExpandedViewContentItem.detailsTabBar.currentIndex = 1
+                event.accepted = true
             } else if (event.key === Qt.Key_Left) {
-                customExpandedViewContentItem.detailsTabBar.currentIndex = 0;
-                event.accepted = true;
+                customExpandedViewContentItem.detailsTabBar.currentIndex = 0
+                event.accepted = true
             }
         }
     }
@@ -89,8 +88,8 @@ PlasmaExtras.ExpandableListItem {
             enabled: connectionItem.model.Uuid && connectionItem.model.Type === PlasmaNM.Enums.Wireless && connectionItem.passwordIsStatic
             text: i18nc("Share Wi-Fi network's password or QR code", "Share")
             icon.name: "view-barcode-qr"
-            onTriggered: handler.requestWifiCode(connectionItem.model.ConnectionPath, connectionItem.model.Ssid, connectionItem.model.SecurityType);
-        },
+            onTriggered: handler.requestWifiCode(connectionItem.model.ConnectionPath, connectionItem.model.Ssid, connectionItem.model.SecurityType)
+        }, 
         Action {
             enabled: connectionItem.model.Uuid !== ""
             text: i18n("Configure…")
@@ -127,7 +126,7 @@ PlasmaExtras.ExpandableListItem {
                 onCurrentIndexChanged: {
                     // Only if there are the two tabs.
                     if (connectionItem.showSpeed) {
-                        Plasmoid.configuration.currentDetailsTab = ["speed", "details"][currentIndex];
+                        Plasmoid.configuration.currentDetailsTab = ["speed", "details"][currentIndex]
                     }
                 }
 
@@ -143,12 +142,14 @@ PlasmaExtras.ExpandableListItem {
 
                 Component.onCompleted: {
                     if (!connectionItem.showSpeed || Plasmoid.configuration.currentDetailsTab === "details") {
-                        currentIndex = 1;
+                        currentIndex = 1
                     }
 
                     // Workaround for Qt bugging out the highlight when doing this as an expression on the property directly
                     // https://bugs.kde.org/show_bug.cgi?id=495948
-                    height = Qt.binding(function() { return visible ? implicitHeight : 0 })
+                    height = Qt.binding(function () {
+                        return visible ? implicitHeight : 0
+                    })
                 }
             }
 
@@ -205,7 +206,6 @@ PlasmaExtras.ExpandableListItem {
                     uploadSpeed: connectionItem.txSpeed
                 }
             }
-
         }
     }
 
@@ -261,7 +261,7 @@ PlasmaExtras.ExpandableListItem {
                 if (!predictableWirelessPassword && !model.Uuid) {
                     handler.addAndActivateConnection(model.DevicePath, model.SpecificPath)
                 } else if (connectionItem.customExpandedViewContent == passwordDialogComponent) {
-                    const item = connectionItem.customExpandedViewContentItem;
+                    const item = connectionItem.customExpandedViewContentItem
                     if (item && item.password !== "") {
                         handler.addAndActivateConnection(model.DevicePath, model.SpecificPath, item.password)
                         connectionItem.customExpandedViewContent = detailsComponent
@@ -295,15 +295,13 @@ PlasmaExtras.ExpandableListItem {
         } else if (model.Uuid && model.ConnectionState === PlasmaNM.Enums.Deactivated) {
             return model.LastUsed
         } else if (model.ConnectionState === PlasmaNM.Enums.Activated && showSpeed) {
-            return i18nc("Download and upload rates in some unit per second", "↓ %1/s, ↑ %2/s",
-                KCoreAddons.Format.formatByteSize(rxSpeed),
-                KCoreAddons.Format.formatByteSize(txSpeed))
+            return i18nc("Download and upload rates in some unit per second", "↓ %1/s, ↑ %2/s", KCoreAddons.Format.formatByteSize(rxSpeed), KCoreAddons.Format.formatByteSize(txSpeed))
         }
         return ""
     }
 
     function setDelayModelUpdates(delay: bool) {
-        appletProxyModel.setData(appletProxyModel.index(index, 0), delay, PlasmaNM.NetworkModel.DelayModelUpdatesRole);
+        appletProxyModel.setData(appletProxyModel.index(index, 0), delay, PlasmaNM.NetworkModel.DelayModelUpdatesRole)
     }
 
     onShowSpeedChanged: {
@@ -317,11 +315,11 @@ PlasmaExtras.ExpandableListItem {
     }
 
     onItemCollapsed: {
-        connectionItem.customExpandedViewContent = detailsComponent;
-        setDelayModelUpdates(false);
+        connectionItem.customExpandedViewContent = detailsComponent
+        setDelayModelUpdates(false)
     }
 
     Component.onDestruction: {
-        setDelayModelUpdates(false);
+        setDelayModelUpdates(false)
     }
 }

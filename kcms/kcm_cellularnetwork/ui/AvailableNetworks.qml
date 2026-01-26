@@ -61,8 +61,8 @@ Kirigami.ScrollablePage {
 
             onClicked: {
                 if (!modelData.isCurrentlyUsed) {
-                    modelData.registerToNetwork();
-                    modem.details.scanNetworks();
+                    modelData.registerToNetwork()
+                    modem.details.scanNetworks()
                 }
             }
 
@@ -71,5 +71,3 @@ Kirigami.ScrollablePage {
         }
     }
 }
-
-

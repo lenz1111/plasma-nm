@@ -36,7 +36,7 @@ ColumnLayout {
         actions: Kirigami.Action {
             text: i18nc("@action:button", "Log in")
             onTriggered: {
-                Qt.openUrlExternally(connectionListPage.nmStatus.networkCheckUrl);
+                Qt.openUrlExternally(connectionListPage.nmStatus.networkCheckUrl)
             }
         }
     }
@@ -55,16 +55,16 @@ ColumnLayout {
             property int currentVisibleButtonIndex: -1
 
             Keys.onDownPressed: event => {
-                connectionView.incrementCurrentIndex();
-                connectionView.currentItem.forceActiveFocus();
+                connectionView.incrementCurrentIndex()
+                connectionView.currentItem.forceActiveFocus()
             }
             Keys.onUpPressed: event => {
                 if (connectionView.currentIndex === 0) {
-                    connectionView.currentIndex = -1;
-                    toolbar.searchTextField.forceActiveFocus();
-                    toolbar.searchTextField.selectAll();
+                    connectionView.currentIndex = -1
+                    toolbar.searchTextField.forceActiveFocus()
+                    toolbar.searchTextField.selectAll()
                 } else {
-                    event.accepted = false;
+                    event.accepted = false
                 }
             }
 
@@ -82,7 +82,7 @@ ColumnLayout {
                 width: connectionView.width - connectionView.leftMargin - connectionView.rightMargin
                 text: section
             }
-            highlight: PlasmaExtras.Highlight { }
+            highlight: PlasmaExtras.Highlight {}
             highlightMoveDuration: Kirigami.Units.shortDuration
             highlightResizeDuration: Kirigami.Units.shortDuration
             delegate: ConnectionItem {
@@ -161,7 +161,6 @@ ColumnLayout {
                 for (let i = 0; i < connectionView.count; i++) {
                     if (i === index)
                         continue
-
                     let item = connectionView.itemAtIndex(i)
                     if (item && item.expanded && item.customExpandedViewContent === item.passwordDialogComponent) {
                         item.collapse()

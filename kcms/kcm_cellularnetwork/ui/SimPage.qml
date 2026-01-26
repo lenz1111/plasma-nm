@@ -64,7 +64,10 @@ FormCard.FormCardPage {
             onCheckedChanged: sim.modem.isRoaming = checked
         }
 
-        FormCard.FormDelegateSeparator { above: dataRoamingCheckBox; below: apnButton }
+        FormCard.FormDelegateSeparator {
+            above: dataRoamingCheckBox
+            below: apnButton
+        }
 
         FormCard.FormButtonDelegate {
             id: apnButton
@@ -72,10 +75,15 @@ FormCard.FormCardPage {
             text: i18n("Modify APNs")
             description: i18n("Configure access point names for your carrier.")
             enabled: simEnabled
-            onClicked: kcm.push("ProfileList.qml", { "modem": sim.modem });
+            onClicked: kcm.push("ProfileList.qml", {
+                "modem": sim.modem
+            })
         }
 
-        FormCard.FormDelegateSeparator { above: apnButton; below: networksButton }
+        FormCard.FormDelegateSeparator {
+            above: apnButton
+            below: networksButton
+        }
 
         FormCard.FormButtonDelegate {
             id: networksButton
@@ -83,10 +91,16 @@ FormCard.FormCardPage {
             text: i18n("Networks")
             description: i18n("Select a network operator.")
             enabled: simEnabled
-            onClicked: kcm.push("AvailableNetworks.qml", { "modem": sim.modem, "sim": sim });
+            onClicked: kcm.push("AvailableNetworks.qml", {
+                "modem": sim.modem,
+                "sim": sim
+            })
         }
 
-        FormCard.FormDelegateSeparator { above: networksButton; below: simLockButton }
+        FormCard.FormDelegateSeparator {
+            above: networksButton
+            below: simLockButton
+        }
 
         FormCard.FormButtonDelegate {
             id: simLockButton
@@ -94,17 +108,24 @@ FormCard.FormCardPage {
             text: i18n("SIM Lock")
             description: i18n("Modify SIM lock settings.")
             enabled: simEnabled
-            onClicked: kcm.push("SimLockPage.qml", { "sim": sim });
+            onClicked: kcm.push("SimLockPage.qml", {
+                "sim": sim
+            })
         }
 
-        FormCard.FormDelegateSeparator { above: simLockButton; below: modemDetailsButton }
+        FormCard.FormDelegateSeparator {
+            above: simLockButton
+            below: modemDetailsButton
+        }
 
         FormCard.FormButtonDelegate {
             id: modemDetailsButton
             icon.name: "network-modem"
             text: i18n("Modem Details")
             description: i18n("View the details of the modem this SIM is connected to.")
-            onClicked: kcm.push("ModemPage.qml", { "modem": sim.modem })
+            onClicked: kcm.push("ModemPage.qml", {
+                "modem": sim.modem
+            })
         }
     }
 
@@ -121,7 +142,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormTextDelegate  {
+        FormCard.FormTextDelegate {
             id: imsiText
             text: i18n("IMSI")
             description: simImsi
@@ -129,7 +150,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormTextDelegate  {
+        FormCard.FormTextDelegate {
             id: eidText
             text: i18n("EID")
             description: simEid
@@ -145,7 +166,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormTextDelegate  {
+        FormCard.FormTextDelegate {
             id: opNameModemText
             text: i18n("Operator Name (modem)")
             description: operatorName
@@ -153,7 +174,7 @@ FormCard.FormCardPage {
 
         FormCard.FormDelegateSeparator {}
 
-        FormCard.FormTextDelegate  {
+        FormCard.FormTextDelegate {
             id: opCodeSimText
             text: i18n("Operator Code (provided by SIM)")
             description: simOperatorIdentifier

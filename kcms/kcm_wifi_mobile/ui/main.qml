@@ -75,8 +75,8 @@ SimpleKCM {
             Connections {
                 target: handler
                 function onConnectionActivationFailed(connectionPath, message) {
-                    inlineError.text = message;
-                    inlineError.visible = true;
+                    inlineError.text = message
+                    inlineError.visible = true
                 }
             }
         }
@@ -87,8 +87,8 @@ SimpleKCM {
                 text: i18n("Wi-Fi")
                 checked: enabledConnections.wirelessEnabled
                 onCheckedChanged: {
-                    handler.enableWireless(checked);
-                    checked = Qt.binding(() => enabledConnections.wirelessEnabled);
+                    handler.enableWireless(checked)
+                    checked = Qt.binding(() => enabledConnections.wirelessEnabled)
                 }
             }
         }
@@ -105,11 +105,11 @@ SimpleKCM {
             // number of visible entries
             property int count: 0
             function updateCount() {
-                count = 0;
+                count = 0
                 for (let i = 0; i < connectedRepeater.count; i++) {
-                    let item = connectedRepeater.itemAt(i);
+                    let item = connectedRepeater.itemAt(i)
                     if (item && item.shouldDisplay) {
-                        count++;
+                        count++
                     }
                 }
             }
@@ -142,11 +142,11 @@ SimpleKCM {
             // number of visible entries
             property int count: 0
             function updateCount() {
-                count = 0;
+                count = 0
                 for (let i = 0; i < availableRepeater.count; i++) {
-                    let item = availableRepeater.itemAt(i);
+                    let item = availableRepeater.itemAt(i)
                     if (item && item.shouldDisplay) {
-                        count++;
+                        count++
                     }
                 }
             }

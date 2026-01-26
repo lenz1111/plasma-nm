@@ -13,17 +13,12 @@ import org.kde.kcmutils
 import org.kde.kirigamiaddons.formcard 1 as FormCard
 
 Kirigami.ScrollablePage {
-    title: path ?  wirelessSettings["ssid"] : i18n("Add New Connection")
+    title: path ? wirelessSettings["ssid"] : i18n("Add New Connection")
 
     property var path
     property var ipSettings: ({})
     property var ipRegex: /^(([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))\.){3}([01]?[0-9]?[0-9]|2([0-4][0-9]|5[0-5]))$/
-    property bool enabledSave: (ipMethodCombobox.currentIndex == 0
-                                || (ipMethodCombobox.currentIndex == 1
-                                    && manualIPaddress.acceptableInput
-                                    && manualIPgateway.acceptableInput
-                                    && manualIPprefix.acceptableInput
-                                    && manualIPdns.acceptableInput))
+    property bool enabledSave: (ipMethodCombobox.currentIndex == 0 || (ipMethodCombobox.currentIndex == 1 && manualIPaddress.acceptableInput && manualIPgateway.acceptableInput && manualIPprefix.acceptableInput && manualIPdns.acceptableInput))
 
     actions: [
         Kirigami.Action {
@@ -142,9 +137,9 @@ Kirigami.ScrollablePage {
 
     function save() {
         if (path) {
-            kcm.updateConnectionFromQML(path, ipSettings);
+            kcm.updateConnectionFromQML(path, ipSettings)
         } else {
-            kcm.addConnectionFromQML(ipSettings);
+            kcm.addConnectionFromQML(ipSettings)
         }
     }
 }

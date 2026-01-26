@@ -55,7 +55,7 @@ Kirigami.ScrollablePage {
             Connections {
                 target: modem
                 function onCouldNotAutodetectSettings() {
-                    cannotFindWarning.visible = true;
+                    cannotFindWarning.visible = true
                 }
             }
         }
@@ -78,7 +78,9 @@ Kirigami.ScrollablePage {
                         modem.activateProfile(modelData.connectionUni);
 
                         // reapply binding
-                        checked = Qt.binding(() => { return modem.activeConnectionUni == modelData.connectionUni });
+                        checked = Qt.binding(() => {
+                            return modem.activeConnectionUni == modelData.connectionUni
+                        })
                     }
 
                     trailing: RowLayout {
@@ -88,7 +90,10 @@ Kirigami.ScrollablePage {
                             text: i18n("Edit")
                             display: Controls.ToolButton.IconOnly
                             onClicked: {
-                                kcm.push("EditProfilePage.qml", { "profile": modelData, "modem": modem });
+                                kcm.push("EditProfilePage.qml", {
+                                    "profile": modelData,
+                                    "modem": modem
+                                })
                             }
                         }
 
@@ -107,7 +112,10 @@ Kirigami.ScrollablePage {
                 text: i18n("Add APN")
                 icon.name: 'list-add'
                 onClicked: {
-                    kcm.push("EditProfilePage.qml", { "profile": null, "modem": modem });
+                    kcm.push("EditProfilePage.qml", {
+                        "profile": null,
+                        "modem": modem
+                    })
                 }
             }
 
@@ -115,7 +123,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Automatically detect APN")
                 icon.name: 'list-add'
                 onClicked: {
-                    modem.addDetectedProfileSettings();
+                    modem.addDetectedProfileSettings()
                 }
             }
         }

@@ -9,7 +9,6 @@ import org.kde.kirigami as Kirigami
 import org.kde.kirigamiaddons.formcard as FormCard
 import org.kde.plasma.networkmanagement as PlasmaNM
 
-
 FormCard.FormCardPage {
     id: connectionInfo
     title: i18nc("kcm page title", "Connection Info for \"%1\"", connectionName)
@@ -35,9 +34,7 @@ FormCard.FormCardPage {
             font: Kirigami.Theme.smallFont
             horizontalAlignment: Text.AlignRight
             Layout.fillWidth: true
-            text: i18n("Connected, ↓ %1/s, ↑ %2/s",
-                KCoreAddons.Format.formatByteSize(delegate.rxSpeed),
-                KCoreAddons.Format.formatByteSize(delegate.txSpeed))
+            text: i18n("Connected, ↓ %1/s, ↑ %2/s", KCoreAddons.Format.formatByteSize(delegate.rxSpeed), KCoreAddons.Format.formatByteSize(delegate.txSpeed))
         }
     }
 
@@ -61,4 +58,3 @@ FormCard.FormCardPage {
         }
     }
 }
-

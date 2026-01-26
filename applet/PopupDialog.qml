@@ -66,38 +66,39 @@ PlasmaExtras.Representation {
         target: full.nmHandler
         function onWifiCodeReceived(data, ssid, password) {
             if (data.length === 0) {
-                console.error("Cannot create QR code component: Unsupported connection");
-                return;
+                console.error("Cannot create QR code component: Unsupported connection")
+                return
             }
 
-            const showQRComponent = Qt.createComponent("ShareNetworkQrCodePage.qml");
+            const showQRComponent = Qt.createComponent("ShareNetworkQrCodePage.qml")
             if (showQRComponent.status === Component.Error) {
-                console.warn("Cannot create QR code component:", showQRComponent.errorString());
-                return;
+                console.warn("Cannot create QR code component:", showQRComponent.errorString())
+                return
             }
 
-            mainWindow.expanded = true; // just in case.
+            mainWindow.expanded = true
+            // just in case.
             stack.push(showQRComponent, {
                 content: data,
                 ssid,
-                password,
-            });
+                password
+            })
         }
     }
 
     Keys.forwardTo: [stack.currentItem]
     Keys.onPressed: event => {
         if (event.modifiers & Qt.ControlModifier && event.key == Qt.Key_F) {
-            toolbar.searchTextField.forceActiveFocus();
-            toolbar.searchTextField.selectAll();
-            event.accepted = true;
+            toolbar.searchTextField.forceActiveFocus()
+            toolbar.searchTextField.selectAll()
+            event.accepted = true
         } else if (event.key === Qt.Key_Back || (event.modifiers & Qt.AltModifier && event.key == Qt.Key_Left)) {
             if (stack.depth > 1) {
-                stack.pop();
-                event.accepted = true;
+                stack.pop()
+                event.accepted = true
             }
         } else {
-            event.accepted = false;
+            event.accepted = false
         }
     }
 
@@ -115,14 +116,14 @@ PlasmaExtras.Representation {
         target: mainWindow
         function onExpandedChanged(expanded) {
             if (expanded) {
-                handler.requestScan();
+                handler.requestScan()
                 if (!full.connectionModel) {
-                    full.connectionModel = networkModelComponent.createObject(full);
+                    full.connectionModel = networkModelComponent.createObject(full)
                 }
             } else {
                 if (full.connectionModel) {
-                    full.connectionModel.destroy();
-                    full.connectionModel = null;
+                    full.connectionModel.destroy()
+                    full.connectionModel = null
                 }
             }
         }

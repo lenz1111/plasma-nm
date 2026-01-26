@@ -68,11 +68,13 @@ MouseArea {
                 Layout.columnSpan: 2
                 Layout.preferredHeight: {
                     if (delegateItem.isSection) {
-                        return Math.round(sectionTitleLabel.implicitHeight * 1.2); // Add some padding for sections
+                        return Math.round(sectionTitleLabel.implicitHeight * 1.2)
+                        // Add some padding for sections
                     } else if (delegateItem.detailLabel || delegateItem.detailValue) {
-                        return detailLabelItem.implicitHeight;
+                        return detailLabelItem.implicitHeight
                     }
-                    return 0; // Hide empty items
+                    return 0
+                    // Hide empty items
                 }
 
                 // Basically ListSectionHeader but centered and without the line.
@@ -126,7 +128,7 @@ MouseArea {
                         anchors.fill: parent
                         acceptedButtons: Qt.RightButton
                         onPressed: mouse => {
-                            contextMenu.show(this, detailValueItem.text, mouse.x, mouse.y);
+                            contextMenu.show(this, detailValueItem.text, mouse.x, mouse.y)
                         }
                     }
                 }
