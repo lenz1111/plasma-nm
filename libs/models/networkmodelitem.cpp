@@ -139,13 +139,8 @@ QList<ConnectionDetails::ConnectionDetailSection> NetworkModelItem::detailsList(
         accessPointPath = m_specificPath;
     }
 
-    // Update cached adapter name if device changed
-    if (m_devicePath != m_cachedDevicePath) {
-        m_cachedDevicePath = m_devicePath;
-        m_cachedAdapterName = device ? ConnectionDetails::getNetworkAdapterName(device->udi()) : QString();
-    }
-
-    return ConnectionDetails::getConnectionDetails(connection, device, m_cachedAdapterName, accessPointPath);
+    // Don't include adapter name in applet since it's usually quite long
+    return ConnectionDetails::getConnectionDetails(connection, device, QString(), accessPointPath, false);
 }
 
 QString NetworkModelItem::devicePath() const

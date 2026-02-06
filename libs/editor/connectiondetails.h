@@ -40,13 +40,15 @@ PLASMANM_EDITOR_EXPORT QString getNetworkAdapterName(const QString &deviceUdi);
  * @param cachedAdapterName Optional pre-computed human-readable network adapter name.
  *                          If provided, avoids expensive Solid/udev lookups.
  * @param accessPointPath Optional access point path for disconnected Wi-Fi networks.
+ * @param includeAdapterName If true, includes the network adapter name in the details.
  * @return A list of sections, each containing a title and an ordered list of label-value pairs.
  *         The order of sections and details within each section is preserved as defined.
  */
 PLASMANM_EDITOR_EXPORT QList<ConnectionDetailSection> getConnectionDetails(const NetworkManager::Connection::Ptr &connection,
                                                                            const NetworkManager::Device::Ptr &device,
                                                                            const QString &cachedAdapterName = QString(),
-                                                                           const QString &accessPointPath = QString());
+                                                                           const QString &accessPointPath = QString(),
+                                                                           bool includeAdapterName = true);
 }
 
 #endif // PLASMA_NM_CONNECTION_DETAILS_H

@@ -59,7 +59,8 @@ QString getNetworkAdapterName(const QString &deviceUdi)
 QList<ConnectionDetailSection> getConnectionDetails(const NetworkManager::Connection::Ptr &connection,
                                                     const NetworkManager::Device::Ptr &device,
                                                     const QString &cachedAdapterName,
-                                                    const QString &accessPointPath)
+                                                    const QString &accessPointPath,
+                                                    bool includeAdapterName)
 {
     QList<ConnectionDetailSection> sections;
 
@@ -332,7 +333,7 @@ QList<ConnectionDetailSection> getConnectionDetails(const NetworkManager::Connec
     }
 
     // Add human-readable device name (if available and provided via cache)
-    if (!cachedAdapterName.isEmpty() && !sections.isEmpty()) {
+    if (includeAdapterName && !cachedAdapterName.isEmpty() && !sections.isEmpty()) {
         sections.last().details.append({i18n("Network Adapter"), cachedAdapterName});
     }
 

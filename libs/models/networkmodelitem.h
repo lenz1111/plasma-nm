@@ -178,9 +178,6 @@ private:
     qulonglong m_txBytes;
     QString m_icon;
     QList<int> m_changedRoles;
-    // Cache for expensive Solid/udev adapter name lookup
-    mutable QString m_cachedDevicePath; // Track which device we've cached
-    mutable QString m_cachedAdapterName; // Cached human-readable network adapter name
 };
 
 #endif // PLASMA_NM_MODEL_NETWORK_MODEL_ITEM_H
