@@ -529,3 +529,5 @@ void CellularAvailableNetwork::registerToNetwork()
         m_mm3gppDevice->registerToNetwork(m_operatorCode);
     }
 }
+
+#include "moc_cellularmodemdetails.cpp"

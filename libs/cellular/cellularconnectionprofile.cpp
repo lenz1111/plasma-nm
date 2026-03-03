@@ -194,3 +194,5 @@ NetworkManager::GsmSetting::NetworkType CellularConnectionProfile::networkTypeFl
     }
     return NetworkManager::GsmSetting::NetworkType::Any;
 }
+
+#include "moc_cellularconnectionprofile.cpp"

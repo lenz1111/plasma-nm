@@ -207,3 +207,5 @@ QCoro::Task<void> CellularSim::sendPuk(const QString &pin, const QString &puk)
         Q_EMIT errorOccurred(i18n("Error sending the PUK: %1", reply.error().message()));
     }
 }
+
+#include "moc_cellularsim.cpp"

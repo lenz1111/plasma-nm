@@ -71,3 +71,5 @@ void CellularModemList::updateModemList()
     Q_EMIT modemAvailableChanged();
     Q_EMIT simsChanged();
 }
+
+#include "moc_cellularmodemlist.cpp"

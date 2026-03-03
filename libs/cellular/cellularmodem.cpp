@@ -535,3 +535,5 @@ ModemManager::Modem3gpp::Ptr CellularModem::mm3gppDevice()
 {
     return m_mm3gppDevice;
 }
+
+#include "moc_cellularmodem.cpp"
