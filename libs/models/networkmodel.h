@@ -64,6 +64,7 @@ public:
         VpnType,
         RxBytesRole,
         TxBytesRole,
+        RefreshRateRole,
         // writable roles
         DelayModelUpdatesRole,
     };

@@ -94,6 +94,8 @@ QVariant NetworkModel::data(const QModelIndex &index, int role) const
             return item->rxBytes();
         case TxBytesRole:
             return item->txBytes();
+        case RefreshRateRole:
+            return item->refreshRate();
         case DelayModelUpdatesRole:
             return item->delayModelUpdates();
         case Qt::AccessibleDescriptionRole:
@@ -159,6 +161,7 @@ QHash<int, QByteArray> NetworkModel::roleNames() const
     roles[VpnType] = "VpnType";
     roles[RxBytesRole] = "RxBytes";
     roles[TxBytesRole] = "TxBytes";
+    roles[RefreshRateRole] = "RefreshRate";
     roles[DelayModelUpdatesRole] = "DelayModelUpdates";
 
     return roles;
@@ -287,6 +290,12 @@ void NetworkModel::initializeSignals(const NetworkManager::Device::Ptr &device)
             updateItem(item);
         }
     });
+    connect(deviceStatistics.data(), &NetworkManager::DeviceStatistics::refreshRateMsChanged, this, [this, device](uint refreshRate) {
+        for (auto item : m_list.returnItems(NetworkItemsList::Device, device->uni())) {
+            item->setRefreshRate(refreshRate);
+            updateItem(item);
+        }
+    });
 
     if (device->type() == NetworkManager::Device::Wifi) {
         NetworkManager::WirelessDevice::Ptr wifiDev = device.objectCast<NetworkManager::WirelessDevice>();
@@ -371,10 +380,9 @@ void NetworkModel::addActiveConnection(const NetworkManager::ActiveConnection::P
 
             if (device && device->uni() == item->devicePath()) {
                 auto deviceStatistics = device->deviceStatistics();
-                if (deviceStatistics->refreshRateMs() != 0) {
-                    item->setRxBytes(deviceStatistics->rxBytes());
-                    item->setTxBytes(deviceStatistics->txBytes());
-                }
+                item->setRxBytes(deviceStatistics->rxBytes());
+                item->setTxBytes(deviceStatistics->txBytes());
+                item->setRefreshRate(deviceStatistics->refreshRateMs());
             }
         }
         updateItem(item);
@@ -683,6 +691,7 @@ void NetworkModel::updateItem(NetworkModelItem *item)
             detailsChangedRoles.removeOne(ItemRole::ConnectionIconRole);
             detailsChangedRoles.removeOne(ItemRole::TxBytesRole);
             detailsChangedRoles.removeOne(ItemRole::RxBytesRole);
+            detailsChangedRoles.removeOne(ItemRole::RefreshRateRole);
             detailsChanged = !detailsChangedRoles.isEmpty();
         }
 

@@ -132,6 +132,9 @@ public:
     qulonglong txBytes() const;
     void setTxBytes(qulonglong bytes);
 
+    uint refreshRate() const;
+    void setRefreshRate(uint refreshRate);
+
     bool delayModelUpdates() const;
     void setDelayModelUpdates(bool delay);
 
@@ -176,6 +179,7 @@ private:
     NetworkManager::VpnConnection::State m_vpnState;
     qulonglong m_rxBytes;
     qulonglong m_txBytes;
+    uint m_refreshRate;
     QString m_icon;
     QList<int> m_changedRoles;
 };
