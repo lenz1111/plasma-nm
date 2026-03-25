@@ -34,6 +34,11 @@ PlasmaExtras.ExpandableListItem {
     property bool predictableWirelessPassword: !model.Uuid && model.Type === PlasmaNM.Enums.Wireless && passwordIsStatic
     property bool showSpeed: mainWindow.expanded && model.ConnectionState === PlasmaNM.Enums.Activated
 
+    property double rxBytes: model.RxBytes
+    property double txBytes: model.TxBytes
+    property double refreshRate: model.RefreshRate
+    property double prevRxBytes: 0
+    property double prevTxBytes: 0
     property real rxSpeed: 0
     property real txSpeed: 0
 
@@ -239,20 +244,40 @@ PlasmaExtras.ExpandableListItem {
     }
 
     Timer {
-        id: timer
-        repeat: true
-        interval: 2000
-        running: connectionItem.showSpeed
-        triggeredOnStart: true
-        // property int can overflow with the amount of bytes.
-        property double prevRxBytes: 0
-        property double prevTxBytes: 0
+        id: resetTimer
+        interval: refreshRate + 100 // Speed reset interval. Extra 100ms to account for imprecise QML Timer and not reset speed too early.
         onTriggered: {
-            connectionItem.rxSpeed = prevRxBytes === 0 ? 0 : (connectionItem.model.RxBytes - prevRxBytes) * 1000 / interval
-            connectionItem.txSpeed = prevTxBytes === 0 ? 0 : (connectionItem.model.TxBytes - prevTxBytes) * 1000 / interval
-            prevRxBytes = connectionItem.model.RxBytes
-            prevTxBytes = connectionItem.model.TxBytes
+            prevRxBytes = rxBytes;
+            prevTxBytes = txBytes;
+            rxSpeed = 0.0;
+            txSpeed = 0.0;
         }
+    }
+
+    Connections {
+        enabled: showSpeed
+
+        function onRxBytesChanged() {
+            Qt.callLater(updateSpeed);
+        }
+
+        function onTxBytesChanged() {
+            Qt.callLater(updateSpeed);
+        }
+    }
+
+    function updateSpeed() {
+        resetTimer.stop();
+
+        if (prevRxBytes) rxSpeed = (rxBytes - prevRxBytes) * 1000 / refreshRate;
+        if (prevTxBytes) txSpeed = (txBytes - prevTxBytes) * 1000 / refreshRate;
+
+        if (rxSpeed || txSpeed) {
+            resetTimer.start();
+        }
+
+        prevRxBytes = rxBytes;
+        prevTxBytes = txBytes;
     }
 
     function changeState() {
@@ -307,7 +332,21 @@ PlasmaExtras.ExpandableListItem {
     }
 
     onShowSpeedChanged: {
-        connectionModel.setDeviceStatisticsRefreshRateMs(model.DevicePath, showSpeed ? 2000 : 0)
+        if (showSpeed) {
+            if (!model.RefreshRate) {
+                connectionModel.setDeviceStatisticsRefreshRateMs(model.DevicePath, 2000);
+            } else {
+                prevRxBytes = rxBytes;
+                prevTxBytes = txBytes;
+            }
+        } else {
+            connectionModel.setDeviceStatisticsRefreshRateMs(model.DevicePath, 0);
+            resetTimer.stop();
+            prevRxBytes = 0;
+            prevTxBytes = 0;
+            rxSpeed = 0.0;
+            txSpeed = 0.0;
+        }
     }
 
     onActivatingChanged: {
