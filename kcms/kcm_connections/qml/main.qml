@@ -107,8 +107,7 @@ QQC2.Page {
                     if (connectionModified) {
                         kcm.onRequestToChangeConnection(name, path)
                     } else {
-                        connectionView.currentConnectionName = name
-                        connectionView.currentConnectionPath = path
+                        root.selectConnection(name, path)
                     }
                 }
 
@@ -238,8 +237,20 @@ QQC2.Page {
         // QTBUG-122770 accepted signal isn't emitted for Ok button.
         onAccepted: {
             if (connectionPath === connectionView.currentConnectionPath) {
-                // Deselect now non-existing connection
-                root.deselectConnections()
+                // Show panel for connected network
+                var activeName = ""
+                var activePath = ""
+                for (var i = 0; i < editorProxyModel.rowCount(); ++i) {
+                    var index = editorProxyModel.index(i, 0)
+                    var status = editorProxyModel.data(index, Qt.UserRole + 3)
+
+                    if (status === 2 && editorProxyModel.data(index, Qt.UserRole + 2)!=connectionPath) {
+                        activeName = editorProxyModel.data(index, Qt.DisplayRole)
+                        activePath = editorProxyModel.data(index, Qt.UserRole + 2)
+                        break
+                    }
+                }
+                root.selectConnection(activeName, activePath)
             }
             handler.removeConnection(connectionPath)
         }
