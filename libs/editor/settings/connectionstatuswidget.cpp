@@ -12,6 +12,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QMetaObject>
+#include <QScrollArea>
 #include <QStackedLayout>
 #include <QVBoxLayout>
 #include <QVariant>
@@ -36,28 +37,41 @@ ConnectionStatusWidget::ConnectionStatusWidget(const QString &connectionUuid, QW
     disconnectedLayout->addStretch(1);
     m_stackedLayout->addWidget(disconnectedPage);
 
-    // Page 1: Details state
+    // Page 1: Details state with scroll area
     auto *detailsPage = new QWidget(this);
-    // Create horizontal layout to center the form
-    auto *detailsPageLayout = new QHBoxLayout(detailsPage);
-    detailsPageLayout->addStretch(1);
+    auto *detailsPageLayout = new QVBoxLayout(detailsPage);
+    detailsPageLayout->setContentsMargins(0, 0, 0, 0);
 
-    m_formContainer = new QWidget(this);
-    m_formContainer->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+    // Create scroll area
+    auto *scrollArea = new QScrollArea(this);
+    scrollArea->setWidgetResizable(true);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setFrameShape(QFrame::NoFrame);
 
-    m_containerLayout = new QVBoxLayout(m_formContainer);
+    // Container for the form (inside scroll area)
+    m_formContainer = new QWidget();
+
+    // Horizontal layout to center the form
+    auto *horizontalLayout = new QHBoxLayout(m_formContainer);
+    horizontalLayout->addStretch(1);
+
+    auto *formWidget = new QWidget();
+    m_containerLayout = new QVBoxLayout(formWidget);
     m_containerLayout->setContentsMargins(0, 0, 0, 0);
 
     // Create QFormLayout for connection details
     m_detailsLayout = new QFormLayout();
-    m_detailsLayout->setFieldGrowthPolicy(QFormLayout::FieldsStayAtSizeHint);
+    m_detailsLayout->setFieldGrowthPolicy(QFormLayout::ExpandingFieldsGrow);
     m_detailsLayout->setFormAlignment(Qt::AlignLeft | Qt::AlignTop);
-    m_detailsLayout->setLabelAlignment(Qt::AlignRight);
+    m_detailsLayout->setLabelAlignment(Qt::AlignRight | Qt::AlignTop);
+    m_detailsLayout->setVerticalSpacing(2); // Small spacing between rows
     m_containerLayout->addLayout(m_detailsLayout);
-    m_containerLayout->setAlignment(Qt::AlignTop);
 
-    detailsPageLayout->addWidget(m_formContainer);
-    detailsPageLayout->addStretch(1);
+    horizontalLayout->addWidget(formWidget);
+    horizontalLayout->addStretch(1);
+
+    scrollArea->setWidget(m_formContainer);
+    detailsPageLayout->addWidget(scrollArea);
 
     m_stackedLayout->addWidget(detailsPage);
 
@@ -106,7 +120,7 @@ QList<ConnectionDetails::ConnectionDetailSection> ConnectionStatusWidget::getCon
 
     // If connection and device were set directly (KCM), use ConnectionDetails helper
     if (m_device) {
-        return ConnectionDetails::getConnectionDetails(m_connection, m_device, m_accessPointPath);
+        return ConnectionDetails::getConnectionDetails(m_connection, m_device, m_cachedAdapterName, m_accessPointPath);
     }
 
     // Fallback: no details source or connection/device
@@ -115,6 +129,16 @@ QList<ConnectionDetails::ConnectionDetailSection> ConnectionStatusWidget::getCon
 
 void ConnectionStatusWidget::updateConnectionDetails()
 {
+    // Update cached adapter name if device changed (only for KCM path using m_device directly)
+    // The applet path uses NetworkModelItem which has its own cache
+    if (m_device && !m_detailsSource) {
+        const QString currentDeviceUdi = m_device->udi();
+        if (currentDeviceUdi != m_cachedDeviceUdi) {
+            m_cachedDeviceUdi = currentDeviceUdi;
+            m_cachedAdapterName = ConnectionDetails::getNetworkAdapterName(currentDeviceUdi);
+        }
+    }
+
     // Clear existing form rows before populating
     while (m_detailsLayout->rowCount() > 0) {
         m_detailsLayout->removeRow(0);
@@ -149,11 +173,31 @@ void ConnectionStatusWidget::updateConnectionDetails()
             m_detailsLayout->addItem(new QSpacerItem(0, 4, QSizePolicy::Minimum, QSizePolicy::Fixed));
 
             for (const auto &[label, value] : items) {
-                // Create value label widget
+                // Add vertical gap as separator between acces point info and network adapter info in Wi-Fi section
+                if (sectionName == i18n("Wi-Fi") && label == i18n("MAC Address")) {
+                    // Add spacing by inserting an empty row with fixed height
+                    auto *spacerLabel = new QLabel(this);
+                    spacerLabel->setFixedHeight(8);
+                    m_detailsLayout->addRow(spacerLabel);
+                }
+
+                QLabel *labelWidget = new QLabel(this);
+                labelWidget->setText(i18nc("@label:textbox %1 is a field label", "%1:", label));
+                labelWidget->setAlignment(Qt::AlignRight | Qt::AlignTop);
+                labelWidget->setWordWrap(false);
+                labelWidget->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Minimum);
+
+                // Create value label widget for the field column
                 QLabel *valueLabel = new QLabel(value, this);
                 valueLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-                // Add row with label text and value widget
-                m_detailsLayout->addRow(label + QLatin1Char(':'), valueLabel);
+                // Only enable word wrap for Network Adapter field to prevent layout issues
+                valueLabel->setWordWrap(label == i18n("Network Adapter"));
+                valueLabel->setTextFormat(Qt::PlainText); // Prevent HTML interpretation
+                valueLabel->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+                valueLabel->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+                // Add row with both widgets
+                m_detailsLayout->addRow(labelWidget, valueLabel);
             }
         }
         m_stackedLayout->setCurrentIndex(1); // Show details form

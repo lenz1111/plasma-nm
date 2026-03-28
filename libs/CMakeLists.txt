@@ -1,8 +1,5 @@
 add_definitions(-DTRANSLATION_DOMAIN=\"plasmanetworkmanagement-libs\")
 
-
-
-
 add_library(plasmanm_internal SHARED)
 generate_export_header(plasmanm_internal)
 
@@ -60,6 +57,7 @@ PRIVATE
     KF6::JobWidgets
     KF6::Notifications
     KF6::Service
+    KF6::Solid
     KF6::Wallet
     KF6::WindowSystem
     KF6::KIOGui

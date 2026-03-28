@@ -139,7 +139,8 @@ QList<ConnectionDetails::ConnectionDetailSection> NetworkModelItem::detailsList(
         accessPointPath = m_specificPath;
     }
 
-    return ConnectionDetails::getConnectionDetails(connection, device, accessPointPath);
+    // Don't include adapter name in applet since it's usually quite long
+    return ConnectionDetails::getConnectionDetails(connection, device, QString(), accessPointPath, false);
 }
 
 QString NetworkModelItem::devicePath() const

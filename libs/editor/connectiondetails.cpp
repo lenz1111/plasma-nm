@@ -34,6 +34,8 @@
 #include <KLocalizedString>
 #include <QHostAddress>
 
+#include <Solid/Device>
+
 #include <ModemManagerQt/Manager>
 #include <ModemManagerQt/Modem3Gpp>
 #include <ModemManagerQt/Modem>
@@ -43,8 +45,22 @@
 namespace ConnectionDetails
 {
 
-QList<ConnectionDetailSection>
-getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const NetworkManager::Device::Ptr &device, const QString &accessPointPath)
+QString getNetworkAdapterName(const QString &deviceUdi)
+{
+    if (deviceUdi.isEmpty()) {
+        return {};
+    }
+
+    // Convert NetworkManager UDI to Solid UDI format
+    const QString solidUdi = QLatin1String("/org/kde/solid/udev") + deviceUdi;
+    return Solid::Device(solidUdi).displayName();
+}
+
+QList<ConnectionDetailSection> getConnectionDetails(const NetworkManager::Connection::Ptr &connection,
+                                                    const NetworkManager::Device::Ptr &device,
+                                                    const QString &cachedAdapterName,
+                                                    const QString &accessPointPath,
+                                                    bool includeAdapterName)
 {
     QList<ConnectionDetailSection> sections;
 
@@ -308,12 +324,17 @@ getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const Ne
 
     // Add device interface name to the last section if active
     if (device && isConnectionActive && !sections.isEmpty()) {
-        sections.last().details.append({i18n("Device"), device->interfaceName()});
+        sections.last().details.append({i18n("Interface"), device->interfaceName()});
     } else if (device && isConnectionActive && sections.isEmpty()) {
         // WireGuard or other types might not have created a section yet
         QList<QPair<QString, QString>> details;
-        details.append({i18n("Device"), device->interfaceName()});
+        details.append({i18n("Interface"), device->interfaceName()});
         sections.append({i18n("General"), details});
+    }
+
+    // Add human-readable device name (if available and provided via cache)
+    if (includeAdapterName && !cachedAdapterName.isEmpty() && !sections.isEmpty()) {
+        sections.last().details.append({i18n("Network Adapter"), cachedAdapterName});
     }
 
     // Get IPv4 Address and related nameservers + IPv4 default gateway

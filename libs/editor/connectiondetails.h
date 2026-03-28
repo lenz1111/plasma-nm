@@ -26,15 +26,29 @@ struct ConnectionDetailSection {
 };
 
 /**
+ * Gets the human-readable network adapter name from a device UDI.
+ * Converts the NetworkManager UDI to Solid UDI format and looks up the display name.
+ * @param deviceUdi The NetworkManager device UDI (e.g., /sys/devices/...)
+ * @return The human-readable adapter name, or empty string if not found.
+ */
+PLASMANM_EDITOR_EXPORT QString getNetworkAdapterName(const QString &deviceUdi);
+
+/**
  * Extracts detailed information about a network connection.
  * @param connection The NetworkManager connection.
  * @param device The network device.
+ * @param cachedAdapterName Optional pre-computed human-readable network adapter name.
+ *                          If provided, avoids expensive Solid/udev lookups.
  * @param accessPointPath Optional access point path for disconnected Wi-Fi networks.
+ * @param includeAdapterName If true, includes the network adapter name in the details.
  * @return A list of sections, each containing a title and an ordered list of label-value pairs.
  *         The order of sections and details within each section is preserved as defined.
  */
-PLASMANM_EDITOR_EXPORT QList<ConnectionDetailSection>
-getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const NetworkManager::Device::Ptr &device, const QString &accessPointPath = QString());
+PLASMANM_EDITOR_EXPORT QList<ConnectionDetailSection> getConnectionDetails(const NetworkManager::Connection::Ptr &connection,
+                                                                           const NetworkManager::Device::Ptr &device,
+                                                                           const QString &cachedAdapterName = QString(),
+                                                                           const QString &accessPointPath = QString(),
+                                                                           bool includeAdapterName = true);
 }
 
 #endif // PLASMA_NM_CONNECTION_DETAILS_H
