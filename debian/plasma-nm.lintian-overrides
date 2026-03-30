@@ -1,0 +1,12 @@
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/kcm_cellular_network.desktop]
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/kcm_mobile_hotspot.desktop]
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/kcm_mobile_wifi.desktop]
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/kcm_mobile_wired.desktop]
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/kcm_networkmanagement.desktop]
+plasma-nm: desktop-command-not-in-package systemsettings [usr/share/applications/org.kde.vpnimport.desktop]
+
+plasma-nm: package-must-activate-ldconfig-trigger usr/lib/*/libplasmanm_internal.so
+plasma-nm: package-name-doesnt-match-sonames libplasmanm-editor libplasmanm-internal
+
+plasma-nm: shlib-without-versioned-soname usr/lib/*/libplasmanm_editor.so libplasmanm_editor.so
+plasma-nm: shlib-without-versioned-soname usr/lib/*/libplasmanm_internal.so libplasmanm_internal.so

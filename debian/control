@@ -1,0 +1,81 @@
+Source: plasma-nm
+Section: kde
+Priority: optional
+Uploaders: Maximiliano Curia <maxy@debian.org>
+Build-Depends: cmake,
+               debhelper-compat (= 13),
+               gettext,
+               kf6-extra-cmake-modules,
+               kf6-kcmutils-dev,
+               kf6-kcolorscheme-dev,
+               kf6-kcompletion-dev,
+               kf6-kconfigwidgets-dev,
+               kf6-kcoreaddons-dev,
+               kf6-kdbusaddons-dev,
+               kf6-kdeclarative-dev,
+               kf6-ki18n-dev,
+               kf6-kiconthemes-dev,
+               kf6-kio-dev,
+               kf6-kirigami2-dev,
+               kf6-kitemmodels-dev,
+               kf6-kitemviews-dev,
+               kf6-knotifications-dev,
+               kf6-kquickcharts-dev,
+               kf6-kservice-dev,
+               kf6-ksvg-dev,
+               kf6-kwallet-dev,
+               kf6-kwidgetsaddons-dev,
+               kf6-kwindowsystem-dev,
+               kf6-kxmlgui-dev,
+               kf6-modemmanager-qt-dev,
+               kf6-networkmanager-qt-dev,
+               kf6-prison-dev,
+               kf6-solid-dev,
+               libcups2-dev,
+               libnm-dev,
+               libopenconnect-dev,
+               libplasma-dev,
+               libqca-qt6-dev,
+               mobile-broadband-provider-info,
+               modemmanager-dev,
+               pkg-kde-tools-neon,
+               pkgconf,
+               qcoro-qt6-dev,
+               qt6-base-dev,
+               qt6-declarative-dev,
+               qt6-tools-dev,
+               qt6-webengine-dev
+Standards-Version: 4.6.2
+Homepage: https://invent.kde.org/plasma/plasma-nm.git
+Vcs-Git: https://invent.kde.org/neon/kde/plasma-nm.git
+Vcs-Browser: https://invent.kde.org/neon/kde/plasma-nm
+Maintainer: Neon CI <neon@kde.org>
+
+Package: plasma-nm
+Architecture: linux-any
+Depends: kf6-kcmutils,
+         kf6-kcoreaddons,
+         kf6-kdeclarative,
+         kf6-kirigami2,
+         kf6-kquickcharts,
+         kf6-ksvg,
+         kf6-prison,
+         libplasma6,
+         mobile-broadband-provider-info,
+         network-manager,
+         qt6-declarative,
+         ${misc:Depends},
+         ${shlibs:Depends}
+Recommends: kf6-kwallet
+Suggests: network-manager-openconnect,
+          network-manager-openvpn,
+          network-manager-pptp,
+          network-manager-vpnc
+Breaks: plasma-settings (<< 25.02.0)
+Replaces: kde-config-mobile-networking,
+          plasma-nm-data,
+          plasma-settings (<< 25.02.0)
+Description: Plasma 6 networkmanager library.
+ Plasma desktop network manager.
+ .
+ This package is part of the KDE Plasma.
