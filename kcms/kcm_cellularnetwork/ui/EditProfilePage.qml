@@ -8,84 +8,77 @@ import QtQuick.Controls 2.12 as Controls
 import org.kde.kirigami 2.19 as Kirigami
 import org.kde.kirigamiaddons.formcard 1 as FormCard
 
-import org.kde.plasma.networkmanagement.cellular as Cellular
+import cellularnetworkkcm 1.0
 
 FormCard.FormCardPage {
     id: editProfile
-    title: isNewProfile ? i18n("New APN") : i18n("Edit APN")
+    title: profile != null ? i18n("Edit APN") : i18n("New APN")
 
     topPadding: Kirigami.Units.gridUnit
     bottomPadding: Kirigami.Units.gridUnit
     leftPadding: 0
     rightPadding: 0
 
-    property Cellular.CellularModem modem
-    property bool isNewProfile: true
-    property string profileConnectionUni: ""
-    property string profileName: ""
-    property string profileApn: ""
-    property string profileUser: ""
-    property string profilePassword: ""
-    property string profileNetworkType: ""
-    property bool profileRoamingAllowed: false
+    property Modem modem
+    property ProfileSettings profile
 
     FormCard.FormCard {
         Layout.topMargin: Kirigami.Units.gridUnit
 
         FormCard.FormTextFieldDelegate {
-            id: profileNameField
+            id: profileName
             label: i18n("Name")
-            text: profileName
+            text: profile != null ? profile.name : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileNameField; below: profileApnField }
+        FormCard.FormDelegateSeparator { above: profileName; below: profileApn }
 
         FormCard.FormTextFieldDelegate {
-            id: profileApnField
+            id: profileApn
             label: i18n("APN")
-            text: profileApn
+            text: profile != null ? profile.apn : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileApnField; below: profileUsernameField }
+        FormCard.FormDelegateSeparator { above: profileApn; below: profileUsername }
 
         FormCard.FormTextFieldDelegate {
-            id: profileUsernameField
+            id: profileUsername
             label: i18n("Username")
-            text: profileUser
+            text: profile != null ? profile.user : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profileUsernameField; below: profilePasswordField }
+        FormCard.FormDelegateSeparator { above: profileUsername; below: profilePassword }
 
         FormCard.FormTextFieldDelegate {
-            id: profilePasswordField
+            id: profilePassword
             label: i18n("Password")
-            text: profilePassword
+            text: profile != null ? profile.password : ""
         }
 
-        FormCard.FormDelegateSeparator { above: profilePasswordField; below: profileNetworkTypeField }
+        FormCard.FormDelegateSeparator { above: profilePassword; below: profileNetworkType }
 
         FormCard.FormComboBoxDelegate {
-            id: profileNetworkTypeField
+            id: profileNetworkType
             text: i18n("Network type")
             model: [i18n("4G/3G/2G"), i18n("3G/2G"), i18n("2G"), i18n("Only 4G"), i18n("Only 3G"), i18n("Only 2G"), i18n("Any")]
             Component.onCompleted: {
-                if (!isNewProfile) {
-                    currentIndex = indexOfValue(profileNetworkType)
+                if (profile != null) {
+                    currentIndex = indexOfValue(profile.networkType)
                 }
             }
         }
 
-        FormCard.FormDelegateSeparator { above: profileNetworkTypeField; below: profileSave }
+        FormCard.FormDelegateSeparator { above: profileNetworkType; below: profileSave }
 
         FormCard.FormButtonDelegate {
             id: profileSave
             text: i18n("Save profile")
             icon.name: "document-save"
             onClicked: {
-                if (isNewProfile) {
-                    modem.addProfile(profileNameField.text, profileApnField.text, profileUsernameField.text, profilePasswordField.text, profileNetworkTypeField.currentText);
-                } else {
-                    modem.updateProfile(profileConnectionUni, profileNameField.text, profileApnField.text, profileUsernameField.text, profilePasswordField.text, profileNetworkTypeField.currentText);
+                if (profile == null) { // create new profile
+                    modem.addProfile(profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText);
+                } else { // edit existing profile
+                    modem.updateProfile(profile.connectionUni, profileName.text, profileApn.text, profileUsername.text, profilePassword.text, profileNetworkType.currentText);
                 }
                 kcm.pop()
             }

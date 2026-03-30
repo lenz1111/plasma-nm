@@ -320,5 +320,3 @@ void OpenconnectWebAuthDialog::clearSelectAccountButtons()
         delete radioButton;
     }
 }
-
-#include "moc_openconnectwebauthdialog.cpp"

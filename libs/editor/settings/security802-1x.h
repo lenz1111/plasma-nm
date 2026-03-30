@@ -47,8 +47,6 @@ public:
 
     void setPasswordOption(PasswordField::PasswordOption option);
 
-    QWidget *focusUsernameField();
-
 private Q_SLOTS:
     void altSubjectMatchesButtonClicked();
     void connectToServersButtonClicked();

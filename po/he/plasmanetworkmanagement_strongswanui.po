@@ -1,20 +1,20 @@
 # Copyright (C) 2024 This file is copyright:
 # This file is distributed under the same license as the plasma-nm package.
 #
-# SPDX-FileCopyrightText: 2024, 2026 Yaron Shahrabani <sh.yaron@gmail.com>
+# SPDX-FileCopyrightText: 2024 Yaron Shahrabani <sh.yaron@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:47+0000\n"
-"PO-Revision-Date: 2026-08-30 21:53+0300\n"
+"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"PO-Revision-Date: 2024-02-18 08:27+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 23.08.4\n"
 "Plural-Forms: nplurals=4; plural=(n == 1) ? 0 : ((n == 2) ? 1 : ((n > 10 && "
 "n % 10 == 0) ? 2 : 3));\n"
 
@@ -72,7 +72,7 @@ msgstr "שער גישה:"
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: strongswanprop.ui:49 strongswanprop.ui:145 strongswanprop.ui:190
+#: strongswanprop.ui:49 strongswanprop.ui:140 strongswanprop.ui:185
 #, kde-format
 msgid "Certificate:"
 msgstr "אישור:"
@@ -113,98 +113,86 @@ msgstr "כרטיס חכם"
 msgid "EAP"
 msgstr "EAP"
 
-#. i18n: ectx: property (text), item, widget (QComboBox, cmbMethod)
-#: strongswanprop.ui:118
-#, kde-format
-msgid "EAP-TTLS"
-msgstr "EAP-TTLS"
-
 #. i18n: ectx: property (text), widget (QLabel, label_6)
-#: strongswanprop.ui:155
+#: strongswanprop.ui:150
 #, kde-format
 msgid "Private key:"
 msgstr "מפתח פרטי:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
-#: strongswanprop.ui:165
+#: strongswanprop.ui:160
 #, kde-format
 msgid "Private Key Password:"
 msgstr "סיסמת מפתח פרטי:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
-#: strongswanprop.ui:207
+#: strongswanprop.ui:202
 #, kde-format
 msgid "PIN:"
 msgstr "קוד אישי (PIN):"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
-#: strongswanprop.ui:235
+#: strongswanprop.ui:230
 #, kde-format
 msgid "Username:"
 msgstr "שם משתמש:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: strongswanprop.ui:263
+#: strongswanprop.ui:258
 #, kde-format
 msgid "User Password:"
 msgstr "סיסמת משתמש:"
 
-#. i18n: ectx: property (text), widget (QLabel, label_eapttls_info)
-#: strongswanprop.ui:283
-#, kde-format
-msgid "Uses the same Username/Password fields as EAP above."
-msgstr "שימוש באותם שדות שם משתמש/סיסמה כמו EAP לעיל."
-
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
-#: strongswanprop.ui:297
+#: strongswanprop.ui:275
 #, kde-format
 msgid "Options"
 msgstr "אפשרויות"
 
 #. i18n: ectx: property (text), widget (QCheckBox, innerIP)
-#: strongswanprop.ui:306
+#: strongswanprop.ui:284
 #, kde-format
 msgid "Request an inner IP address"
 msgstr "בקשת כתובת IP פנימית"
 
 #. i18n: ectx: property (text), widget (QCheckBox, udpEncap)
-#: strongswanprop.ui:319
+#: strongswanprop.ui:297
 #, kde-format
 msgid "Enforce UDP encapsulation"
 msgstr "אכיפת כימוס UDP"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ipComp)
-#: strongswanprop.ui:326
+#: strongswanprop.ui:304
 #, kde-format
 msgid "Use IP compression"
 msgstr "להשתמש בדחיסת IP"
 
 #. i18n: ectx: property (title), widget (QGroupBox, proposal)
-#: strongswanprop.ui:336
+#: strongswanprop.ui:314
 #, kde-format
 msgid "Enable Custom Cipher Proposals"
 msgstr "הפעלת הצעות לצופן מותאם אישית"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: strongswanprop.ui:350
+#: strongswanprop.ui:328
 #, kde-format
 msgid "IKE:"
 msgstr "IKE (החלפת מפתחות פנימית):"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, ike)
-#: strongswanprop.ui:357
+#: strongswanprop.ui:335
 #, kde-format
 msgid "A list of proposals for IKE separated by \";\""
 msgstr "רשימת הצעות ל־IKE מופרדות ב־„;”"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: strongswanprop.ui:364
+#: strongswanprop.ui:342
 #, kde-format
 msgid "ESP:"
 msgstr "ESP:"
 
 #. i18n: ectx: property (toolTip), widget (QLineEdit, esp)
-#: strongswanprop.ui:371
+#: strongswanprop.ui:349
 #, kde-format
 msgid "A list of proposals for ESP separated by \";\""
 msgstr "רשימת הצעות ל־ESP מופרדות ב־„;”"

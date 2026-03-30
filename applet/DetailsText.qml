@@ -99,7 +99,7 @@ MouseArea {
                     anchors.rightMargin: detailsGrid.columnSpacing / 2
 
                     visible: !delegateItem.isSection && (delegateItem.detailLabel || delegateItem.detailValue)
-                    elide: Text.ElideMiddle
+                    elide: Text.ElideNone
                     font: Kirigami.Theme.smallFont
                     horizontalAlignment: Text.AlignRight
                     text: `${delegateItem.detailLabel}:`

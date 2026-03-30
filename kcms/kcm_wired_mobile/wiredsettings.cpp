@@ -133,5 +133,3 @@ void WiredSettings::updateConnectionFromQML(const QString &path, const QVariantM
 }
 
 #include "wiredsettings.moc"
-
-#include "moc_wiredsettings.cpp"

@@ -41,15 +41,11 @@ public:
     bool systemConnectionsByDefault() const;
     void setSystemConnectionsByDefault(bool opt);
 
-    bool connectionNotificationsEnabled() const;
-    void setConnectionNotificationsEnabled(bool enabled);
-
     static Configuration &self();
 
 Q_SIGNALS:
     void airplaneModeEnabledChanged();
     void manageVirtualConnectionsChanged(bool manage);
-    void connectionNotificationsEnabledChanged(bool enabled);
 
 private:
     Configuration();

@@ -189,7 +189,8 @@ msgstr "Echo"
 #, kde-format
 msgid "Send LCP echo-requests to find out whether peer is alive."
 msgstr ""
-"LCP-Echo-Anfragen senden, um festzustellen, ob die Gegenstelle aktiv ist."
+"Sendet LCP-Echo-Anfragen, um festzustellen, ob die Gegenstelle erreichbar "
+"ist."
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_sendEcho)
 #: pptpadvanced.ui:230

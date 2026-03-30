@@ -154,23 +154,35 @@ QQC2.ApplicationWindow {
     }
 
     function acceptableConfiguration(): bool {
-        return hotspotName.text !== "" && hotspotPassword.acceptableInput;
+        if (handler.hotspotSupported) {
+            return hotspotName.text !== "" && hotspotPassword.acceptableInput;
+        } else {
+            return true;
+        }
     }
 
     function loadConfiguration() {
         unlockModem.checked = PlasmaNM.Configuration.unlockModemOnDetection;
         manageVirtualConnections.checked = PlasmaNM.Configuration.manageVirtualConnections;
         systemConnectionsByDefault.checked = PlasmaNM.Configuration.systemConnectionsByDefault;
-        hotspotName.text = PlasmaNM.Configuration.hotspotName;
-        hotspotPassword.text = PlasmaNM.Configuration.hotspotPassword;
+        // hotspot
+        hotspotLabel.visible = handler.hotspotSupported;
+        hotspotName.visible = handler.hotspotSupported;
+        hotspotPassword.visible = handler.hotspotSupported;
+        if (handler.hotspotSupported) {
+            hotspotName.text = PlasmaNM.Configuration.hotspotName;
+            hotspotPassword.text = PlasmaNM.Configuration.hotspotPassword;
+        }
     }
 
     function saveConfiguration() {
         PlasmaNM.Configuration.unlockModemOnDetection = unlockModem.checked;
         PlasmaNM.Configuration.manageVirtualConnections = manageVirtualConnections.checked;
         PlasmaNM.Configuration.systemConnectionsByDefault = systemConnectionsByDefault.checked;
-        PlasmaNM.Configuration.hotspotName = hotspotName.text;
-        PlasmaNM.Configuration.hotspotPassword = hotspotPassword.text;
+        if (handler.hotspotSupported) {
+            PlasmaNM.Configuration.hotspotName = hotspotName.text;
+            PlasmaNM.Configuration.hotspotPassword = hotspotPassword.text;
+        }
     }
 
     onVisibleChanged: {

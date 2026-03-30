@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-06 00:46+0000\n"
-"PO-Revision-Date: 2026-03-17 00:46+0000\n"
+"POT-Creation-Date: 2026-01-29 03:06+0000\n"
+"PO-Revision-Date: 2026-03-14 15:10+0000\n"
 "Last-Translator: charlotte <altronic25@protonmail.com>\n"
 "Language-Team: Irish\n"
 "Language: ga\n"
@@ -23,44 +23,28 @@ msgstr ""
 msgid "Invalid input."
 msgstr ""
 
-#: ui/ConnectionInfo.qml:16
+#: ui/ConnectionInfo.qml:15
 #, kde-format
 msgctxt "kcm page title"
 msgid "Connection Info for \"%1\""
 msgstr ""
 
-#: ui/ConnectionInfo.qml:55
+#: ui/ConnectionInfo.qml:22
 #, kde-format
 msgctxt "@title:group"
 msgid "Transfer Rates"
 msgstr ""
 
-#: ui/ConnectionInfo.qml:71
+#: ui/ConnectionInfo.qml:38
 #, kde-format
 msgid "Connected, ↓ %1/s, ↑ %2/s"
 msgstr "Ceangailte, ↓ %1/s, ↑ %2/s"
 
-#: ui/ConnectionInfo.qml:79
+#: ui/ConnectionInfo.qml:46
 #, kde-format
 msgctxt "@title:group"
 msgid "Connection Details"
 msgstr ""
-
-#: ui/ConnectionInfo.qml:100
-#, kde-format
-msgctxt "@title:group"
-msgid "Share"
-msgstr ""
-
-#: ui/ConnectionInfo.qml:107
-#, kde-format
-msgid "Share Wi-Fi via QR Code"
-msgstr ""
-
-#: ui/ConnectionInfo.qml:114
-#, kde-format
-msgid "Wi-Fi QR Code"
-msgstr "Wi-Fi QR Cód"
 
 #: ui/main.qml:26
 #, kde-format
@@ -73,36 +57,19 @@ msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
 #: ui/main.qml:98
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "IP Settings"
-msgid "Settings"
-msgstr "Socruithe IP"
-
-#: ui/main.qml:107
 #, kde-format
 msgctxt "@title:group"
 msgid "Saved Networks"
 msgstr ""
 
-#: ui/main.qml:144
+#: ui/main.qml:135
 #, kde-format
 msgid "Available Networks"
 msgstr ""
 
-#: ui/main.qml:178
+#: ui/main.qml:169
 #, kde-format
 msgid "Add Custom Connection"
-msgstr ""
-
-#: ui/MorePage.qml:14
-#, kde-format
-msgid "Wi-Fi Settings"
-msgstr ""
-
-#: ui/MorePage.qml:21
-#, kde-format
-msgid "Notifications for connection changes"
 msgstr ""
 
 #: ui/NetworkSettings.qml:15
@@ -135,7 +102,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "Security"
-msgstr "Slándáil"
+msgstr ""
 
 #: ui/NetworkSettings.qml:89
 #, kde-format
@@ -145,17 +112,17 @@ msgstr ""
 #: ui/NetworkSettings.qml:99
 #, kde-format
 msgid "None"
-msgstr "Neamhní"
+msgstr ""
 
 #: ui/NetworkSettings.qml:100
 #, kde-format
 msgid "WEP Key"
-msgstr "Eochair WEP"
+msgstr ""
 
 #: ui/NetworkSettings.qml:101
 #, kde-format
 msgid "Dynamic WEP"
-msgstr "WEP Dinimiciúil"
+msgstr ""
 
 #: ui/NetworkSettings.qml:102
 #, kde-format
@@ -180,7 +147,7 @@ msgstr ""
 #: ui/NetworkSettings.qml:143
 #, kde-format
 msgid "Password"
-msgstr "Focal Faire"
+msgstr ""
 
 #: ui/NetworkSettings.qml:159
 #, kde-format
@@ -216,7 +183,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:group"
 msgid "IP Settings"
-msgstr "Socruithe IP"
+msgstr ""
 
 #: ui/NetworkSettings.qml:183
 #, kde-format
@@ -236,7 +203,7 @@ msgstr ""
 #: ui/NetworkSettings.qml:200
 #, kde-format
 msgid "IP Address"
-msgstr "Seoladh IP"
+msgstr ""
 
 #: ui/NetworkSettings.qml:218
 #, kde-format

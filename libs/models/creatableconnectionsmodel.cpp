@@ -275,10 +275,7 @@ void CreatableConnectionsModel::populateModel()
     endResetModel();
 }
 
-CreatableConnectionsModel::~CreatableConnectionsModel()
-{
-    qDeleteAll(m_list);
-}
+CreatableConnectionsModel::~CreatableConnectionsModel() = default;
 
 QVariant CreatableConnectionsModel::data(const QModelIndex &index, int role) const
 {

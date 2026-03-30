@@ -20,7 +20,6 @@ class PLASMANM_EDITOR_EXPORT ConnectionEditorDialog : public QDialog
     Q_OBJECT
 public:
     explicit ConnectionEditorDialog(const NetworkManager::ConnectionSettings::Ptr &connection,
-                                    bool focusWifiSecurityUsername = false,
                                     QWidget *parent = nullptr,
                                     Qt::WindowFlags f = Qt::WindowFlags());
     ~ConnectionEditorDialog() override;

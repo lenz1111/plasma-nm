@@ -34,7 +34,6 @@ public:
     QVariantMap setting() const override;
 
     bool enabled8021x() const;
-    bool isValid() const override;
 
 private:
     Ui::WiredSecurity *const m_ui;

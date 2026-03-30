@@ -11,6 +11,5 @@ target_link_libraries(kcm_mobile_wifi PRIVATE
     KF6::NetworkManagerQt
     Plasma::Plasma
     KF6::KCMUtilsQuick
-    plasmanm_editor
 )
 

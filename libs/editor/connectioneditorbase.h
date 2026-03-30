@@ -16,8 +16,7 @@
 
 class ConnectionWidget;
 class SettingWidget;
-class WifiConnectionWidget;
-class QScrollArea;
+class WifiSecurity;
 
 class ConnectionStatusWidget;
 
@@ -39,10 +38,6 @@ public:
 
     // Returns whether the filled values are valid
     bool isValid() const;
-
-    int wifiTabIndex() const;
-
-    void focusWifiSecurityUsername();
 
 Q_SIGNALS:
     // The default value is supposed to be false, watch this property for validity change after
@@ -75,17 +70,11 @@ private:
     ConnectionWidget *m_connectionWidget = nullptr;
     ConnectionStatusWidget *m_statusWidget = nullptr;
     QList<SettingWidget *> m_settingWidgets;
-    WifiConnectionWidget *m_wifiConnectionWidget = nullptr;
-    QScrollArea *m_wifiScrollArea = nullptr;
-    int m_wifiTabIndex = -1;
+    WifiSecurity *m_wifiSecurity = nullptr;
 
     void addConnectionWidget(ConnectionWidget *widget, const QString &text);
     void addSettingWidget(SettingWidget *widget, const QString &text);
     void updateStatusWidget();
-    QWidget *wrapWithPreferredWidth(QWidget *content);
-
-    static constexpr int TAB_CONTENT_PREFERRED_WIDTH = 300;
-    static constexpr int TAB_CONTENT_MAX_WIDTH = 800;
 };
 
 #endif // PLASMA_NM_CONNECTION_EDITOR_BASE_H

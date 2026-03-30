@@ -6,8 +6,6 @@
 
 #include "wifisettings.h"
 
-#include "configuration.h"
-
 #include <KLocalizedString>
 #include <KPluginFactory>
 
@@ -31,20 +29,6 @@ WifiSettings::WifiSettings(QObject *parent, const KPluginMetaData &metaData)
     : KQuickConfigModule(parent, metaData)
 {
     setButtons({});
-    connect(&Configuration::self(), &Configuration::connectionNotificationsEnabledChanged, this, &WifiSettings::connectionNotificationsEnabledChanged);
-}
-
-bool WifiSettings::connectionNotificationsEnabled() const
-{
-    return Configuration::self().connectionNotificationsEnabled();
-}
-
-void WifiSettings::setConnectionNotificationsEnabled(bool enabled)
-{
-    if (Configuration::self().connectionNotificationsEnabled() == enabled) {
-        return;
-    }
-    Configuration::self().setConnectionNotificationsEnabled(enabled);
 }
 
 QVariantMap WifiSettings::getConnectionSettings(const QString &connection, const QString &type)
@@ -246,5 +230,3 @@ void WifiSettings::updateConnectionFromQML(const QString &path, const QVariantMa
 }
 
 #include "wifisettings.moc"
-
-#include "moc_wifisettings.cpp"

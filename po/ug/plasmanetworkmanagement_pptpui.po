@@ -8,15 +8,14 @@ msgstr ""
 "Project-Id-Version: plasmanm_pptpui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2026-06-01 18:07-0400\n"
-"Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
+"PO-Revision-Date: 2013-09-08 07:05+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 3.9\n"
 
 #. i18n: ectx: property (title), widget (QGroupBox, grp_authenfication)
 #: pptpadvanced.ui:17
@@ -28,13 +27,13 @@ msgstr "كىملىك دەلىللەش"
 #: pptpadvanced.ui:26
 #, kde-format
 msgid "Allow following authentication methods:"
-msgstr "تۆۋەندىكى كىملىك دەلىللەش ئۇسۇلىغا يول قويىدۇ:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QListWidget, listWidget)
 #: pptpadvanced.ui:36
 #, kde-format
 msgid "Allow/disable authentication methods."
-msgstr "كىملىك دەلىللەش ئۇسۇلىغا يول قويىدۇ/چەكلەيدۇ."
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QListWidget, listWidget)
 #: pptpadvanced.ui:40
@@ -75,29 +74,24 @@ msgid ""
 "enable this checkbox, select one or more of the MSCHAP authentication\n"
 "methods: MSCHAP or MSCHAPv2."
 msgstr ""
-"دىققەت: MPPE شىفىرلاشنى پەقەت MSCHAP كىملىك دەلىللەش ئۇسۇلىغىلا ئىشلەتكىلى "
-"بولىدۇ. بۇ كۆپ تاللاش رامكىسى قوزغىتىلسا، بىر ياكى بىر قانچە MSCHAP كىملىك "
-"دەلىللەش ئۇسۇلىنى تاللىنىدۇ: MSCHAP  ياكى MSCHAPv2."
 
 #. i18n: ectx: property (title), widget (QGroupBox, gb_MPPE)
 #: pptpadvanced.ui:91
 #, kde-format
 msgid "Use MPPE Encryption"
-msgstr "MPPE شىفىرلاش ئىشلەت"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, lbl_MMPEcrypto)
 #: pptpadvanced.ui:112
 #, kde-format
 msgid "Crypto:"
-msgstr "شىفىرلاش:"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, cb_MPPECrypto)
 #: pptpadvanced.ui:128
 #, kde-format
 msgid "Require the use of MPPE, with 40/128-bit encryption or all."
 msgstr ""
-"MPPE نى ئىشلىتىشنى قوزغاتقاندىلا ئاندىن 40/128 بىت شىفىرلاش ياكى ھەممىسىنى "
-"ئىشلەتكىلى بولىدۇ."
 
 #. i18n: ectx: property (text), item, widget (QComboBox, cb_MPPECrypto)
 #: pptpadvanced.ui:132
@@ -124,44 +118,44 @@ msgstr "40 بىت"
 msgid ""
 "Allow MPPE to use stateful mode. Stateless mode is still attempted first."
 msgstr ""
-"MPPE ئىشلىتىش ھالىتىنى ساقلاش شەكلىگە يول قويىدۇ. ئەمما ھالىتى يوق شەكىلنى "
-"ئىشلىتىش ئالدىنقى ئورۇندا تۇرىدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_statefulEncryption)
 #: pptpadvanced.ui:153
 #, kde-format
 msgid "Use stateful encryption"
-msgstr "ھالىتىنى ساقلاش شەكلىدە شىفىرلاشنى ئىشلىتىدۇ"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, grp_cryptoAndCompression)
 #: pptpadvanced.ui:163
 #, kde-format
 msgid "Compression"
-msgstr "قىسىش"
+msgstr "پرېسلاش"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cb_BSD)
 #: pptpadvanced.ui:175
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow BSD compression"
 msgid "Allow/disable BSD-Compress compression."
-msgstr "BSD قىسىشقا يول قويىدۇ/چەكلەيدۇ."
+msgstr "BSD پرېسلاشقا ئىجازەت"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_BSD)
 #: pptpadvanced.ui:178
 #, kde-format
 msgid "Allow BSD compression"
-msgstr "BSD قىسىشقا يول قويىدۇ"
+msgstr "BSD پرېسلاشقا ئىجازەت"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cb_deflate)
 #: pptpadvanced.ui:188
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Allow BSD compression"
 msgid "Allow/disable Deflate compression."
-msgstr "Deflate قىسىشقا يول قويىدۇ/چەكلەيدۇ."
+msgstr "BSD پرېسلاشقا ئىجازەت"
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_deflate)
 #: pptpadvanced.ui:191
 #, kde-format
 msgid "Allow Deflate compression"
-msgstr "Deflate قىسىشقا يول قويىدۇ"
+msgstr ""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cb_TCPheaders)
 #: pptpadvanced.ui:202
@@ -171,14 +165,12 @@ msgid ""
 "transmit\n"
 " and the receive directions."
 msgstr ""
-"ئىككى يۆنىلىشتە يوللىغان ۋە قوبۇللىغاندا Van Jacobson ئۇسلۇبىدا TCP/IP "
-"سانلىق مەلۇمات بوغچا بېشىنى قىسىشقا يول قويىدۇ/چەكلەيدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_TCPheaders)
 #: pptpadvanced.ui:205
 #, kde-format
 msgid "Allow TCP header compression"
-msgstr "TCP ئۇچۇر باش قىسىشقا يول قويىدۇ"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, grp_echo)
 #: pptpadvanced.ui:218
@@ -191,20 +183,18 @@ msgstr "ئەكس سادا"
 #, kde-format
 msgid "Send LCP echo-requests to find out whether peer is alive."
 msgstr ""
-"LCP ئەكس سادا ئىلتىماسى يوللاش ئارقىلىق تورداشنىڭ ھايات ئىكەنلىكىنى "
-"جەزملەيدۇ."
 
 #. i18n: ectx: property (text), widget (QCheckBox, cb_sendEcho)
 #: pptpadvanced.ui:230
 #, kde-format
 msgid "Send PPP echo packets "
-msgstr "PPP echo بوغچىلىرىنى يوللا "
+msgstr "PPPPP echo بوغچىلىرىنى يوللا "
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PptpAuthenticationWidget)
 #: pptpauth.ui:14
 #, kde-format
 msgid "PPTPAuthentication"
-msgstr "PPTP كىملىك دەلىللەش"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #. i18n: ectx: property (text), widget (QLabel, lbl_password)
@@ -218,13 +208,13 @@ msgstr "ئىم:"
 #: pptpauth.ui:51 pptpprop.ui:131
 #, kde-format
 msgid "Password passed to PPTP when prompted for it."
-msgstr "تەلەپ قىلىنغاندا ئىم PPTP غا يۆلىنىدۇ."
+msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PptpProp)
 #: pptpprop.ui:14
 #, kde-format
 msgid "PPTP Settings"
-msgstr "PPTP تەڭشىكى"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, grp_general)
 #: pptpprop.ui:26
@@ -243,7 +233,7 @@ msgstr "تور ئۆتكىلى:"
 #: pptpprop.ui:47
 #, kde-format
 msgid "PPTP server IP or name."
-msgstr "PPTP مۇلازىمېتىر IP ئادرېسى ياكى ئىسمى."
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, grp_additional)
 #: pptpprop.ui:62
@@ -264,12 +254,11 @@ msgstr "تىزىمغا كىر:"
 msgid ""
 "Set the name used for authenticating the local system to the peer to <name>."
 msgstr ""
-"يەرلىك سىستېمىدىن يىراقتىكى <name> تورداشقا باغلىنىشىنى دەلىللىگەندىكى "
-"ئىشلەتكۈچى ئات تەڭشىكى."
 
 #. i18n: ectx: property (text), widget (QLabel, lbl_ntdomain)
 #: pptpprop.ui:153
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "NT Domain:"
 msgid "NT Domain:"
 msgstr "NT دائىرە:"
 
@@ -280,12 +269,12 @@ msgid ""
 "Append the domain name <domain> to the local host name for\n"
 "authenticating purposes."
 msgstr ""
-"دائىرە ئاتى <domain> نى يەرلىك مۇلازىمېتىرغا قوشۇپ كىملىك دەلىللەشكە "
-"ئىشلىتىدۇ."
 
 #. i18n: ectx: property (text), widget (QPushButton, btnAdvanced)
 #: pptpprop.ui:192
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "like in Advanced settings"
+#| msgid "Advanced..."
 msgctxt "like in Advanced settings"
 msgid "Advanced…"
 msgstr "ئالىي…"

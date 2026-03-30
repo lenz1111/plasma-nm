@@ -24,7 +24,6 @@ class PLASMANM_EDITOR_EXPORT ConnectionEditorTabWidget : public ConnectionEditor
     Q_OBJECT
 public:
     explicit ConnectionEditorTabWidget(const NetworkManager::ConnectionSettings::Ptr &connection,
-                                       bool focusWifiSecurityUsername = false,
                                        QWidget *parent = nullptr,
                                        Qt::WindowFlags f = Qt::WindowFlags());
     ~ConnectionEditorTabWidget() override;
@@ -37,7 +36,6 @@ protected:
 
 private:
     Ui::ConnectionEditorTabWidget *const m_ui;
-    bool m_focusWifiSecurityUsername;
 
     void initializeTabWidget(const NetworkManager::ConnectionSettings::Ptr &connection);
 };

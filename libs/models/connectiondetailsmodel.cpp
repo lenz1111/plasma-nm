@@ -102,5 +102,3 @@ QString ConnectionDetailsModel::accessibilityDescription() const
 
     return parts.join(", ");
 }
-
-#include "moc_connectiondetailsmodel.cpp"

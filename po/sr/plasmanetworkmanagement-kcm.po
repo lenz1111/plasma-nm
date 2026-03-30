@@ -1,13 +1,12 @@
 # Translation of plasmanetworkmanagement-kcm.po into Serbian.
 # Chusslove Illich <caslav.ilic@gmx.net>, 2017.
-# Nemanja Hiršl <nemhirsl@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmanetworkmanagement-kcm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-16 02:45+0000\n"
-"PO-Revision-Date: 2026-10-03 19:50+0200\n"
-"Last-Translator: Nemanja Hiršl <nemhirsl@gmail.com>\n"
+"POT-Creation-Date: 2026-01-29 03:06+0000\n"
+"PO-Revision-Date: 2017-10-30 23:08+0100\n"
+"Last-Translator: Chusslove Illich <caslav.ilic@gmx.net>\n"
 "Language-Team: Serbian <kde-i18n-sr@kde.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
@@ -19,85 +18,84 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 "X-Environment: kde\n"
 
-#: kcm.cpp:270
+#: kcm.cpp:269
 #, kde-format
 msgid "Import the VPN configuration from \"%1\"?"
-msgstr "Увести ВПН поставу из „%1“?"
+msgstr ""
 
 # >> @title:window
-#: kcm.cpp:271
-#, kde-format
+#: kcm.cpp:270
+#, fuzzy, kde-format
+#| msgid "Import VPN Connection"
 msgctxt "@title:window"
 msgid "Import VPN Configuration"
-msgstr "Увоз ВПН поставе"
+msgstr "Увоз ВПН везе"
 
-#: kcm.cpp:272
-#, kde-format
+#: kcm.cpp:271
+#, fuzzy, kde-format
+#| msgid "Export"
 msgid "Import"
-msgstr "Увези"
+msgstr "Извези"
 
 # >> @title:window
-#: kcm.cpp:279 kcm.cpp:352
-#, kde-format
+#: kcm.cpp:278 kcm.cpp:351
+#, fuzzy, kde-format
+#| msgid "Import VPN Connection"
 msgid "Failed to import VPN connection: %1"
-msgstr "Не могу да увезем ВПН везу: %1"
+msgstr "Увоз ВПН везе"
 
 # >> @item
-#: kcm.cpp:282 kcm.cpp:355
-#, kde-format
+#: kcm.cpp:281 kcm.cpp:354
+#, fuzzy, kde-format
+#| msgid "Connected"
 msgid "Connection imported."
-msgstr "Веза је увезена."
+msgstr "повезан"
 
 # well-spelled: моја_дељена_веза
-#: kcm.cpp:424
+#: kcm.cpp:423
 #, kde-format
 msgid "my_shared_connection"
 msgstr "моја_дељена_веза"
 
 # >> @title:window
-#: kcm.cpp:496
+#: kcm.cpp:495
 #, kde-format
 msgid "Export VPN Connection"
 msgstr "Извоз ВПН везе"
 
-#: kcm.cpp:516
+#: kcm.cpp:515
 #, kde-format
 msgid "Do you want to save changes made to the connection '%1'?"
 msgstr "Желите ли да сачувате измене над везом „%1“?"
 
-#: kcm.cpp:517
+#: kcm.cpp:516
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Changes"
 msgstr "Уписивање измена"
 
 # >> @title:window
-#: kcm.cpp:612
+#: kcm.cpp:611
 #, kde-format
 msgid "Import VPN Connection"
 msgstr "Увоз ВПН везе"
 
 # >> @title:window
-#: kcm.cpp:614
-#, kde-format
+#: kcm.cpp:613
+#, fuzzy, kde-format
+#| msgid "Export VPN Connection"
 msgid "VPN connections (%1)"
-msgstr "ВПН везе (%1)"
+msgstr "Извоз ВПН везе"
 
-#: kcm.cpp:617
+#: kcm.cpp:616
 #, kde-format
 msgid "No file was provided"
-msgstr "Није задат ниједан фајл"
+msgstr ""
 
-#: kcm.cpp:685
+#: kcm.cpp:684
 #, kde-format
 msgid "Unknown VPN type"
-msgstr "Непознат тип ВПН‑а"
-
-#: kcm.cpp:717
-#, kde-format
-msgctxt "Suffix appended to the name of a duplicated connection"
-msgid " (Copy)"
-msgstr " (копија)"
+msgstr ""
 
 #: qml/AddConnectionDialog.qml:18
 msgctxt "@title:window"
@@ -107,48 +105,49 @@ msgstr "Избор типа везе"
 #: qml/ConfigurationDialog.qml:20
 msgctxt "@title:window"
 msgid "Configuration"
-msgstr "Постава"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:35
 msgid "General"
-msgstr "Опште"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:43
 msgid "Ask for PIN on modem detection"
-msgstr "Тражи ПИН при откривању модема"
+msgstr ""
 
-# >> @title:window
 #: qml/ConfigurationDialog.qml:50
+#, fuzzy
+#| msgid "Export selected connection"
 msgid "Show virtual connections"
-msgstr "Прикажи виртуелне везе"
+msgstr "Извези изабрану везу"
 
 #: qml/ConfigurationDialog.qml:57
 msgid "Create new connections as system connections"
-msgstr "Прави нове везе као системске"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:62
 msgid "Hotspot"
-msgstr "Приступна тачка"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:70
 msgctxt "@label Hotspot name"
 msgid "Name:"
-msgstr "Име:"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:76
 msgctxt "@label Hotspot password"
 msgid "Password:"
-msgstr "Лозинка:"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:95
 msgid "Hotspot name must not be empty"
-msgstr "Име приступне тачке не сме бити празно"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:105
 msgid ""
 "Hotspot password must either be empty or consist of anywhere from 8 up to 64 "
 "characters"
-msgstr "Лозинка приступне тачке мора бити празна или имати од 8 до 64 знака"
+msgstr ""
 
 #: qml/ConfigurationDialog.qml:106
 msgid ""
@@ -156,117 +155,110 @@ msgid ""
 "<ul><li>Exactly 5 or 13 any characters</li><li>Exactly 10 or 26 hexadecimal "
 "characters:<br/>abcdef, ABCDEF or 0-9</li></ul>"
 msgstr ""
-"Лозинка приступне тачке мора бити празна или бити једно од следећег:"
-"<ul><li>Тачно 5 или 13 било којих знакова</li><li>Тачно 10 или 26 "
-"хексадецималних знакова:<br/>abcdef, ABCDEF или 0–9</li></ul>"
 
 #. i18n is a way to use something pre-exposed to QML.
-#: qml/ConnectionItem.qml:29 ui/ConnectionItem.qml:29
+#: qml/ConnectionItem.qml:29
 msgctxt "@label/rich"
 msgid "%1"
-msgstr "%1"
+msgstr ""
 
-#: qml/ConnectionItem.qml:85 ui/ConnectionItem.qml:81
+#: qml/ConnectionItem.qml:85
 msgid "Connect"
 msgstr "Повежи се"
 
-#: qml/ConnectionItem.qml:85 ui/ConnectionItem.qml:81
+#: qml/ConnectionItem.qml:85
 msgid "Disconnect"
 msgstr "Прекини везу"
 
-#: qml/ConnectionItem.qml:90 ui/ConnectionItem.qml:86
+#: qml/ConnectionItem.qml:90
 msgctxt "@info:tooltip"
 msgid "Cannot connect to this network because it was not detected."
-msgstr "Не могу да се повежем на ову мрежу јер није откривена."
+msgstr ""
 
-#: qml/ConnectionItem.qml:94 ui/ConnectionItem.qml:90
-msgctxt "@action:inmenu duplicate network connection"
-msgid "Duplicate"
-msgstr "Дуплирај"
-
-#: qml/ConnectionItem.qml:102 ui/ConnectionItem.qml:98
+#: qml/ConnectionItem.qml:95
 msgid "Delete"
 msgstr "Обриши"
 
-#: qml/ConnectionItem.qml:113 ui/ConnectionItem.qml:109
+#: qml/ConnectionItem.qml:106
 msgid "Export"
 msgstr "Извези"
 
 # >> @item
-#: qml/ConnectionItem.qml:127 ui/ConnectionItem.qml:123
+#: qml/ConnectionItem.qml:120
 msgid "Connected"
 msgstr "повезан"
 
 # >> @item
-#: qml/ConnectionItem.qml:129 ui/ConnectionItem.qml:125
+#: qml/ConnectionItem.qml:122
 msgid "Connecting"
 msgstr "у повезивању"
 
-#: qml/ConnectionItem.qml:131 ui/ConnectionItem.qml:127
+#: qml/ConnectionItem.qml:124
 msgctxt "@title:column Available networks"
 msgid "Available"
-msgstr "доступан"
+msgstr ""
 
-#: qml/main.qml:148 ui/main.qml:220
+#: qml/main.qml:151
 msgid "Add new connection"
 msgstr "Додај нову везу"
 
-#: qml/main.qml:166 ui/main.qml:238
+#: qml/main.qml:169
 msgid "Remove selected connection"
 msgstr "Уклони изабрану везу"
 
-#: qml/main.qml:184 ui/main.qml:256
+#: qml/main.qml:187
 msgid "Export selected connection"
 msgstr "Извези изабрану везу"
 
-#: qml/main.qml:209 ui/main.qml:192
+#: qml/main.qml:212
 msgid "Configuration"
-msgstr "Постава"
+msgstr ""
 
-#: qml/main.qml:236 ui/main.qml:321
+#: qml/main.qml:239
 msgctxt "@title:window"
 msgid "Remove Connection"
 msgstr "Уклањање везе"
 
-#: qml/main.qml:237 ui/main.qml:322
+#: qml/main.qml:240
 msgid "Do you want to remove the connection '%1'?"
 msgstr "Желите ли заиста да уклоните везу „%1“?"
 
-#: qml/main.qml:259
+#: qml/main.qml:262
+#, fuzzy
+#| msgid "Connect"
 msgctxt "@action:button Connect to network"
 msgid "Connect"
 msgstr "Повежи се"
 
-#: qml/main.qml:265
+#: qml/main.qml:268
+#, fuzzy
+#| msgid "Cancel"
 msgctxt "@action:button Cancel connecting to network"
 msgid "Cancel"
 msgstr "Одустани"
 
-#: qml/main.qml:271
+#: qml/main.qml:274
 msgctxt "@title:window"
 msgid "Enter Password"
-msgstr "Унос лозинке"
+msgstr ""
 
-#: qml/main.qml:277
+#: qml/main.qml:280
 msgctxt "@label %1 is the name of the network the user is connecting to"
 msgid "Network: %1"
-msgstr "Мрежа: %1"
+msgstr ""
 
-#: qml/main.qml:298
+#: qml/main.qml:301
 msgctxt "@label key is a passcode"
 msgid "Password must be a valid WEP key"
-msgstr "Лозинка мора бити ваљан ВЕП кључ"
+msgstr ""
 
-#: qml/main.qml:299
+#: qml/main.qml:302
 msgctxt "@label password invalid length message"
 msgid "Password must be between 8 and 64 characters"
-msgstr "Лозинка мора имати између 8 и 64 знака"
+msgstr ""
 
-#: ui/main.qml:46
-msgid "Disconnected"
-msgstr "Неповезано"
+#~ msgid "Create"
+#~ msgstr "Направи"
 
-# >> @item
-#: ui/main.qml:280
-msgid "Connection name:"
-msgstr "Име везе:"
+#~ msgid "Cancel"
+#~ msgstr "Одустани"

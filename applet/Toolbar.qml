@@ -71,8 +71,6 @@ RowLayout {
             checked: administrativelyEnabled && enabledConnections.wirelessEnabled
             enabled: administrativelyEnabled
 
-            text: i18n("Enable Wi-Fi")
-            display: PlasmaComponents3.AbstractButton.IconOnly
             icon.name: administrativelyEnabled ? "network-wireless-on" : "network-wireless-off"
             visible: availableDevices.wirelessDeviceAvailable
 
@@ -81,7 +79,7 @@ RowLayout {
             onToggled: handler.enableWireless(checked);
 
             PlasmaComponents3.ToolTip {
-                text: wifiSwitchButton.text
+                text: i18n("Enable Wi-Fi")
             }
 
             PlasmaComponents3.BusyIndicator {
@@ -121,8 +119,6 @@ RowLayout {
             checked: administrativelyEnabled && enabledConnections.wwanEnabled
             enabled: administrativelyEnabled
 
-            text: i18n("Enable mobile data")
-            display: PlasmaComponents3.AbstractButton.IconOnly
             icon.name: administrativelyEnabled ? "network-mobile-on" : "network-mobile-off"
             visible: availableDevices.modemDeviceAvailable
 
@@ -132,7 +128,7 @@ RowLayout {
             onToggled: handler.enableWwan(checked);
 
             PlasmaComponents3.ToolTip {
-                text: wwanSwitchButton.text
+                text: i18n("Enable mobile data")
             }
         }
 
@@ -143,10 +139,6 @@ RowLayout {
 
             checked: PlasmaNM.Configuration.airplaneModeEnabled
 
-            text: checked ?
-                xi18nc("@info", "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth") :
-                xi18nc("@info", "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth")
-            display: PlasmaComponents3.AbstractButton.IconOnly
             icon.name: PlasmaNM.Configuration.airplaneModeEnabled ? "network-flightmode-on" : "network-flightmode-off"
 
             visible: availableDevices.modemDeviceAvailable || availableDevices.wirelessDeviceAvailable
@@ -160,7 +152,9 @@ RowLayout {
             }
 
             PlasmaComponents3.ToolTip {
-                text: planeModeSwitchButton.text
+                text: planeModeSwitchButton.checked ?
+                    xi18nc("@info", "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth") :
+                    xi18nc("@info", "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth")
             }
         }
     }

@@ -6,7 +6,6 @@
 */
 
 #include "bssidcombobox.h"
-#include <QCompleter>
 
 #include <NetworkManagerQt/Manager>
 #include <NetworkManagerQt/Utils>
@@ -24,9 +23,6 @@ BssidComboBox::BssidComboBox(QWidget *parent)
 {
     setEditable(true);
     setInsertPolicy(QComboBox::NoInsert);
-    if (QCompleter *comboCompleter = completer()) {
-        comboCompleter->setCompletionRole(Qt::UserRole);
-    }
 
     connect(this, &BssidComboBox::editTextChanged, this, &BssidComboBox::slotEditTextChanged);
     connect(this, QOverload<int>::of(&BssidComboBox::activated), this, &BssidComboBox::slotCurrentIndexChanged);

@@ -6,11 +6,9 @@ import QtQuick.Layouts
 import QtQuick.Controls as Controls
 import org.kde.kirigami as Kirigami
 
-import org.kde.plasma.networkmanagement.cellular as Cellular
+import cellularnetworkkcm
 
 import org.kde.kirigamiaddons.formcard 1 as FormCard
-
-import cellularnetworkkcm 1.0
 
 Kirigami.ScrollablePage {
     id: root
@@ -19,7 +17,7 @@ Kirigami.ScrollablePage {
     leftPadding: 0
     rightPadding: 0
 
-    property Cellular.CellularModem modem
+    property Modem modem
     property bool editMode: false
 
     title: i18n("APNs")
@@ -72,24 +70,15 @@ Kirigami.ScrollablePage {
                 model: modem.profiles
 
                 delegate: FormCard.FormRadioDelegate {
-                    required property int index
-                    required property string connectionName
-                    required property string connectionAPN
-                    required property string connectionUser
-                    required property string connectionPassword
-                    required property string connectionNetworkType
-                    required property string connectionUni
-                    required property bool roamingAllowed
+                    text: modelData.name
+                    description: modelData.apn
 
-                    text: connectionName
-                    description: connectionAPN
-
-                    checked: modem.activeConnectionUni == connectionUni
+                    checked: modem.activeConnectionUni == modelData.connectionUni
                     onClicked: {
-                        modem.activateProfile(connectionUni);
+                        modem.activateProfile(modelData.connectionUni);
 
                         // reapply binding
-                        checked = Qt.binding(() => { return modem.activeConnectionUni == connectionUni });
+                        checked = Qt.binding(() => { return modem.activeConnectionUni == modelData.connectionUni });
                     }
 
                     trailing: RowLayout {
@@ -99,17 +88,7 @@ Kirigami.ScrollablePage {
                             text: i18n("Edit")
                             display: Controls.ToolButton.IconOnly
                             onClicked: {
-                                kcm.push("EditProfilePage.qml", {
-                                    "modem": modem,
-                                    "isNewProfile": false,
-                                    "profileConnectionUni": connectionUni,
-                                    "profileName": connectionName,
-                                    "profileApn": connectionAPN,
-                                    "profileUser": connectionUser,
-                                    "profilePassword": connectionPassword,
-                                    "profileNetworkType": connectionNetworkType,
-                                    "profileRoamingAllowed": roamingAllowed
-                                });
+                                kcm.push("EditProfilePage.qml", { "profile": modelData, "modem": modem });
                             }
                         }
 
@@ -118,7 +97,7 @@ Kirigami.ScrollablePage {
                             icon.name: "delete"
                             text: i18n("Delete")
                             display: Controls.ToolButton.IconOnly
-                            onClicked: modem.removeProfile(connectionUni)
+                            onClicked: modem.removeProfile(modelData.connectionUni)
                         }
                     }
                 }
@@ -128,7 +107,7 @@ Kirigami.ScrollablePage {
                 text: i18n("Add APN")
                 icon.name: 'list-add'
                 onClicked: {
-                    kcm.push("EditProfilePage.qml", { "modem": modem, "isNewProfile": true });
+                    kcm.push("EditProfilePage.qml", { "profile": null, "modem": modem });
                 }
             }
 

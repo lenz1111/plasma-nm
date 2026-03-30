@@ -1,0 +1,6 @@
+#!/usr/bin/make -f
+# SPDX-License-Identifier: LGPL-2.0-or-later
+# SPDX-FileCopyrightText: 2023 Jonathan Riddell <jr@jriddell.org>
+
+%:
+	dh $@ --with kf6 --buildsystem kf6

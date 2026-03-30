@@ -9,7 +9,6 @@ import QtQuick.Layouts 1.2
 import QtQuick.Controls 2.12 as Controls
 
 import org.kde.plasma.networkmanagement as PlasmaNM
-import org.kde.plasma.networkmanagement.cellular as Cellular
 import org.kde.kirigami as Kirigami
 import org.kde.kcmutils as KCM
 import org.kde.kirigamiaddons.formcard 1 as FormCard
@@ -26,12 +25,6 @@ KCM.SimpleKCM {
     topPadding: 0
     bottomPadding: 0
 
-    Cellular.CellularModemList {
-        id: modemList
-    }
-
-    property Cellular.CellularModem selectedModem: modemList.primaryModem
-
     PlasmaNM.Handler {
         id: nmHandler
     }
@@ -44,15 +37,6 @@ KCM.SimpleKCM {
         id: enabledConnections
     }
 
-    // Forward error signals from modem to KCM messages
-    Connections {
-        target: selectedModem
-        enabled: selectedModem !== null
-        function onErrorOccurred(message) {
-            kcm.addMessage(InlineMessage.Error, message);
-        }
-    }
-
     SimPage {
         id: simPage
         visible: false
@@ -63,7 +47,7 @@ KCM.SimpleKCM {
         anchors.centerIn: parent
         width: parent.width - Kirigami.Units.gridUnit * 4
 
-        visible: !enabledConnections.wwanHwEnabled || !availableDevices.modemDeviceAvailable || !modemList.modemAvailable
+        visible: !enabledConnections.wwanHwEnabled || !availableDevices.modemDeviceAvailable || !kcm.modemFound
         icon.name: "auth-sim-missing"
         text: i18n("Modem not available")
     }
@@ -86,13 +70,13 @@ KCM.SimpleKCM {
                 id: mobileDataSwitch
                 text: i18n("Mobile data")
                 description: {
-                    if (!modemList.modemAvailable) {
+                    if (!kcm.modemFound) {
                         return "";
-                    } else if (!selectedModem.hasSim) {
+                    } else if (!kcm.selectedModem.hasSim) {
                         return i18n("No SIM is inserted.")
-                    } if (!selectedModem.mobileDataSupported) {
+                    } if (!kcm.selectedModem.mobileDataSupported) {
                         return i18n("Mobile data is not available with this modem.")
-                    } else if (selectedModem.needsAPNAdded) {
+                    } else if (kcm.selectedModem.needsAPNAdded) {
                         return i18n("An APN needs to be configured to have mobile data.");
                     } else {
                         return i18n("Whether mobile data is enabled.");
@@ -100,12 +84,12 @@ KCM.SimpleKCM {
                 }
 
                 property bool manuallySet: false
-                property bool shouldBeChecked: selectedModem && selectedModem.mobileDataEnabled
+                property bool shouldBeChecked: kcm.selectedModem && kcm.selectedModem.mobileDataEnabled
                 onShouldBeCheckedChanged: {
                     checked = shouldBeChecked;
                 }
 
-                enabled: selectedModem && selectedModem.mobileDataSupported && !selectedModem.needsAPNAdded
+                enabled: kcm.selectedModem && kcm.selectedModem.mobileDataSupported && !kcm.selectedModem.needsAPNAdded
                 checked: shouldBeChecked
 
                 onCheckedChanged: {
@@ -115,9 +99,9 @@ KCM.SimpleKCM {
                         return;
                     }
 
-                    if (selectedModem.mobileDataEnabled != checked) {
+                    if (kcm.selectedModem.mobileDataEnabled != checked) {
                         manuallySet = true;
-                        selectedModem.mobileDataEnabled = checked;
+                        kcm.selectedModem.mobileDataEnabled = checked;
                     }
                 }
             }
@@ -135,23 +119,23 @@ KCM.SimpleKCM {
         }
 
         FormCard.FormHeader {
-            title: i18np("SIM", "SIMs", simsRepeater.count)
-            visible: simsRepeater.count > 0
+            title: i18np("SIM", "SIMs", kcm.sims.count)
+            visible: repeater.count > 0
         }
 
         FormCard.FormCard {
-            visible: simsRepeater.count > 0
+            visible: repeater.count > 0
 
             Repeater {
-                id: simsRepeater
-                model: modemList.sims
+                id: repeater
+                model: kcm.sims
 
                 delegate: ColumnLayout {
                     Layout.fillWidth: true
 
                     FormCard.FormDelegateSeparator {
                         visible: model.index !== 0
-                        opacity: (!(model.index && simsRepeater.itemAt(model.index - 1).controlHovered) && !simDelegate.controlHovered) ? 0.5 : 0
+                        opacity: (!(model.index && repeater.itemAt(model.index - 1).controlHovered) && !simDelegate.controlHovered) ? 0.5 : 0
                     }
 
                     FormCard.FormButtonDelegate {

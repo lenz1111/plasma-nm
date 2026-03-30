@@ -48,6 +48,10 @@ getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const Ne
 {
     QList<ConnectionDetailSection> sections;
 
+    if (!device) {
+        return sections;
+    }
+
     // For never-connected Wi-Fi networks, we won't have a connection object
     // but we can still show access point details
     NetworkManager::ConnectionSettings::Ptr settings;
@@ -60,10 +64,7 @@ getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const Ne
 
     // Check if this specific connection is active, not just if the device is activated
     bool isConnectionActive = false;
-    NetworkManager::ActiveConnection::Ptr activeConn;
-    if (device) {
-        activeConn = device->activeConnection();
-    }
+    NetworkManager::ActiveConnection::Ptr activeConn = device->activeConnection();
     if (activeConn && activeConn->connection() && connection) {
         isConnectionActive = (activeConn->connection()->path() == connection->path());
     }
@@ -72,7 +73,7 @@ getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const Ne
     NetworkManager::ConnectionSettings::ConnectionType type = NetworkManager::ConnectionSettings::Unknown;
     if (settings) {
         type = settings->connectionType();
-    } else if (device) {
+    } else {
         // For never-connected networks, infer type from device
         if (device->type() == NetworkManager::Device::Wifi) {
             type = NetworkManager::ConnectionSettings::Wireless;
@@ -210,20 +211,14 @@ getConnectionDetails(const NetworkManager::Connection::Ptr &connection, const Ne
             vpnType = vpnSetting->serviceType();
         }
 
-        constexpr QLatin1String prefix{"org.freedesktop.NetworkManager."};
-        if (vpnType.startsWith(prefix)) {
-            vpnType = vpnType.mid(prefix.size());
-        }
-
-        if (!vpnType.isEmpty()) {
-            details.append({i18n("VPN Plugin"), vpnType});
-        }
+        details.append({i18n("VPN Plugin"), vpnType});
 
         if (isConnectionActive) {
+            NetworkManager::ActiveConnection::Ptr active = device->activeConnection();
             NetworkManager::VpnConnection::Ptr vpnConnection;
 
-            if (activeConn) {
-                vpnConnection = NetworkManager::VpnConnection::Ptr(new NetworkManager::VpnConnection(activeConn->path()));
+            if (active) {
+                vpnConnection = NetworkManager::VpnConnection::Ptr(new NetworkManager::VpnConnection(active->path()));
             }
 
             if (vpnConnection && !vpnConnection->banner().isEmpty()) {

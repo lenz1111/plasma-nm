@@ -1,13 +1,13 @@
 # SPDX-FileCopyrightText: 2013-2016, 2021 Burkhard Lück <lueck@hube-lueck.de>
 # SPDX-FileCopyrightText: 2014, 2016, 2023 Frederik Schwarzer <schwarzer@kde.org>
 # SPDX-FileCopyrightText: 2023 Jannick Kuhr <kde-dev@kuhr.org>
-# SPDX-FileCopyrightText: 2025-2026 Philipp Kiemle <l10n.daphipz@fastmail.de>
+# SPDX-FileCopyrightText: 2025 Philipp Kiemle <l10n.daphipz@fastmail.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmanetworkmanagement_vpncui\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-01 00:45+0000\n"
-"PO-Revision-Date: 2026-09-28 18:28+0200\n"
+"POT-Creation-Date: 2025-11-17 11:54+0000\n"
+"PO-Revision-Date: 2025-11-29 17:39+0100\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -15,15 +15,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 26.08.1\n"
+"X-Generator: Lokalize 25.08.3\n"
 
-#: vpnc.cpp:70
+#: vpnc.cpp:73
+#, kde-format
+msgid "Error decrypting the obfuscated password"
+msgstr "Fehler bei der Entschlüsselung des verschleierten Passworts"
+
+#: vpnc.cpp:73
+#, kde-format
+msgid "Error"
+msgstr "Fehler"
+
+#: vpnc.cpp:118
 #, kde-format
 msgid "NetworkManager is missing support for Cisco Compatible VPN"
 msgstr ""
 "NetworkManager fehlt die Unterstützung für Cisco-compatible VPN-Verbindungen"
 
-#: vpnc.cpp:98
+#: vpnc.cpp:146
 #, kde-format
 msgid "%1: file could not be created"
 msgstr "%1: Datei kann nicht erstellt werden"
@@ -98,7 +108,7 @@ msgstr "Gruppenpasswort:"
 msgid ""
 "Enable hybrid authentication, i.e. use certificate in addition to password."
 msgstr ""
-"Hybride Authentifizierung aktivieren, d. h. Zertifikat zusätzlich zum "
+"Hybride Authentifizierung aktivieren, d. h. Zertifikat zusätzlich zum "
 "Passwort verwenden."
 
 #. i18n: ectx: property (text), widget (QCheckBox, useHybridAuth)
@@ -153,7 +163,7 @@ msgstr "Hersteller:"
 #: vpncadvanced.ui:60
 #, kde-format
 msgid "Vendor of your IPsec gateway."
-msgstr "Hersteller Ihres IPsec-Gateways."
+msgstr "Hersteller des IPsec-Gateways."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: vpncadvanced.ui:70
@@ -201,13 +211,13 @@ msgstr "Name der IKE-DH-Gruppe."
 #: vpncadvanced.ui:151
 #, kde-format
 msgid "Perfect Forward Secrecy:"
-msgstr "Perfect Forward Secrecy:"
+msgstr "Folgenlosigkeit:"
 
 #. i18n: ectx: property (toolTip), widget (QComboBox, pfs)
 #: vpncadvanced.ui:167
 #, kde-format
 msgid "Diffie-Hellman group to use for PFS."
-msgstr "Diffie-Hellman-Gruppe zur Verwendung für PFS."
+msgstr "Diffie-Hellman-Gruppe zur Verwendung mit PFS."
 
 #. i18n: ectx: property (text), widget (QLabel, label_7)
 #: vpncadvanced.ui:174
@@ -235,7 +245,7 @@ msgstr "Zufällig"
 #: vpncadvanced.ui:209
 #, kde-format
 msgid "Disable sending DPD packets (set timeout to 0)."
-msgstr "Keine DPD-Pakete senden (Zeitüberschreitung auf 0 setzen)."
+msgstr "Keine DPD-Pakete senden (setzt Zeitüberschreitung auf 0)."
 
 #. i18n: ectx: property (text), widget (QCheckBox, deadPeer)
 #: vpncadvanced.ui:212
@@ -282,19 +292,19 @@ msgstr "Schwach (DES-Verschlüsselung, mit Vorsicht verwenden)"
 #, kde-format
 msgctxt "VPNC encryption method"
 msgid "None (completely insecure)"
-msgstr "Keine (völlig unsicher)"
+msgstr "Keine (Vollständig unsicher)"
 
 #: vpncadvancedwidget.cpp:33
 #, kde-format
 msgctxt "NAT traversal method"
 msgid "NAT-T when available (default)"
-msgstr "NAT-T wenn verfügbar (Standard)"
+msgstr "NAT-T wen verfügbar (Standard)"
 
 #: vpncadvancedwidget.cpp:34
 #, kde-format
 msgctxt "NAT traversal method"
 msgid "NAT-T always"
-msgstr "NAT-T immer"
+msgstr "NAT-T Immer"
 
 #: vpncadvancedwidget.cpp:35
 #, kde-format
@@ -385,12 +395,6 @@ msgstr "Benutzername:"
 #, kde-format
 msgid "Group name."
 msgstr "Gruppenname"
-
-#~ msgid "Error decrypting the obfuscated password"
-#~ msgstr "Fehler bei der Entschlüsselung des verschleierten Passworts"
-
-#~ msgid "Error"
-#~ msgstr "Fehler"
 
 #~ msgid "*.pem *.crt *.cer"
 #~ msgstr "*.pem *.crt *.cer"

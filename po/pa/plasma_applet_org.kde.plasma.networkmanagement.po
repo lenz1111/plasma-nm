@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:48+0000\n"
+"POT-Creation-Date: 2025-12-18 00:45+0000\n"
 "PO-Revision-Date: 2023-12-26 09:17-0600\n"
 "Last-Translator: A S Alam <aalam@punlinux.org>\n"
 "Language-Team: Punjabi <kde-i18n-doc@kde.org>\n"
@@ -59,7 +59,7 @@ msgstr ""
 "ਮੌਜੂਦਾ ਡਾਊਨਲੋਡ ਸਪੀਡ %1 ਕਿਬੀਬਾਈਟ ਪ੍ਰਤੀ ਸਕਿੰਟ ਹੈ; ਮੌਜੂਦਾ ਅੱਪਲੋਡ ਸਪੀਡ %2 ਕਿਬੀਬਾਈਟ ਪ੍ਰਤੀ "
 "ਸਕਿੰਟ ਹੈ"
 
-#: ConnectionItem.qml:309
+#: ConnectionItem.qml:298
 #, fuzzy, kde-format
 #| msgid "Connected, ⬇ %1/s, ⬆ %2/s"
 msgctxt "Download and upload rates in some unit per second"
@@ -145,50 +145,50 @@ msgstr ""
 msgid "Copy"
 msgstr "ਕਾਪੀ ਕਰੋ"
 
-#: main.qml:39
+#: main.qml:32
 #, kde-format
 msgid "Networks"
 msgstr "ਨੈੱਟਵਰਕ"
 
-#: main.qml:48
+#: main.qml:41
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn off Airplane Mode"
 msgstr "ਏਅਰ-ਪਲੇਨ ਮੋਡ ਨੂੰ ਬੰਦ ਕਰਨ ਲਈ ਮਿਡਲ-ਕਲਿੱਕ ਕਰੋ"
 
-#: main.qml:50
+#: main.qml:43
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn on Airplane Mode"
 msgstr "ਏਅਰ-ਪਲੇਨ ਮੋਡ ਨੂੰ ਚਾਲੂ ਕਰਨ ਲਈ ਮਿਡਲ-ਕਲਿੱਕ ਕਰੋ"
 
-#: main.qml:78 Toolbar.qml:74
+#: main.qml:71 Toolbar.qml:82
 #, kde-format
 msgid "Enable Wi-Fi"
 msgstr "ਵਾਈ-ਫਾਈ ਸਮਰੱਥ ਕਰੋ"
 
-#: main.qml:89
+#: main.qml:82
 #, fuzzy, kde-format
 #| msgid "Enable Mobile Network"
 msgid "Enable Mobile Data"
 msgstr "ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਸਮਰੱਥ ਕਰੋ"
 
-#: main.qml:101
+#: main.qml:94
 #, kde-format
 msgid "Enable Airplane Mode"
 msgstr "ਏਅਰਪਲੇਨ ਮੋਡ ਸਮਰੱਥ ਕਰੋ"
 
-#: main.qml:113
+#: main.qml:106
 #, kde-format
 msgid "Open Network Login Page…"
 msgstr "ਨੈੱਟਵਰਕ ਲਾਗਇਨ ਸਫ਼ਾ ਖੋਲ੍ਹੋ…"
 
-#: main.qml:123
+#: main.qml:116
 #, kde-format
 msgid "&Configure Network Connections…"
 msgstr "…ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨਾਂ ਦੀ ਸੰਰਚਨਾ(&C)"
 
-#: PopupDialog.qml:58
+#: PopupDialog.qml:51
 #, kde-format
 msgctxt "@action:button"
 msgid "Return to Network Connections"
@@ -205,36 +205,36 @@ msgstr "ਹੋਰ ਡਿਵਾਈਸ ਤੋਂ \"%1\" ਨੈੱਟਵਰਕ ਨ�
 msgid "Wi-Fi password:"
 msgstr "ਕੁੰਜੀ ਪਾਸਵਰਡ:"
 
-#: Toolbar.qml:124
+#: Toolbar.qml:131
 #, fuzzy, kde-format
 #| msgid "Enable mobile network"
 msgid "Enable mobile data"
 msgstr "ਮੋਬਾਈਲ ਨੈੱਟਵਰਕ ਸਮਰੱਥ ਕਰੋ"
 
-#: Toolbar.qml:147
+#: Toolbar.qml:156
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth"
 msgstr "ਏਅਰਪਲੇਨ ਢੰਗ ਅਸਮਰੱਥ ਹੈ<nl/><nl/>ਇਹ ਵਾਈ-ਫਾਈ ਅਤੇ ਬਲੂਟੁੱਥ ਸਮਰੱਥ ਹੋਣਗੇ"
 
-#: Toolbar.qml:148
+#: Toolbar.qml:157
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth"
 msgstr "ਏਅਰਪਲੇਨ ਢੰਗ ਸਮਰੱਥ ਹੈ<nl/><nl/>ਇਹ ਵਾਈ-ਫਾਈ ਅਤੇ ਬਲੂਟੁੱਥ ਅਸਮਰੱਥ ਹੋਣਗੇ"
 
-#: Toolbar.qml:176
+#: Toolbar.qml:170
 #, kde-format
 msgid "Hotspot"
 msgstr "ਹਾਟਸਪਾਟ"
 
-#: Toolbar.qml:193
+#: Toolbar.qml:187
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cannot create a hotspot because Wi-Fi is disabled."
 msgstr ""
 
-#: Toolbar.qml:195
+#: Toolbar.qml:189
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -242,27 +242,27 @@ msgid ""
 "from the current Wi-Fi network or connect another wireless radio."
 msgstr ""
 
-#: Toolbar.qml:197
+#: Toolbar.qml:191
 #, fuzzy, kde-format
 #| msgid "Disable Hotspot"
 msgctxt "@info:tooltip"
 msgid "Disable Hotspot"
 msgstr "ਹਾਟਸਪਾਟ ਅਸਮਰੱਥ ਕਰੋ"
 
-#: Toolbar.qml:199
+#: Toolbar.qml:193
 #, fuzzy, kde-format
 #| msgid "Create Hotspot"
 msgctxt "@info:tooltip"
 msgid "Create Hotspot"
 msgstr "ਹਾਟ-ਸਪਾਟ ਬਣਾਓ"
 
-#: Toolbar.qml:227
+#: Toolbar.qml:221
 #, kde-format
 msgctxt "@action:button"
 msgid "Scan Wi-Fi QR Code"
 msgstr ""
 
-#: Toolbar.qml:232
+#: Toolbar.qml:226
 #, fuzzy, kde-format
 #| msgid ""
 #| "Scan this QR code with another device to connect to the \"%1\" network."
@@ -270,7 +270,7 @@ msgctxt "@info:tooltip"
 msgid "Scan QR Code to connect to a Wi-Fi network"
 msgstr "ਹੋਰ ਡਿਵਾਈਸ ਤੋਂ \"%1\" ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਲਈ ਇਹ QR ਕੋਡ ਸਕੈਨ ਕਰੋ।"
 
-#: Toolbar.qml:234
+#: Toolbar.qml:228
 #, fuzzy, kde-format
 #| msgid ""
 #| "Scan this QR code with another device to connect to the \"%1\" network."
@@ -280,7 +280,7 @@ msgid ""
 "network"
 msgstr "ਹੋਰ ਡਿਵਾਈਸ ਤੋਂ \"%1\" ਨੈੱਟਵਰਕ ਨਾਲ ਕਨੈਕਟ ਕਰਨ ਲਈ ਇਹ QR ਕੋਡ ਸਕੈਨ ਕਰੋ।"
 
-#: Toolbar.qml:253
+#: Toolbar.qml:247
 #, kde-format
 msgid "Configure network connections…"
 msgstr "…ਨੈੱਟਵਰਕ ਕਨੈਕਸ਼ਨਾਂ ਦੀ ਸੰਰਚਨਾ"

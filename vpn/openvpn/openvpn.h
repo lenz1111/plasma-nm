@@ -12,6 +12,7 @@
 
 #include "vpnuiplugin.h"
 
+#include <QTextStream>
 #include <QVariant>
 
 class Q_DECL_EXPORT OpenVpnUiPlugin : public VpnUiPlugin
@@ -27,6 +28,10 @@ public:
     QStringList supportedFileExtensions() const override;
     ImportResult importConnectionSettings(const QString &fileName) override;
     ExportResult exportConnectionSettings(const NetworkManager::ConnectionSettings::Ptr &connection, const QString &fileName) override;
+
+private:
+    QString saveFile(QTextStream &in, const QString &endTag, const QString &connectionName, const QString &fileName);
+    QString tryToCopyToCertificatesDirectory(const QString &connectionName, const QString &sourceFilePath);
 };
 
 #endif //  PLASMANM_OPENVPN_H
