@@ -115,6 +115,8 @@ void OpenVpnAuthWidget::readSecrets()
             }
         } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PASSWORD)) {
             addPasswordField(i18n("Password:"), secrets.value(QStringLiteral(NM_OPENVPN_KEY_PASSWORD)), QLatin1String(NM_OPENVPN_KEY_PASSWORD));
+        } else if  (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
+            addPasswordField(i18n("Password:"), secrets.value(QStringLiteral(NM_OPENVPN_KEY_CERTPASS)), QLatin1String(NM_OPENVPN_KEY_CERTPASS));
         }
 
         if (dataMap.contains(NM_OPENVPN_KEY_PROXY_SERVER) && !proxyType.testFlag(NetworkManager::Setting::NotRequired)) {

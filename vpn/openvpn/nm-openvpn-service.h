@@ -58,6 +58,9 @@
 #define NM_OPENVPN_KEY_REMOTE_CERT_TLS "remote-cert-tls"
 #define NM_OPENVPN_KEY_MAX_ROUTES "max-routes"
 
+#define NM_OPENVPN_KEY_PKCS11_ID                 "pkcs11-id"
+#define NM_OPENVPN_KEY_PKCS11_PROVIDERS          "pkcs11-providers"
+
 #define NM_OPENVPN_KEY_PASSWORD "password"
 #define NM_OPENVPN_KEY_CERTPASS "cert-pass"
 #define NM_OPENVPN_KEY_HTTP_PROXY_PASSWORD "http-proxy-password"
@@ -82,6 +85,7 @@
 #define NM_OPENVPN_CONTYPE_STATIC_KEY "static-key"
 #define NM_OPENVPN_CONTYPE_PASSWORD "password"
 #define NM_OPENVPN_CONTYPE_PASSWORD_TLS "password-tls"
+#define NM_OPENVPN_CONTYPE_PKCS11 "pkcs11"
 
 /* arguments of "--remote-cert-tls" */
 #define NM_OPENVPN_REM_CERT_TLS_CLIENT "client"
