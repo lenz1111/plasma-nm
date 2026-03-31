@@ -31,7 +31,8 @@ public:
             Certificates = 0,
             Psk,
             Password,
-            CertsPassword
+            CertsPassword,
+            Pkcs11
         };
     };
     class EnumKeyDirection
@@ -62,6 +63,8 @@ OpenVpnSettingWidget::OpenVpnSettingWidget(const NetworkManager::VpnSetting::Ptr
     d->ui.x509PassKeyPassword->setPasswordNotRequiredEnabled(true);
     d->ui.x509PassPassword->setPasswordOptionsEnabled(true);
     d->ui.x509PassPassword->setPasswordNotRequiredEnabled(true);
+    d->ui.pkcs11Pin->setPasswordOptionsEnabled(true);
+    d->ui.pkcs11Pin->setPasswordNotRequiredEnabled(false);
 
     // use requesters' urlSelected signals to set other requester's startDirs to save clicking
     // around the filesystem
@@ -74,6 +77,7 @@ OpenVpnSettingWidget::OpenVpnSettingWidget(const NetworkManager::VpnSetting::Ptr
         d->ui.x509PassCaFile,
         d->ui.x509PassCert,
         d->ui.x509PassKey,
+        d->ui.pkcs11CaFile
     };
     for (const KUrlRequester *requester : requesters) {
         connect(requester, &KUrlRequester::urlSelected, this, &OpenVpnSettingWidget::updateStartDir);
@@ -139,6 +143,11 @@ void OpenVpnSettingWidget::loadConfig(const NetworkManager::Setting::Ptr &settin
         d->ui.x509CaFile->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_CA]));
         d->ui.x509Cert->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_CERT]));
         d->ui.x509Key->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_KEY]));
+    } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
+        d->ui.cmbConnectionType->setCurrentIndex(Private::EnumConnectionType::Pkcs11);
+        d->ui.pkcs11CaFile->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_CA]));
+        d->ui.pkcs11Providers->setText(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]);
+        d->ui.pkcs11Id->setText(dataMap[NM_OPENVPN_KEY_PKCS11_ID]);
     }
 
     d->ui.gateway->setText(dataMap[NM_OPENVPN_KEY_REMOTE]);
@@ -156,6 +165,9 @@ void OpenVpnSettingWidget::loadConfig(const NetworkManager::Setting::Ptr &settin
         fillOnePasswordCombo(d->ui.x509PassPassword, type);
         type = (NetworkManager::Setting::SecretFlags)dataMap[NM_OPENVPN_KEY_CERTPASS "-flags"].toInt();
         fillOnePasswordCombo(d->ui.x509PassKeyPassword, type);
+    } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
+        type = (NetworkManager::Setting::SecretFlags)dataMap[NM_OPENVPN_KEY_CERTPASS "-flags"].toInt();
+        fillOnePasswordCombo(d->ui.pkcs11Pin, type);
     }
 
     loadSecrets(setting);
@@ -176,6 +188,8 @@ void OpenVpnSettingWidget::loadSecrets(const NetworkManager::Setting::Ptr &setti
         } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PASSWORD_TLS)) {
             d->ui.x509PassPassword->setText(secrets.value(NM_OPENVPN_KEY_PASSWORD));
             d->ui.x509PassKeyPassword->setText(secrets.value(NM_OPENVPN_KEY_CERTPASS));
+        } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
+            d->ui.pkcs11Pin->setText(secrets.value(NM_OPENVPN_KEY_CERTPASS));
         }
     }
 }
@@ -270,6 +284,21 @@ QVariantMap OpenVpnSettingWidget::setting() const
         }
         handleOnePasswordType(d->ui.x509PassPassword, QLatin1String(NM_OPENVPN_KEY_PASSWORD "-flags"), data);
         break;
+    case Private::EnumConnectionType::Pkcs11:
+        contype = QLatin1String(NM_OPENVPN_CONTYPE_PKCS11);
+        // ca
+        data.insert(QLatin1String(NM_OPENVPN_KEY_CA), d->ui.pkcs11CaFile->url().toLocalFile());
+        // pkcs11
+        data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), d->ui.pkcs11Providers->text());
+        data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), d->ui.pkcs11Id->text());
+        // key password
+        if (!d->ui.pkcs11Pin->text().isEmpty()) {
+            secretData.insert(QLatin1String(NM_OPENVPN_KEY_CERTPASS), d->ui.pkcs11Pin->text());
+        } else {
+            secretData.remove(QLatin1String(NM_OPENVPN_KEY_CERTPASS));
+        }
+        handleOnePasswordType(d->ui.pkcs11Pin, QLatin1String(NM_OPENVPN_KEY_CERTPASS "-flags"), data);
+        break;
     }
     data.insert(QLatin1String(NM_OPENVPN_KEY_CONNECTION_TYPE), contype);
 
@@ -283,7 +312,7 @@ void OpenVpnSettingWidget::updateStartDir(const QUrl &url)
 {
     QList<KUrlRequester *> requesters;
     requesters << d->ui.x509CaFile << d->ui.x509Cert << d->ui.x509Key << d->ui.pskSharedKey << d->ui.passCaFile << d->ui.x509PassCaFile << d->ui.x509PassCert
-               << d->ui.x509PassKey;
+               << d->ui.x509PassKey << d->ui.pkcs11CaFile;
     for (KUrlRequester *requester : std::as_const(requesters)) {
         requester->setStartDir(url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
     }
