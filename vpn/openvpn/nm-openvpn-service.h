@@ -76,6 +76,8 @@
 #define NM_OPENVPN_KEY_TUN_IPV6 "tun-ipv6"
 #define NM_OPENVPN_KEY_USERNAME "username"
 #define NM_OPENVPN_KEY_VERIFY_X509_NAME "verify-x509-name"
+#define NM_OPENVPN_KEY_PKCS11_ID "pkcs11-id"
+#define NM_OPENVPN_KEY_PKCS11_PROVIDERS "pkcs11-providers"
 
 #define NM_OPENVPN_KEY_PASSWORD "password"
 #define NM_OPENVPN_KEY_CERTPASS "cert-pass"
@@ -110,6 +112,7 @@
 #define NM_OPENVPN_CONTYPE_PASSWORD_TLS "password-tls"
 #define NM_OPENVPN_CONTYPE_STATIC_KEY "static-key"
 #define NM_OPENVPN_CONTYPE_TLS "tls"
+#define NM_OPENVPN_CONTYPE_PKCS11 "pkcs11"
 
 /* arguments of "--remote-cert-tls" */
 #define NM_OPENVPN_REM_CERT_TLS_CLIENT "client"
