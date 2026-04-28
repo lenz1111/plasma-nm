@@ -289,8 +289,16 @@ QVariantMap OpenVpnSettingWidget::setting() const
         // ca
         data.insert(QLatin1String(NM_OPENVPN_KEY_CA), d->ui.pkcs11CaFile->url().toLocalFile());
         // pkcs11
-        data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), d->ui.pkcs11Providers->text());
-        data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), d->ui.pkcs11Id->text());
+        if (!d->ui.pkcs11Providers->text().isEmpty()) {
+            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), d->ui.pkcs11Providers->text());
+        } else {
+            data.remove(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS));
+        }
+        if (!d->ui.pkcs11Id->text().isEmpty()) {
+            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), d->ui.pkcs11Id->text());
+        } else {
+            data.remove(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID));
+        }
         // key password
         if (!d->ui.pkcs11Pin->text().isEmpty()) {
             secretData.insert(QLatin1String(NM_OPENVPN_KEY_CERTPASS), d->ui.pkcs11Pin->text());
