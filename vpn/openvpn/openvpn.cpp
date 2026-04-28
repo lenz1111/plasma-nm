@@ -62,6 +62,8 @@ K_PLUGIN_CLASS_WITH_JSON(OpenVpnUiPlugin, "plasmanetworkmanagement_openvpnui.jso
 #define TLS_REMOTE_TAG "tls-remote"
 #define TUNMTU_TAG "tun-mtu"
 #define KEY_DIRECTION_TAG "key-direction"
+#define PKCS11_ID_TAG "pkcs11-id"
+#define PKCS11_PROVIDERS_TAG "pkcs11-providers"
 
 #define BEGIN_KEY_CA_TAG "<ca>"
 #define END_KEY_CA_TAG "</ca>"
@@ -261,7 +263,8 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
     const QString connType = dataMap.value(NM_OPENVPN_KEY_CONNECTION_TYPE);
     if (connType == NM_OPENVPN_CONTYPE_TLS //
         || connType == NM_OPENVPN_CONTYPE_PASSWORD //
-        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS) {
+        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS //
+        || connType == NM_OPENVPN_CONTYPE_PKCS11) {
         if (!dataMap[NM_OPENVPN_KEY_CA].isEmpty()) {
             cacert = dataMap[NM_OPENVPN_KEY_CA];
         }
@@ -296,7 +299,8 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
     if (connType == NM_OPENVPN_CONTYPE_TLS //
         || connType == NM_OPENVPN_CONTYPE_STATIC_KEY //
         || connType == NM_OPENVPN_CONTYPE_PASSWORD //
-        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS) {
+        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS //
+        || connType == NM_OPENVPN_CONTYPE_PKCS11) {
         line = QString(AUTH_USER_PASS_TAG) + '\n';
         expFile.write(line.toLatin1());
         if (!dataMap[NM_OPENVPN_KEY_TLS_REMOTE].isEmpty()) {
@@ -313,6 +317,16 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
         line = QString(SECRET_TAG) + " \"" + dataMap[NM_OPENVPN_KEY_STATIC_KEY] + '\"'
             + (dataMap[NM_OPENVPN_KEY_STATIC_KEY_DIRECTION].isEmpty() ? "\n" : (' ' + dataMap[NM_OPENVPN_KEY_STATIC_KEY_DIRECTION]) + '\n');
         expFile.write(line.toLatin1());
+    }
+    if (connType == NM_OPENVPN_CONTYPE_PKCS11) {
+        if (!dataMap[NM_OPENVPN_KEY_PKCS11_ID].isEmpty()) {
+            line = QString(PKCS11_ID_TAG) + " '" + dataMap[NM_OPENVPN_KEY_PKCS11_ID] + "'\n";
+            expFile.write(line.toLatin1());
+        }
+        if (!dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS].isEmpty()) {
+            line = QString(PKCS11_PROVIDERS_TAG) + ' ' + dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS] + '\n';
+            expFile.write(line.toLatin1());
+        }
     }
     if (!dataMap[NM_OPENVPN_KEY_RENEG_SECONDS].isEmpty()) {
         line = QString(RENEG_SEC_TAG) + ' ' + dataMap[NM_OPENVPN_KEY_RENEG_SECONDS] + '\n';
