@@ -146,8 +146,8 @@ void OpenVpnSettingWidget::loadConfig(const NetworkManager::Setting::Ptr &settin
     } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
         d->ui.cmbConnectionType->setCurrentIndex(Private::EnumConnectionType::Pkcs11);
         d->ui.pkcs11CaFile->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_CA]));
-        d->ui.pkcs11Providers->setText(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]);
-        d->ui.pkcs11Id->setText(dataMap[NM_OPENVPN_KEY_PKCS11_ID]);
+        d->ui.pkcs11Providers->setText(QString(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]).replace(QLatin1String("\\\\"), QLatin1String("\\")));
+        d->ui.pkcs11Id->setText(QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\")));
     }
 
     d->ui.gateway->setText(dataMap[NM_OPENVPN_KEY_REMOTE]);
@@ -290,12 +290,12 @@ QVariantMap OpenVpnSettingWidget::setting() const
         data.insert(QLatin1String(NM_OPENVPN_KEY_CA), d->ui.pkcs11CaFile->url().toLocalFile());
         // pkcs11
         if (!d->ui.pkcs11Providers->text().isEmpty()) {
-            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), d->ui.pkcs11Providers->text());
+            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), QString(d->ui.pkcs11Providers->text()).replace(QLatin1String("\\"), QLatin1String("\\\\")));
         } else {
             data.remove(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS));
         }
         if (!d->ui.pkcs11Id->text().isEmpty()) {
-            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), d->ui.pkcs11Id->text());
+            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), QString(d->ui.pkcs11Id->text()).replace(QLatin1String("\\"), QLatin1String("\\\\")));
         } else {
             data.remove(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID));
         }

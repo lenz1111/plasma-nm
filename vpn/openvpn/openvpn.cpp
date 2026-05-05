@@ -254,11 +254,17 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
 
     QString line;
     QString cacert, user_cert, private_key;
+    QString remote = dataMap[NM_OPENVPN_KEY_REMOTE];
+    QString port = dataMap[NM_OPENVPN_KEY_PORT];
+    int colonIdx = remote.lastIndexOf(QLatin1Char(':'));
+    if (colonIdx > 0) {
+        port = remote.mid(colonIdx + 1);
+        remote = remote.left(colonIdx);
+    }
 
     line = QString(CLIENT_TAG) + '\n';
     expFile.write(line.toLatin1());
-    line = QString(REMOTE_TAG) + ' ' + dataMap[NM_OPENVPN_KEY_REMOTE]
-        + (dataMap[NM_OPENVPN_KEY_PORT].isEmpty() ? "\n" : (' ' + dataMap[NM_OPENVPN_KEY_PORT]) + '\n');
+    line = QString(REMOTE_TAG) + ' ' + remote + (port.isEmpty() ? "\n" : (' ' + port + '\n'));
     expFile.write(line.toLatin1());
     const QString connType = dataMap.value(NM_OPENVPN_KEY_CONNECTION_TYPE);
     if (connType == NM_OPENVPN_CONTYPE_TLS //
@@ -299,10 +305,20 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
     if (connType == NM_OPENVPN_CONTYPE_TLS //
         || connType == NM_OPENVPN_CONTYPE_STATIC_KEY //
         || connType == NM_OPENVPN_CONTYPE_PASSWORD //
-        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS //
-        || connType == NM_OPENVPN_CONTYPE_PKCS11) {
+        || connType == NM_OPENVPN_CONTYPE_PASSWORD_TLS) {
         line = QString(AUTH_USER_PASS_TAG) + '\n';
         expFile.write(line.toLatin1());
+        if (!dataMap[NM_OPENVPN_KEY_TLS_REMOTE].isEmpty()) {
+            line = QString(TLS_REMOTE_TAG) + " \"" + dataMap[NM_OPENVPN_KEY_TLS_REMOTE] + "\"\n";
+            expFile.write(line.toLatin1());
+        }
+        if (!dataMap[NM_OPENVPN_KEY_TA].isEmpty()) {
+            line = QString(TLS_AUTH_TAG) + " \"" + dataMap[NM_OPENVPN_KEY_TA] + '\"'
+                + (dataMap[NM_OPENVPN_KEY_TA_DIR].isEmpty() ? "\n" : (' ' + dataMap[NM_OPENVPN_KEY_TA_DIR]) + '\n');
+            expFile.write(line.toLatin1());
+        }
+    }
+    if (connType == NM_OPENVPN_CONTYPE_PKCS11) {
         if (!dataMap[NM_OPENVPN_KEY_TLS_REMOTE].isEmpty()) {
             line = QString(TLS_REMOTE_TAG) + " \"" + dataMap[NM_OPENVPN_KEY_TLS_REMOTE] + "\"\n";
             expFile.write(line.toLatin1());
@@ -320,11 +336,11 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
     }
     if (connType == NM_OPENVPN_CONTYPE_PKCS11) {
         if (!dataMap[NM_OPENVPN_KEY_PKCS11_ID].isEmpty()) {
-            line = QString(PKCS11_ID_TAG) + " '" + dataMap[NM_OPENVPN_KEY_PKCS11_ID] + "'\n";
+            line = QString(PKCS11_ID_TAG) + " '" + QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\")) + "'\n";
             expFile.write(line.toLatin1());
         }
         if (!dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS].isEmpty()) {
-            line = QString(PKCS11_PROVIDERS_TAG) + ' ' + dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS] + '\n';
+            line = QString(PKCS11_PROVIDERS_TAG) + " '" + QString(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]).replace(QLatin1String("\\\\"), QLatin1String("\\")) + "'\n";
             expFile.write(line.toLatin1());
         }
     }
