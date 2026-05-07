@@ -655,7 +655,7 @@ You can specify multiple hosts for redundancy (use commas or spaces as delimiter
        <item row="1" column="0">
         <widget class="QLabel" name="textLabel5_2_2">
          <property name="text">
-          <string>PKCS#11 Providers:</string>
+          <string>PKCS#11 Provider:</string>
          </property>
          <property name="wordWrap">
           <bool>false</bool>
@@ -666,12 +666,15 @@ You can specify multiple hosts for redundancy (use commas or spaces as delimiter
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QLineEdit" name="pkcs11Providers">
-         <property name="toolTip">
-          <string>Path(s) to PKCS#11 provider libraries to load. Multiple providers may be specified if supported. These libraries enable OpenVPN to access cryptographic tokens such as smart cards or HSMs.</string>
+        <widget class="QComboBox" name="pkcs11Providers">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-         <property name="clearButtonEnabled">
-          <bool>true</bool>
+         <property name="toolTip">
+          <string>PKCS#11 provider library path.</string>
          </property>
         </widget>
        </item>
@@ -689,12 +692,15 @@ You can specify multiple hosts for redundancy (use commas or spaces as delimiter
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QLineEdit" name="pkcs11Id">
-         <property name="toolTip">
-          <string>Identifier of the PKCS#11 object (typically a certificate or key) to be used for authentication. This value is passed to OpenVPN to select the token object.</string>
+        <widget class="QComboBox" name="pkcs11Id">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
          </property>
-         <property name="clearButtonEnabled">
-          <bool>true</bool>
+         <property name="toolTip">
+          <string>PKCS#11 certificate identifier.</string>
          </property>
         </widget>
        </item>
@@ -785,8 +791,6 @@ You can specify multiple hosts for redundancy (use commas or spaces as delimiter
   <tabstop>x509Cert</tabstop>
   <tabstop>x509Key</tabstop>
   <tabstop>x509KeyPassword</tabstop>
-  <tabstop>pkcs11Providers</tabstop>
-  <tabstop>pkcs11Id</tabstop>
   <tabstop>pkcs11Pin</tabstop>
   <tabstop>pskSharedKey</tabstop>
   <tabstop>cmbKeyDirection</tabstop>
