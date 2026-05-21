@@ -25,6 +25,22 @@
 
 #include "nm-openvpn-service.h"
 
+static QString pkcs11CertLabel(pkcs11h_certificate_id_t cert_id)
+{
+    QString token = QString::fromUtf8(cert_id->token_id->label).trimmed();
+    QString hex;
+    for (size_t j = 0; j < cert_id->attrCKA_ID_size; j++)
+        hex += QString::asprintf("%02X", (unsigned char)cert_id->attrCKA_ID[j]);
+
+    if (!token.isEmpty() && !hex.isEmpty())
+        return QStringLiteral("%1 (%2)").arg(token, hex);
+    if (!token.isEmpty())
+        return token;
+    if (!hex.isEmpty())
+        return hex;
+    return QString();
+}
+
 static void pkcs11PopulateProviders(QComboBox *combo)
 {
     CK_FUNCTION_LIST **modules = p11_kit_modules_load_and_initialize(0);
@@ -85,22 +101,10 @@ static void pkcs11PopulateIds(QComboBox *combo, const QString &providerPath)
                 continue;
             }
 
-            QString token = QString::fromUtf8(cur->certificate_id->token_id->label).trimmed();
-            QString hex;
-            for (size_t j = 0; j < cur->certificate_id->attrCKA_ID_size; j++)
-                hex += QString::asprintf("%02X", (unsigned char)cur->certificate_id->attrCKA_ID[j]);
+            QString id = QString::fromUtf8(ser);
+            QString label = pkcs11CertLabel(cur->certificate_id);
 
-            QString label;
-            if (!token.isEmpty() && !hex.isEmpty())
-                label = QStringLiteral("%1 (%2)").arg(token, hex);
-            else if (!token.isEmpty())
-                label = token;
-            else if (!hex.isEmpty())
-                label = hex;
-            else
-                label = QString::fromUtf8(ser);
-
-            combo->addItem(label, QString::fromUtf8(ser));
+            combo->addItem(label.isEmpty() ? id : label, id);
             free(ser);
         }
         pkcs11h_certificate_freeCertificateIdList(certs);
@@ -256,26 +260,19 @@ void OpenVpnSettingWidget::loadConfig(const NetworkManager::Setting::Ptr &settin
             QString id = QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\"));
             int idIdx = d->ui.pkcs11Id->findData(id);
             if (idIdx < 0) {
-                /* Device may be unplugged — deserialize to show friendly label */
+                /* ID not found in enumerated list — device may be unplugged.
+                 * Deserialize to show a friendly label. */
                 QString display = id;
                 pkcs11h_certificate_id_t cert_id = NULL;
 
                 if (pkcs11h_initialize() == CKR_OK) {
                     if (pkcs11h_certificate_deserializeCertificateId(&cert_id, id.toUtf8().constData()) == CKR_OK
                         && cert_id) {
-                        QString hex;
-                        for (size_t j = 0; j < cert_id->attrCKA_ID_size; j++)
-                            hex += QString::asprintf("%02X", (unsigned char)cert_id->attrCKA_ID[j]);
-
-                        if (cert_id->token_id && cert_id->token_id->label[0] && !hex.isEmpty())
-                            display = QString::fromUtf8(cert_id->token_id->label) + QStringLiteral(" (") + hex + QStringLiteral(")");
-                        else if (cert_id->token_id && cert_id->token_id->label[0])
-                            display = QString::fromUtf8(cert_id->token_id->label);
-                        else if (!hex.isEmpty())
-                            display = hex;
-                    }
-                    if (cert_id)
+                        QString label = pkcs11CertLabel(cert_id);
+                        if (!label.isEmpty())
+                            display = label;
                         pkcs11h_certificate_freeCertificateId(cert_id);
+                    }
                     pkcs11h_terminate();
                 }
 
