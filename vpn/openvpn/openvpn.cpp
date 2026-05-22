@@ -63,7 +63,6 @@ K_PLUGIN_CLASS_WITH_JSON(OpenVpnUiPlugin, "plasmanetworkmanagement_openvpnui.jso
 #define TUNMTU_TAG "tun-mtu"
 #define KEY_DIRECTION_TAG "key-direction"
 #define PKCS11_ID_TAG "pkcs11-id"
-#define PKCS11_PROVIDERS_TAG "pkcs11-providers"
 
 #define BEGIN_KEY_CA_TAG "<ca>"
 #define END_KEY_CA_TAG "</ca>"
@@ -337,10 +336,6 @@ VpnUiPlugin::ExportResult OpenVpnUiPlugin::exportConnectionSettings(const Networ
     if (connType == NM_OPENVPN_CONTYPE_PKCS11) {
         if (!dataMap[NM_OPENVPN_KEY_PKCS11_ID].isEmpty()) {
             line = QString(PKCS11_ID_TAG) + " '" + QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\")) + "'\n";
-            expFile.write(line.toLatin1());
-        }
-        if (!dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS].isEmpty()) {
-            line = QString(PKCS11_PROVIDERS_TAG) + " '" + QString(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]).replace(QLatin1String("\\\\"), QLatin1String("\\")) + "'\n";
             expFile.write(line.toLatin1());
         }
     }
