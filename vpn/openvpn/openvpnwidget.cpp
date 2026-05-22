@@ -250,36 +250,48 @@ void OpenVpnSettingWidget::loadConfig(const NetworkManager::Setting::Ptr &settin
     } else if (cType == QLatin1String(NM_OPENVPN_CONTYPE_PKCS11)) {
         d->ui.cmbConnectionType->setCurrentIndex(Private::EnumConnectionType::Pkcs11);
         d->ui.pkcs11CaFile->setUrl(QUrl::fromLocalFile(dataMap[NM_OPENVPN_KEY_CA]));
-        QString prov = QString(dataMap[NM_OPENVPN_KEY_PKCS11_PROVIDERS]).replace(QLatin1String("\\\\"), QLatin1String("\\"));
-        int provIdx = d->ui.pkcs11Providers->findData(prov);
-        if (provIdx >= 0) {
+        QString id = QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\"));
+        if (!id.isEmpty()) {
+            bool idFound = false;
+            // Try each provider to find which one has this ID
             d->ui.pkcs11Providers->blockSignals(true);
-            d->ui.pkcs11Providers->setCurrentIndex(provIdx);
+            for (int i = 0; i < d->ui.pkcs11Providers->count(); i++) {
+                QString path = d->ui.pkcs11Providers->itemData(i).toString();
+                if (path.isEmpty())
+                    continue;
+                d->ui.pkcs11Providers->setCurrentIndex(i);
+                pkcs11PopulateIds(d->ui.pkcs11Id, path);
+                int idIdx = d->ui.pkcs11Id->findData(id);
+                if (idIdx >= 0) {
+                    d->ui.pkcs11Id->setCurrentIndex(idIdx);
+                    idFound = true;
+                    break;
+                }
+            }
             d->ui.pkcs11Providers->blockSignals(false);
-            pkcs11PopulateIds(d->ui.pkcs11Id, prov);
-            QString id = QString(dataMap[NM_OPENVPN_KEY_PKCS11_ID]).replace(QLatin1String("\\\\"), QLatin1String("\\"));
-            int idIdx = d->ui.pkcs11Id->findData(id);
-            if (idIdx < 0) {
-                /* ID not found in enumerated list — device may be unplugged.
-                 * Deserialize to show a friendly label. */
+            if (!idFound) {
+                // Device may be unplugged — show friendly name
                 QString display = id;
                 pkcs11h_certificate_id_t cert_id = NULL;
-
+                bool provAdded = false;
                 if (pkcs11h_initialize() == CKR_OK) {
-                    if (pkcs11h_certificate_deserializeCertificateId(&cert_id, id.toUtf8().constData()) == CKR_OK
-                        && cert_id) {
+                    if (pkcs11h_certificate_deserializeCertificateId(&cert_id, id.toUtf8().constData()) == CKR_OK && cert_id) {
                         QString label = pkcs11CertLabel(cert_id);
                         if (!label.isEmpty())
                             display = label;
+                        if (cert_id->token_id) {
+                            d->ui.pkcs11Providers->addItem(QString::fromUtf8(cert_id->token_id->model));
+                            provAdded = true;
+                        }
                         pkcs11h_certificate_freeCertificateId(cert_id);
                     }
                     pkcs11h_terminate();
                 }
-
+                if (provAdded)
+                    d->ui.pkcs11Providers->setCurrentIndex(d->ui.pkcs11Providers->count() - 1);
                 d->ui.pkcs11Id->addItem(display, id);
-                idIdx = d->ui.pkcs11Id->count() - 1;
+                d->ui.pkcs11Id->setCurrentIndex(d->ui.pkcs11Id->count() - 1);
             }
-            d->ui.pkcs11Id->setCurrentIndex(idIdx);
         }
     }
 
@@ -422,11 +434,6 @@ QVariantMap OpenVpnSettingWidget::setting() const
         // ca
         data.insert(QLatin1String(NM_OPENVPN_KEY_CA), d->ui.pkcs11CaFile->url().toLocalFile());
         // pkcs11
-        if (!d->ui.pkcs11Providers->currentData().toString().isEmpty()) {
-            data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS), QString(d->ui.pkcs11Providers->currentData().toString()).replace(QLatin1String("\\"), QLatin1String("\\\\")));
-        } else {
-            data.remove(QLatin1String(NM_OPENVPN_KEY_PKCS11_PROVIDERS));
-        }
         if (!d->ui.pkcs11Id->currentData().toString().isEmpty()) {
             data.insert(QLatin1String(NM_OPENVPN_KEY_PKCS11_ID), QString(d->ui.pkcs11Id->currentData().toString()).replace(QLatin1String("\\"), QLatin1String("\\\\")));
         } else {

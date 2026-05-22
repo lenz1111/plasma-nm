@@ -59,7 +59,6 @@
 #define NM_OPENVPN_KEY_MAX_ROUTES "max-routes"
 
 #define NM_OPENVPN_KEY_PKCS11_ID                 "pkcs11-id"
-#define NM_OPENVPN_KEY_PKCS11_PROVIDERS          "pkcs11-providers"
 
 #define NM_OPENVPN_KEY_PASSWORD "password"
 #define NM_OPENVPN_KEY_CERTPASS "cert-pass"
