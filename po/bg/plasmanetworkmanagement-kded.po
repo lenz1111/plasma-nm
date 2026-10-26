@@ -1,13 +1,13 @@
 # Copyright (C) 2023 This file is copyright:
 # This file is distributed under the same license as the plasma-nm package.
 #
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Mincho Kondarev <mkondarev@yahoo.de>
+# SPDX-FileCopyrightText: 2022-2026 Mincho Kondarev <mkondarev@yahoo.de>
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-28 00:46+0000\n"
-"PO-Revision-Date: 2025-07-29 21:45+0200\n"
+"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"PO-Revision-Date: 2026-05-28 21:34+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 25.07.70\n"
+"X-Generator: Lokalize 26.04.1\n"
 
 #: bluetoothmonitor.cpp:67
 #, kde-format
@@ -577,8 +577,9 @@ msgstr "Въведете паролата за връзката „%1“:"
 
 #: passworddialog.cpp:114
 #, kde-format
-msgid "%1 password dialog"
-msgstr "%1 диалогов прозорец за парола"
+msgctxt "@title:dialog The placeholder is the type of connection, e.g. 'Wi-Fi'"
+msgid "%1 Password"
+msgstr "%1 Парола"
 
 #: passworddialog.cpp:121
 #, kde-format
@@ -599,8 +600,8 @@ msgstr "VPN тайни (%1) диалогов прозорец"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordDialog)
 #: passworddialog.ui:26
 #, kde-format
-msgid "Password dialog"
-msgstr "Прозорец за парола"
+msgid "Connection Password"
+msgstr "Парола на връзката"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPass)
 #: passworddialog.ui:92
@@ -777,7 +778,7 @@ msgstr "PUK код:"
 msgid "Re-enter PIN code:"
 msgstr "Въведете отново ПИН код:"
 
-#: secretagent.cpp:408
+#: secretagent.cpp:426
 #, kde-format
 msgid "Authentication to %1 failed. Wrong password?"
 msgstr "Удостоверяването на %1 е неуспешно. Грешна парола?"

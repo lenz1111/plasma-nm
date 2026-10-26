@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 00:45+0000\n"
+"POT-Creation-Date: 2026-09-10 00:48+0000\n"
 "PO-Revision-Date: 2019-12-29 06:50+0000\n"
 "Last-Translator: Subin Siby <subins2000@gmail.com>\n"
 "Language-Team: Swathanthra|സ്വതന്ത്ര Malayalam|മലയാളം Computing|കമ്പ്യൂട്ടിങ്ങ് <smc."
@@ -58,7 +58,7 @@ msgid ""
 "%2 kibibytes per second"
 msgstr ""
 
-#: ConnectionItem.qml:298
+#: ConnectionItem.qml:309
 #, kde-format
 msgctxt "Download and upload rates in some unit per second"
 msgid "↓ %1/s, ↑ %2/s"
@@ -139,52 +139,52 @@ msgstr ""
 msgid "Copy"
 msgstr "പകര്‍ത്തുക"
 
-#: main.qml:32
+#: main.qml:39
 #, kde-format
 msgid "Networks"
 msgstr "ശൃംഖലകൾ"
 
-#: main.qml:41
+#: main.qml:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn off Airplane Mode"
 msgstr ""
 
-#: main.qml:43
+#: main.qml:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn on Airplane Mode"
 msgstr ""
 
-#: main.qml:71 Toolbar.qml:82
+#: main.qml:78 Toolbar.qml:74
 #, kde-format
 msgid "Enable Wi-Fi"
 msgstr ""
 
-#: main.qml:82
+#: main.qml:89
 #, fuzzy, kde-format
 #| msgid "Enable mobile network"
 msgid "Enable Mobile Data"
 msgstr "മൊബൈൽ ശൃംഖല പ്രവര്‍ത്തനസജ്ജമാക്കുക"
 
-#: main.qml:94
+#: main.qml:101
 #, kde-format
 msgid "Enable Airplane Mode"
 msgstr ""
 
-#: main.qml:106
+#: main.qml:113
 #, fuzzy, kde-format
 #| msgid "Open Network Login Page..."
 msgid "Open Network Login Page…"
 msgstr "ശൃംഖലയുടെ പ്രവേശന താള്‍ തുറക്കുക..."
 
-#: main.qml:116
+#: main.qml:123
 #, fuzzy, kde-format
 #| msgid "Configure network connections..."
 msgid "&Configure Network Connections…"
 msgstr "ശൃംഖലയുടെ ബന്ധങ്ങള്‍ ക്രമീകരിക്കുക..."
 
-#: PopupDialog.qml:50
+#: PopupDialog.qml:58
 #, fuzzy, kde-format
 #| msgid "Configure network connections..."
 msgctxt "@action:button"
@@ -201,36 +201,36 @@ msgstr ""
 msgid "Wi-Fi password:"
 msgstr ""
 
-#: Toolbar.qml:131
+#: Toolbar.qml:124
 #, fuzzy, kde-format
 #| msgid "Enable mobile network"
 msgid "Enable mobile data"
 msgstr "മൊബൈൽ ശൃംഖല പ്രവര്‍ത്തനസജ്ജമാക്കുക"
 
-#: Toolbar.qml:156
+#: Toolbar.qml:147
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth"
 msgstr ""
 
-#: Toolbar.qml:157
+#: Toolbar.qml:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth"
 msgstr ""
 
-#: Toolbar.qml:170
+#: Toolbar.qml:176
 #, kde-format
 msgid "Hotspot"
 msgstr ""
 
-#: Toolbar.qml:187
+#: Toolbar.qml:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cannot create a hotspot because Wi-Fi is disabled."
 msgstr ""
 
-#: Toolbar.qml:189
+#: Toolbar.qml:195
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -238,31 +238,31 @@ msgid ""
 "from the current Wi-Fi network or connect another wireless radio."
 msgstr ""
 
-#: Toolbar.qml:191
+#: Toolbar.qml:197
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Disable Hotspot"
 msgstr ""
 
-#: Toolbar.qml:193
+#: Toolbar.qml:199
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Create Hotspot"
 msgstr ""
 
-#: Toolbar.qml:221
+#: Toolbar.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Scan Wi-Fi QR Code"
 msgstr ""
 
-#: Toolbar.qml:226
+#: Toolbar.qml:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scan QR Code to connect to a Wi-Fi network"
 msgstr ""
 
-#: Toolbar.qml:228
+#: Toolbar.qml:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -270,7 +270,7 @@ msgid ""
 "network"
 msgstr ""
 
-#: Toolbar.qml:247
+#: Toolbar.qml:253
 #, fuzzy, kde-format
 #| msgid "Configure network connections..."
 msgid "Configure network connections…"

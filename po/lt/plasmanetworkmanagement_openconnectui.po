@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:54+0000\n"
-"PO-Revision-Date: 2025-11-19 20:18+0200\n"
+"POT-Creation-Date: 2026-06-19 00:46+0000\n"
+"PO-Revision-Date: 2026-10-09 18:16+0300\n"
 "Last-Translator: Moo <<>>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: openconnectauth.cpp:345
 #, kde-format
@@ -64,7 +64,7 @@ msgstr "OpenConnect VPN tapatybės nustatymas"
 msgid "VPN Host"
 msgstr "VPN mazgas"
 
-#. i18n: ectx: property (toolTip), widget (QPushButton, btnConnect)
+#. i18n: ectx: property (text), widget (QPushButton, btnConnect)
 #: openconnectauth.ui:81
 #, kde-format
 msgid "Connect"
@@ -166,7 +166,7 @@ msgstr "Naudotojo agentas:"
 #: openconnectprop.ui:96
 #, kde-format
 msgid "CSD Wrapper Script:"
-msgstr "CSD Wrapper scenarijus:"
+msgstr "CSD įvynioklio scenarijus:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkAllowTrojan)
 #: openconnectprop.ui:106
@@ -268,7 +268,7 @@ msgstr "Apple iOS"
 #: openconnectprop.ui:226
 #, kde-format
 msgid "Reported Version"
-msgstr "Pranešama versija"
+msgstr "Perduodama versija"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: openconnectprop.ui:236
@@ -280,20 +280,25 @@ msgstr "Liudijimo tapatybės nustatymas"
 #: openconnectprop.ui:242
 #, kde-format
 msgid "Machine Certificate:"
-msgstr "Mašinos liudijimas:"
+msgstr "Kompiuterio liudijimas:"
 
 #. i18n: ectx: property (text), widget (QLabel, leMcaPrivateKeyLabel)
-#. i18n: ectx: property (text), widget (QLabel, label_6)
-#: openconnectprop.ui:261 openconnectprop.ui:299
+#: openconnectprop.ui:261
 #, kde-format
-msgid "Private Key:"
-msgstr "Privatusis raktas:"
+msgid "Machine Private Key:"
+msgstr "Kompiuterio privatusis raktas:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: openconnectprop.ui:280
 #, kde-format
 msgid "User Certificate:"
 msgstr "Naudotojo liudijimas:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_6)
+#: openconnectprop.ui:299
+#, kde-format
+msgid "User Private Key:"
+msgstr "Naudotojo privatusis raktas:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, chkUseFsid)
 #: openconnectprop.ui:318

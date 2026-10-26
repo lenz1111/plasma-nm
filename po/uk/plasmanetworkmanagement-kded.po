@@ -3,13 +3,13 @@
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2022, 2023, 2024, 2025.
+# Yuri Chornoivan <yurchor@ukr.net>, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2022, 2023, 2024, 2025, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasmanetworkmanagement-kded\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-28 00:46+0000\n"
-"PO-Revision-Date: 2025-07-29 09:53+0300\n"
+"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"PO-Revision-Date: 2026-05-16 11:31+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -587,8 +587,9 @@ msgstr "Будь ласка, введіть пароль для встановл
 
 #: passworddialog.cpp:114
 #, kde-format
-msgid "%1 password dialog"
-msgstr "Вікно для введення пароля %1"
+msgctxt "@title:dialog The placeholder is the type of connection, e.g. 'Wi-Fi'"
+msgid "%1 Password"
+msgstr "Пароль %1"
 
 #: passworddialog.cpp:121
 #, kde-format
@@ -609,8 +610,8 @@ msgstr "Вікно ключів до VPN (%1)"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordDialog)
 #: passworddialog.ui:26
 #, kde-format
-msgid "Password dialog"
-msgstr "Вікно для введення пароля"
+msgid "Connection Password"
+msgstr "Пароль з'єднання"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPass)
 #: passworddialog.ui:92
@@ -784,10 +785,16 @@ msgstr "PUK-код:"
 msgid "Re-enter PIN code:"
 msgstr "Вкажіть PIN-код ще раз:"
 
-#: secretagent.cpp:408
+#: secretagent.cpp:426
 #, kde-format
 msgid "Authentication to %1 failed. Wrong password?"
 msgstr "Не вдалося пройти розпізнавання на %1. Не той пароль?"
+
+#~ msgid "%1 password dialog"
+#~ msgstr "Вікно для введення пароля %1"
+
+#~ msgid "Password dialog"
+#~ msgstr "Вікно для введення пароля"
 
 #~| msgid "Provide the password for the wireless network '%1':"
 #~ msgid ""

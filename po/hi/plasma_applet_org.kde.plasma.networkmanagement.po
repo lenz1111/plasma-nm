@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 00:45+0000\n"
+"POT-Creation-Date: 2026-09-10 00:48+0000\n"
 "PO-Revision-Date: 2024-12-15 17:37+0530\n"
 "Last-Translator: Kali <EMAIL@ADDRESS>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
@@ -58,7 +58,7 @@ msgstr ""
 "वर्तमान डाउनलोड गति %1 किबिबाइट प्रति सेकंड है; वर्तमान अपलोड गति %2 किबिबाइट प्रति "
 "सेकंड है"
 
-#: ConnectionItem.qml:298
+#: ConnectionItem.qml:309
 #, fuzzy, kde-format
 #| msgid "Connected, ↓ %1/s, ↑ %2/s"
 msgctxt "Download and upload rates in some unit per second"
@@ -143,50 +143,50 @@ msgstr ""
 msgid "Copy"
 msgstr "प्रतिलिपि"
 
-#: main.qml:32
+#: main.qml:39
 #, kde-format
 msgid "Networks"
 msgstr "नेटवर्क"
 
-#: main.qml:41
+#: main.qml:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn off Airplane Mode"
 msgstr "एयरप्लेन मोड को बंद करने के लिए मध्य-क्लिक करें"
 
-#: main.qml:43
+#: main.qml:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn on Airplane Mode"
 msgstr "एयरप्लेन मोड चालू करने के लिए मध्य-क्लिक करें"
 
-#: main.qml:71 Toolbar.qml:82
+#: main.qml:78 Toolbar.qml:74
 #, kde-format
 msgid "Enable Wi-Fi"
 msgstr "वाई-फाई सक्षम करें"
 
-#: main.qml:82
+#: main.qml:89
 #, fuzzy, kde-format
 #| msgid "Enable Mobile Network"
 msgid "Enable Mobile Data"
 msgstr "मोबाइल नेटवर्क सक्षम करें"
 
-#: main.qml:94
+#: main.qml:101
 #, kde-format
 msgid "Enable Airplane Mode"
 msgstr "हवाई जहाज मोड सक्षम करें"
 
-#: main.qml:106
+#: main.qml:113
 #, kde-format
 msgid "Open Network Login Page…"
 msgstr "नेटवर्क लॉगिन पेज खोलें…"
 
-#: main.qml:116
+#: main.qml:123
 #, kde-format
 msgid "&Configure Network Connections…"
 msgstr "&नेटवर्क कनेक्शन कॉन्फ़िगर करें…"
 
-#: PopupDialog.qml:50
+#: PopupDialog.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Return to Network Connections"
@@ -202,36 +202,36 @@ msgstr "\"%1\" नेटवर्क से कनेक्ट करने क�
 msgid "Wi-Fi password:"
 msgstr ""
 
-#: Toolbar.qml:131
+#: Toolbar.qml:124
 #, fuzzy, kde-format
 #| msgid "Enable mobile network"
 msgid "Enable mobile data"
 msgstr "मोबाइल नेटवर्क सक्षम करें"
 
-#: Toolbar.qml:156
+#: Toolbar.qml:147
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth"
 msgstr "एयरप्लेन मोड अक्षम करें<nl/><nl/>इससे वाई-फाई और ब्लूटूथ सक्षम हो जाएगा"
 
-#: Toolbar.qml:157
+#: Toolbar.qml:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth"
 msgstr "एयरप्लेन मोड सक्षम करें<nl/><nl/>इससे वाई-फाई और ब्लूटूथ अक्षम हो जाएगा"
 
-#: Toolbar.qml:170
+#: Toolbar.qml:176
 #, kde-format
 msgid "Hotspot"
 msgstr "हॉटस्पॉट"
 
-#: Toolbar.qml:187
+#: Toolbar.qml:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cannot create a hotspot because Wi-Fi is disabled."
 msgstr ""
 
-#: Toolbar.qml:189
+#: Toolbar.qml:195
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -239,27 +239,27 @@ msgid ""
 "from the current Wi-Fi network or connect another wireless radio."
 msgstr ""
 
-#: Toolbar.qml:191
+#: Toolbar.qml:197
 #, fuzzy, kde-format
 #| msgid "Disable Hotspot"
 msgctxt "@info:tooltip"
 msgid "Disable Hotspot"
 msgstr "हॉटस्पॉट अक्षम करें"
 
-#: Toolbar.qml:193
+#: Toolbar.qml:199
 #, fuzzy, kde-format
 #| msgid "Create Hotspot"
 msgctxt "@info:tooltip"
 msgid "Create Hotspot"
 msgstr "हॉटस्पॉट बनाएं"
 
-#: Toolbar.qml:221
+#: Toolbar.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Scan Wi-Fi QR Code"
 msgstr ""
 
-#: Toolbar.qml:226
+#: Toolbar.qml:232
 #, fuzzy, kde-format
 #| msgid ""
 #| "Scan this QR code with another device to connect to the \"%1\" network."
@@ -267,7 +267,7 @@ msgctxt "@info:tooltip"
 msgid "Scan QR Code to connect to a Wi-Fi network"
 msgstr "\"%1\" नेटवर्क से कनेक्ट करने के लिए इस QR कोड को किसी अन्य डिवाइस से स्कैन करें।"
 
-#: Toolbar.qml:228
+#: Toolbar.qml:234
 #, fuzzy, kde-format
 #| msgid ""
 #| "Scan this QR code with another device to connect to the \"%1\" network."
@@ -277,7 +277,7 @@ msgid ""
 "network"
 msgstr "\"%1\" नेटवर्क से कनेक्ट करने के लिए इस QR कोड को किसी अन्य डिवाइस से स्कैन करें।"
 
-#: Toolbar.qml:247
+#: Toolbar.qml:253
 #, kde-format
 msgid "Configure network connections…"
 msgstr "नेटवर्क कनेक्शन कॉन्फ़िगर करें…"

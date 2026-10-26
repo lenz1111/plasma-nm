@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma_applet_org.kde.plasma.networkmanagement\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-12 00:45+0000\n"
+"POT-Creation-Date: 2026-09-10 00:48+0000\n"
 "PO-Revision-Date: 2025-11-09 08:24+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
@@ -61,7 +61,7 @@ msgstr ""
 "מהירות ההורדה הנוכחית היא %1 קיביבתים לשנייה, מהירות ההעלאה הנוכחית היא %2 "
 "קיביבתים לשנייה"
 
-#: ConnectionItem.qml:298
+#: ConnectionItem.qml:309
 #, kde-format
 msgctxt "Download and upload rates in some unit per second"
 msgid "↓ %1/s, ↑ %2/s"
@@ -142,49 +142,49 @@ msgstr "יש להפעיל נתונים סלולריים כדי לחפש רשתו
 msgid "Copy"
 msgstr "העתקה"
 
-#: main.qml:32
+#: main.qml:39
 #, kde-format
 msgid "Networks"
 msgstr "רשתות"
 
-#: main.qml:41
+#: main.qml:48
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn off Airplane Mode"
 msgstr "לחיצה אמצעית לכיבוי מצב טיסה"
 
-#: main.qml:43
+#: main.qml:50
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Middle-click to turn on Airplane Mode"
 msgstr "לחיצה אמצעית להפעלת מצב טיסה"
 
-#: main.qml:71 Toolbar.qml:82
+#: main.qml:78 Toolbar.qml:74
 #, kde-format
 msgid "Enable Wi-Fi"
 msgstr "הפעלת רשת אלחוטית"
 
-#: main.qml:82
+#: main.qml:89
 #, kde-format
 msgid "Enable Mobile Data"
 msgstr "הפעלת נתונים סלולריים"
 
-#: main.qml:94
+#: main.qml:101
 #, kde-format
 msgid "Enable Airplane Mode"
 msgstr "הפעלת מצב טיסה"
 
-#: main.qml:106
+#: main.qml:113
 #, kde-format
 msgid "Open Network Login Page…"
 msgstr "פתיחת עמוד הכניסה לרשת…"
 
-#: main.qml:116
+#: main.qml:123
 #, kde-format
 msgid "&Configure Network Connections…"
 msgstr "ה&גדרת חיבורי רשת…"
 
-#: PopupDialog.qml:50
+#: PopupDialog.qml:58
 #, kde-format
 msgctxt "@action:button"
 msgid "Return to Network Connections"
@@ -200,35 +200,35 @@ msgstr "סריקת ה־QR הזה במכשיר אחר תאפשר לחבר אות�
 msgid "Wi-Fi password:"
 msgstr "סיסמת רשת אלחוטית:"
 
-#: Toolbar.qml:131
+#: Toolbar.qml:124
 #, kde-format
 msgid "Enable mobile data"
 msgstr "הפעלת נתונים סלולריים"
 
-#: Toolbar.qml:156
+#: Toolbar.qml:147
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Disable airplane mode<nl/><nl/>This will enable Wi-Fi and Bluetooth"
 msgstr "השבתת מצב טיסה<nl/><nl/>פעולה זו תפעיל את הרשת האלחוטית ואת הבלוטות׳"
 
-#: Toolbar.qml:157
+#: Toolbar.qml:148
 #, kde-kuit-format
 msgctxt "@info"
 msgid "Enable airplane mode<nl/><nl/>This will disable Wi-Fi and Bluetooth"
 msgstr "הפעלת מצב טיסה<nl/><nl/>פעולה זו תשבית את הרשת אלחוטית ואת הבלוטות׳"
 
-#: Toolbar.qml:170
+#: Toolbar.qml:176
 #, kde-format
 msgid "Hotspot"
 msgstr "נקודה חמה"
 
-#: Toolbar.qml:187
+#: Toolbar.qml:193
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Cannot create a hotspot because Wi-Fi is disabled."
 msgstr "לא ניתן ליצור נקודה חמה כי הרשת האלחוטית כבויה."
 
-#: Toolbar.qml:189
+#: Toolbar.qml:195
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -238,31 +238,31 @@ msgstr ""
 "לא ניתן ליצור נקודה חכמה כיוון שכל רכיבי השידור האלחוטיים בשימוש. יש להתנתק "
 "מהרשת האלחוטית הנוכחית או לחבר רכיב שידור אלחוטי נוסף."
 
-#: Toolbar.qml:191
+#: Toolbar.qml:197
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Disable Hotspot"
 msgstr "השבתת נקודה חמה"
 
-#: Toolbar.qml:193
+#: Toolbar.qml:199
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Create Hotspot"
 msgstr "יצירת נקודה חמה"
 
-#: Toolbar.qml:221
+#: Toolbar.qml:227
 #, kde-format
 msgctxt "@action:button"
 msgid "Scan Wi-Fi QR Code"
 msgstr "סריקת קוד QR של רשת אלחוטית"
 
-#: Toolbar.qml:226
+#: Toolbar.qml:232
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Scan QR Code to connect to a Wi-Fi network"
 msgstr "סריקת קוד QR כדי להתחבר לרשת אלחוטית."
 
-#: Toolbar.qml:228
+#: Toolbar.qml:234
 #, kde-format
 msgctxt "@info:tooltip"
 msgid ""
@@ -272,7 +272,7 @@ msgstr ""
 "יש להתקין את סורק הברקודים QRCA כדי לסרוק קוד QR שיאפשר לך להתחבר לרשת "
 "אלחוטית"
 
-#: Toolbar.qml:247
+#: Toolbar.qml:253
 #, kde-format
 msgid "Configure network connections…"
 msgstr "הגדרת חיבורי רשת…"

@@ -58,7 +58,7 @@ PlasmaExtras.ExpandableListItem {
             return true;
         }
 
-        icon.name: isDeactivated ? "network-connect" : "network-disconnect"
+        icon.name: isDeactivated ? "network-connect-symbolic" : "network-disconnect-symbolic"
         text: isDeactivated ? i18n("Connect") : i18n("Disconnect")
         onTriggered: {
             connectionItem.changeState()
@@ -222,6 +222,17 @@ PlasmaExtras.ExpandableListItem {
                 Layout.fillWidth: true
                 Layout.leftMargin: Kirigami.Units.gridUnit
                 Layout.rightMargin: Kirigami.Units.gridUnit
+
+                // HACK: ExpandableListItem always moves the listview's currentItem to the hovered item,
+                // which also moves activeFocus, interrupting the user on accidental mouse movemens while
+                // typing their password. ELI is not a control, so we can't check focusReason; so always
+                // take back control after activeFocus if there's no focusReason, or if it was
+                // OtherFocusReason, but still allow directly user-initiated clicks elsewhere (like on the
+                // search field).
+                // This should be replaced with a less hacky method once ELI allows it.
+                onActiveFocusChanged: if (!activeFocus && focus && (!Window.window.activeFocusItem || !("focusReason" in Window.window.activeFocusItem) || Window.window.activeFocusItem.focusReason === Qt.OtherFocusReason)) {
+                    forceActiveFocus();
+                }
 
                 securityType: connectionItem.model.SecurityType
 

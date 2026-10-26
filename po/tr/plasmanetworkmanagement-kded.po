@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Volkan Gezer <volkangezer@gmail.com>, 2013, 2014, 2021, 2022.
-# SPDX-FileCopyrightText: 2022, 2023, 2024, 2025 Emir SARI <emir_sari@icloud.com>
+# SPDX-FileCopyrightText: 2022-2026 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-28 00:46+0000\n"
-"PO-Revision-Date: 2025-07-31 19:51+0300\n"
+"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"PO-Revision-Date: 2026-07-21 21:01+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 "X-POOTLE-MTIME: 1413102232.000000\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.04.2\n"
 
 #: bluetoothmonitor.cpp:67
 #, kde-format
@@ -208,7 +208,7 @@ msgstr "Kendiliğinden IP hizmeti başarısız oldu."
 msgctxt ""
 "@info:status Notification when the device failed due to ModemBusyReason"
 msgid "The modem is busy"
-msgstr "Modem meşgul."
+msgstr "Modem meşgûl."
 
 #: notification.cpp:159
 #, kde-format
@@ -577,8 +577,9 @@ msgstr "“%1” bağlantısının parolasını gir:"
 
 #: passworddialog.cpp:114
 #, kde-format
-msgid "%1 password dialog"
-msgstr "%1 parola iletişim penceresi"
+msgctxt "@title:dialog The placeholder is the type of connection, e.g. 'Wi-Fi'"
+msgid "%1 Password"
+msgstr "%1 Parolası"
 
 #: passworddialog.cpp:121
 #, kde-format
@@ -599,8 +600,8 @@ msgstr "VPN parola (%1) penceresi"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordDialog)
 #: passworddialog.ui:26
 #, kde-format
-msgid "Password dialog"
-msgstr "Parola iletişim kutusu"
+msgid "Connection Password"
+msgstr "Bağlantı Parolası"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPass)
 #: passworddialog.ui:92
@@ -776,10 +777,16 @@ msgstr "PUK kodu:"
 msgid "Re-enter PIN code:"
 msgstr "PIN kodunu yeniden gir:"
 
-#: secretagent.cpp:408
+#: secretagent.cpp:426
 #, kde-format
 msgid "Authentication to %1 failed. Wrong password?"
 msgstr "%1 için kimlik doğrulama başarısız oldu. Parola yanlış olabilir mi?"
+
+#~ msgid "%1 password dialog"
+#~ msgstr "%1 parola iletişim penceresi"
+
+#~ msgid "Password dialog"
+#~ msgstr "Parola iletişim kutusu"
 
 #~| msgid "Provide the password for the wireless network '%1':"
 #~ msgid ""

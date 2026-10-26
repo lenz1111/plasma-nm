@@ -1,7 +1,7 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# SPDX-FileCopyrightText: 2023, 2024, 2025 Kisaragi Hiu <mail@kisaragi-hiu.com>
+# SPDX-FileCopyrightText: 2023-2026 Kisaragi Hiu <mail@kisaragi-hiu.com>
 # Franklin, 2014, 2015.
 # Jeff Huang <s8321414@gmail.com>, 2016, 2017.
 # pan93412 <pan93412@gmail.com>, 2019, 2020.
@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-28 00:46+0000\n"
-"PO-Revision-Date: 2025-08-19 05:25+0900\n"
+"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"PO-Revision-Date: 2026-05-21 22:05+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
 "Language: zh_TW\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Lokalize 25.11.70\n"
+"X-Generator: Lokalize 26.07.70\n"
 
 #: bluetoothmonitor.cpp:67
 #, kde-format
@@ -576,8 +576,9 @@ msgstr "請輸入連線 \"%1\" 的密碼："
 
 #: passworddialog.cpp:114
 #, kde-format
-msgid "%1 password dialog"
-msgstr "%1 密碼對話框"
+msgctxt "@title:dialog The placeholder is the type of connection, e.g. 'Wi-Fi'"
+msgid "%1 Password"
+msgstr "%1 密碼"
 
 #: passworddialog.cpp:121
 #, kde-format
@@ -598,8 +599,8 @@ msgstr "VPN 密鑰（%1）對話框"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordDialog)
 #: passworddialog.ui:26
 #, kde-format
-msgid "Password dialog"
-msgstr "密碼對話框"
+msgid "Connection Password"
+msgstr "連線密碼"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPass)
 #: passworddialog.ui:92
@@ -772,10 +773,16 @@ msgstr "PUK 碼："
 msgid "Re-enter PIN code:"
 msgstr "重新輸入 PIN 碼："
 
-#: secretagent.cpp:408
+#: secretagent.cpp:426
 #, kde-format
 msgid "Authentication to %1 failed. Wrong password?"
 msgstr "%1 認證失敗，可能是密碼錯誤？"
+
+#~ msgid "%1 password dialog"
+#~ msgstr "%1 密碼對話框"
+
+#~ msgid "Password dialog"
+#~ msgstr "密碼對話框"
 
 #~| msgid "Provide the password for the wireless network '%1':"
 #~ msgid ""

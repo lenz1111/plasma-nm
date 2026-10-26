@@ -9,11 +9,15 @@
 #include "listvalidator.h"
 #include "ui_802-1x.h"
 
+#include <openssl/evp.h>
+#include <openssl/pem.h>
+#include <openssl/pkcs12.h>
+#include <openssl/x509.h>
+
 #include <KAcceleratorManager>
 #include <KLocalizedString>
 
 #include <QFormLayout>
-#include <QtCrypto>
 
 Security8021x::Security8021x(const NetworkManager::Setting::Ptr &setting, Type type, QWidget *parent, Qt::WindowFlags f)
     : SettingWidget(setting, parent, f)
@@ -29,6 +33,11 @@ Security8021x::Security8021x(const NetworkManager::Setting::Ptr &setting, Type t
     m_ui->pwdPassword->setPasswordOptionsEnabled(true);
     m_ui->tlsPrivateKeyPassword->setPasswordOptionsEnabled(true);
     m_ui->ttlsPassword->setPasswordOptionsEnabled(true);
+
+    // TLS might has a backing store that lives in a hardware token.
+    // in these cases, passwords may not be required if the token itself
+    // is not PIN protected.
+    m_ui->tlsPrivateKeyPassword->setPasswordNotRequiredEnabled(true);
 
     if (type == WirelessWpaEap) {
         m_ui->auth->removeItem(0); // MD 5
@@ -141,10 +150,20 @@ void Security8021x::loadConfig(const NetworkManager::Setting::Ptr &setting)
     const QList<NetworkManager::Security8021xSetting::EapMethod> eapMethods = securitySetting->eapMethods();
     const NetworkManager::Security8021xSetting::AuthMethod phase2AuthMethod = securitySetting->phase2AuthMethod();
 
-    if (securitySetting->passwordFlags().testFlag(NetworkManager::Setting::None)) {
+    auto flags = securitySetting->passwordFlags();
+
+    // when using TLS, there are no password flags as there is no password.
+    // The password is stored in the privateKeyPasswordFlags instead.
+    if ((eapMethods.contains(NetworkManager::Security8021xSetting::EapMethodTls))) {
+        flags = securitySetting->privateKeyPasswordFlags();
+    }
+
+    if (flags.testFlag(NetworkManager::Setting::None)) {
         setPasswordOption(PasswordField::StoreForAllUsers);
-    } else if (securitySetting->passwordFlags().testFlag(NetworkManager::Setting::AgentOwned)) {
+    } else if (flags.testFlag(NetworkManager::Setting::AgentOwned)) {
         setPasswordOption(PasswordField::StoreForUser);
+    } else if (flags.testFlag(NetworkManager::Setting::NotRequired) && eapMethods.contains(NetworkManager::Security8021xSetting::EapMethodTls)) {
+        setPasswordOption(PasswordField::NotRequired);
     } else {
         setPasswordOption(PasswordField::AlwaysAsk);
     }
@@ -251,6 +270,32 @@ void Security8021x::loadSecrets(const NetworkManager::Setting::Ptr &setting)
     }
 }
 
+bool pkcs12CanDecrypt(const QString &path, const QString &password)
+{
+    auto fp = fopen(path.toLatin1().data(), "rb");
+    if (fp) {
+        auto pkcs12 = d2i_PKCS12_fp(fp, nullptr);
+        fclose(fp);
+
+        if (pkcs12) {
+            EVP_PKEY *pkey = nullptr;
+            X509 *cert = nullptr;
+            STACK_OF(X509) *ca = nullptr;
+
+            auto alg = EVP_PKEY_NONE;
+            if (PKCS12_parse(pkcs12, password.toUtf8().data(), &pkey, &cert, &ca)) {
+                alg = EVP_PKEY_base_id(pkey);
+            }
+            PKCS12_free(pkcs12);
+            EVP_PKEY_free(pkey);
+            X509_free(cert);
+            sk_X509_pop_free(ca, X509_free);
+            return alg == EVP_PKEY_RSA;
+        }
+    }
+    return false;
+}
+
 QVariantMap Security8021x::setting() const
 {
     NetworkManager::Security8021xSetting setting;
@@ -314,22 +359,16 @@ QVariantMap Security8021x::setting() const
             setting.setPrivateKeyPassword(m_ui->tlsPrivateKeyPassword->text());
         }
 
-        QCA::Initializer init;
-        QCA::ConvertResult convRes;
-
-        // Try if the private key is in pkcs12 format bundled with client certificate
-        if (QCA::isSupported("pkcs12")) {
-            QCA::KeyBundle keyBundle = QCA::KeyBundle::fromFile(m_ui->tlsPrivateKey->url().path(), m_ui->tlsPrivateKeyPassword->text().toUtf8(), &convRes);
-            // Set client certificate to the same path as private key
-            if (convRes == QCA::ConvertGood && keyBundle.privateKey().canDecrypt()) {
-                setting.setClientCertificate(m_ui->tlsPrivateKey->url().toString().toUtf8().append('\0'));
-            }
+        if (pkcs12CanDecrypt(m_ui->tlsPrivateKey->url().toString(), m_ui->tlsPrivateKeyPassword->text().toUtf8())) {
+            setting.setClientCertificate(m_ui->tlsPrivateKey->url().toString().toUtf8().append('\0'));
         }
 
         if (m_ui->tlsPrivateKeyPassword->passwordOption() == PasswordField::StoreForAllUsers) {
             setting.setPrivateKeyPasswordFlags(NetworkManager::Setting::None);
         } else if (m_ui->tlsPrivateKeyPassword->passwordOption() == PasswordField::StoreForUser) {
             setting.setPrivateKeyPasswordFlags(NetworkManager::Setting::AgentOwned);
+        } else if (m_ui->tlsPrivateKeyPassword->passwordOption() == PasswordField::NotRequired) {
+            setting.setPrivateKeyPasswordFlags(NetworkManager::Setting::NotRequired);
         } else {
             setting.setPrivateKeyPasswordFlags(NetworkManager::Setting::NotSaved);
         }
@@ -554,16 +593,9 @@ bool Security8021x::isValid() const
             return false;
         }
 
-        QCA::Initializer init;
-        QCA::ConvertResult convRes;
-
         // Try if the private key is in pkcs12 format bundled with client certificate
-        if (QCA::isSupported("pkcs12")) {
-            QCA::KeyBundle keyBundle = QCA::KeyBundle::fromFile(m_ui->tlsPrivateKey->url().path(), m_ui->tlsPrivateKeyPassword->text().toUtf8(), &convRes);
-            // We can return the result of decryption when we managed to import the private key
-            if (convRes == QCA::ConvertGood) {
-                return keyBundle.privateKey().canDecrypt();
-            }
+        if (pkcs12CanDecrypt(m_ui->tlsPrivateKey->url().path(), m_ui->tlsPrivateKeyPassword->text())) {
+            return true;
         }
 
         // If the private key is not in pkcs12 format, we need client certificate to be set
@@ -571,10 +603,16 @@ bool Security8021x::isValid() const
             return false;
         }
 
-        // Try if the private key is in PEM format and return the result of decryption if we managed to open it
-        QCA::PrivateKey key = QCA::PrivateKey::fromPEMFile(m_ui->tlsPrivateKey->url().path(), m_ui->tlsPrivateKeyPassword->text().toUtf8(), &convRes);
-        if (convRes == QCA::ConvertGood) {
-            return key.canDecrypt();
+        auto fp = fopen(m_ui->tlsPrivateKey->url().path().toUtf8().data(), "r");
+        if (fp) {
+            auto pkey = PEM_read_PrivateKey(fp, nullptr, nullptr, m_ui->tlsPrivateKeyPassword->text().toUtf8().data());
+            fclose(fp);
+
+            if (pkey) {
+                auto canDecrypt = EVP_PKEY_base_id(pkey) == EVP_PKEY_RSA;
+                EVP_PKEY_free(pkey);
+                return canDecrypt;
+            }
         }
 
         // TODO Try other formats (DER - mainly used in Windows)
@@ -600,6 +638,42 @@ bool Security8021x::isValid() const
     }
 
     return true;
+}
+
+QWidget *Security8021x::focusUsernameField()
+{
+    KLineEdit *usernameField = nullptr;
+
+    const int authIndex = m_ui->auth->currentData().toInt();
+    switch (authIndex) {
+    case NetworkManager::Security8021xSetting::EapMethodMd5:
+        usernameField = m_ui->md5UserName;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodTls:
+        usernameField = m_ui->tlsIdentity;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodLeap:
+        usernameField = m_ui->leapUsername;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodPwd:
+        usernameField = m_ui->pwdUsername;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodFast:
+        usernameField = m_ui->fastUsername;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodTtls:
+        usernameField = m_ui->ttlsUsername;
+        break;
+    case NetworkManager::Security8021xSetting::EapMethodPeap:
+        usernameField = m_ui->peapUsername;
+        break;
+    }
+
+    if (usernameField) {
+        usernameField->setFocus();
+        usernameField->selectAll();
+    }
+    return usernameField;
 }
 
 void Security8021x::currentAuthChanged(int index)

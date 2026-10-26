@@ -77,6 +77,8 @@ void ConnectionEditorBase::setConnection(const NetworkManager::ConnectionSetting
     m_connection = connection;
     m_initialized = false;
     m_wifiConnectionWidget = nullptr;
+    m_wifiScrollArea = nullptr;
+    m_wifiTabIndex = -1;
 
     // Reset UI setting widgets
     delete m_connectionWidget;
@@ -178,6 +180,23 @@ bool ConnectionEditorBase::isValid() const
     return m_valid;
 }
 
+int ConnectionEditorBase::wifiTabIndex() const
+{
+    return m_wifiTabIndex;
+}
+
+void ConnectionEditorBase::focusWifiSecurityUsername()
+{
+    if (!m_wifiConnectionWidget || !m_wifiConnectionWidget->wifiSecurity()) {
+        return;
+    }
+
+    QWidget *usernameField = m_wifiConnectionWidget->wifiSecurity()->focusUsernameField();
+    if (usernameField && m_wifiScrollArea) {
+        m_wifiScrollArea->ensureWidgetVisible(usernameField);
+    }
+}
+
 void ConnectionEditorBase::addConnectionWidget(ConnectionWidget *widget, const QString &text)
 {
     m_connectionWidget = widget;
@@ -239,8 +258,10 @@ void ConnectionEditorBase::initialize()
         scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
 
+        m_wifiTabIndex = emptyConnection ? 1 : 2;
         addWidget(wrapWithPreferredWidth(scrollArea), i18n("Wi-Fi"));
         m_wifiConnectionWidget = wifiWidget;
+        m_wifiScrollArea = scrollArea;
     } else if (type == NetworkManager::ConnectionSettings::Pppoe) { // DSL
         auto pppoeWidget = new PppoeWidget(m_connection->setting(NetworkManager::Setting::Pppoe), this);
         addSettingWidget(pppoeWidget, i18n("DSL"));
@@ -572,12 +593,6 @@ void ConnectionEditorBase::updateStatusWidget()
         return;
     }
 
-    // Find the NetworkManager connection object
-    NetworkManager::Connection::Ptr nmConnection = NetworkManager::findConnectionByUuid(m_connection->uuid());
-    if (!nmConnection) {
-        return; // Connection not found in NetworkManager
-    }
-
     // Find active connection with matching UUID
     NetworkManager::ActiveConnection::Ptr activeConnection;
     for (const NetworkManager::ActiveConnection::Ptr &active : NetworkManager::activeConnections()) {
@@ -585,6 +600,18 @@ void ConnectionEditorBase::updateStatusWidget()
             activeConnection = active;
             break;
         }
+    }
+
+    // Find the NetworkManager connection object
+    NetworkManager::Connection::Ptr nmConnection = NetworkManager::findConnectionByUuid(m_connection->uuid());
+
+    // Fallback - try to get the connection from active connection
+    if (!nmConnection && activeConnection) {
+        nmConnection = activeConnection->connection();
+    }
+
+    if (!nmConnection) {
+        return; // Connection not found in NetworkManager
     }
 
     // Get the device for this connection

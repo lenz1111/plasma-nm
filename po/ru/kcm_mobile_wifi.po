@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the plasma-nm package.
 #
 # SPDX-FileCopyrightText: 2024 Olesya Gerasimenko <translation-team@basealt.ru>
-# SPDX-FileCopyrightText: 2018, 2019, 2020, 2021, 2025, 2026 Alexander Yavorsky <kekcuha@gmail.com>
+# SPDX-FileCopyrightText: 2018-2021, 2025-2026 Alexander Yavorsky <kekcuha@gmail.com>
 # Alexander Potashev <aspotashev@gmail.com>, 2019.
 msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-07 00:46+0000\n"
-"PO-Revision-Date: 2026-03-08 08:37+0200\n"
+"POT-Creation-Date: 2026-08-06 00:46+0000\n"
+"PO-Revision-Date: 2026-10-04 10:06+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Lokalize 25.12.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: ui/ConnectDialog.qml:58
 #, kde-format
@@ -29,7 +29,7 @@ msgstr "Неверное значение."
 #, kde-format
 msgctxt "kcm page title"
 msgid "Connection Info for \"%1\""
-msgstr "Сведения о соединении «%1»"
+msgstr "Сведения о подключении «%1»"
 
 #: ui/ConnectionInfo.qml:55
 #, kde-format
@@ -40,7 +40,7 @@ msgstr "Скорость передачи"
 #: ui/ConnectionInfo.qml:71
 #, kde-format
 msgid "Connected, ↓ %1/s, ↑ %2/s"
-msgstr "Подключено, ↓ %1/с, ↓ %2/с"
+msgstr "Подключено, ↓ %1/с, ↑ %2/с"
 
 #: ui/ConnectionInfo.qml:79
 #, kde-format
@@ -76,8 +76,8 @@ msgstr "Wi-Fi"
 
 #: ui/main.qml:98
 #, kde-format
-msgid "More"
-msgstr "Дополнительно"
+msgid "Settings"
+msgstr "Параметры"
 
 #: ui/main.qml:107
 #, kde-format
@@ -93,7 +93,7 @@ msgstr "Доступные сети"
 #: ui/main.qml:178
 #, kde-format
 msgid "Add Custom Connection"
-msgstr "Добавить другое соединение"
+msgstr "Добавить другое подключение"
 
 #: ui/MorePage.qml:14
 #, kde-format
@@ -108,7 +108,7 @@ msgstr "Уведомления об изменении подключения"
 #: ui/NetworkSettings.qml:15
 #, kde-format
 msgid "Add New Connection"
-msgstr "Добавить новое соединение"
+msgstr "Добавить новое подключение"
 
 #: ui/NetworkSettings.qml:36
 #, kde-format
@@ -257,6 +257,9 @@ msgstr "DNS"
 #, kde-format
 msgid "Password…"
 msgstr "Пароль…"
+
+#~ msgid "More"
+#~ msgstr "Дополнительно"
 
 #~ msgid "Connect"
 #~ msgstr "Подключить"

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-02-28 00:46+0000\n"
-"PO-Revision-Date: 2025-07-29 06:26+0200\n"
+"POT-Creation-Date: 2026-08-11 00:47+0000\n"
+"PO-Revision-Date: 2026-05-16 07:05+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
 "%100==4 ? 3 : 0);\n"
 "Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
-"X-Generator: Poedit 3.6\n"
+"X-Generator: Poedit 3.9\n"
 
 #: bluetoothmonitor.cpp:67
 #, kde-format
@@ -580,8 +580,9 @@ msgstr "Vnesite geslo za povezavo \"%1\":"
 
 #: passworddialog.cpp:114
 #, kde-format
-msgid "%1 password dialog"
-msgstr "Pogovorno okno gesla za %1"
+msgctxt "@title:dialog The placeholder is the type of connection, e.g. 'Wi-Fi'"
+msgid "%1 Password"
+msgstr "%1 Geslo"
 
 #: passworddialog.cpp:121
 #, kde-format
@@ -602,8 +603,8 @@ msgstr "Pogovorno okno skrivnosti za VPN (%1)"
 #. i18n: ectx: property (windowTitle), widget (QWidget, PasswordDialog)
 #: passworddialog.ui:26
 #, kde-format
-msgid "Password dialog"
-msgstr "Pogovorno okno gesla"
+msgid "Connection Password"
+msgstr "Geslo za povezavo"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPass)
 #: passworddialog.ui:92
@@ -780,10 +781,16 @@ msgstr "Koda PUK:"
 msgid "Re-enter PIN code:"
 msgstr "Ponovno vnesite kodo PIN:"
 
-#: secretagent.cpp:408
+#: secretagent.cpp:426
 #, kde-format
 msgid "Authentication to %1 failed. Wrong password?"
 msgstr "Overitev na %1 je spodletela. Napačno geslo?"
+
+#~ msgid "%1 password dialog"
+#~ msgstr "Pogovorno okno gesla za %1"
+
+#~ msgid "Password dialog"
+#~ msgstr "Pogovorno okno gesla"
 
 #~ msgid ""
 #~ "The provided password seems incorrect. Provide the password for the "

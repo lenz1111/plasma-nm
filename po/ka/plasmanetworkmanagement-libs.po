@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: plasma-nm\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-03-24 00:45+0000\n"
-"PO-Revision-Date: 2026-02-25 07:22+0100\n"
+"POT-Creation-Date: 2026-09-16 02:45+0000\n"
+"PO-Revision-Date: 2026-09-08 05:09+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -16,29 +16,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 3.8\n"
+"X-Generator: Poedit 3.9\n"
 
 #: cellular/cellularmodem.cpp:148
 #, kde-format
 msgid "Error resetting the modem: %1"
 msgstr "მოდემის საწყის მდგომარეობაში დაბრუნების შეცდომა: %1"
 
-#: cellular/cellularmodem.cpp:364
+#: cellular/cellularmodem.cpp:405
+#, kde-format
+msgid ""
+"Could not apply the roaming preference. Activating the access point with its "
+"existing setting."
+msgstr ""
+"როუმინგის პარამეტრების გამოყენება შეუძლებელია. წვდომის წერტილი გააქტიურდება "
+"მისი არსებული პარამეტრებით."
+
+#: cellular/cellularmodem.cpp:412
 #, kde-format
 msgid "Error activating connection: %1"
 msgstr "შეერთების აქტივაციის შეცდომა: %1"
 
-#: cellular/cellularmodem.cpp:402
+#: cellular/cellularmodem.cpp:431
+#, kde-format
+msgid "Cannot change roaming because no access point is available."
+msgstr ""
+"როუმინგის შეცვლა შეუძლებელია, რადგან წვდომის წერტილი ხელმისაწვდომი არაა."
+
+#: cellular/cellularmodem.cpp:438
+#, kde-format
+msgid "Error applying roaming preference to the selected access point."
+msgstr "არჩეულ წვდომის წერტილზე როუმინგის პარამეტრების გადატარების შეცდომა."
+
+#: cellular/cellularmodem.cpp:482
 #, kde-format
 msgid "Error adding connection: %1"
 msgstr "შეერთების დამატების შეცდომა: %1"
 
-#: cellular/cellularmodem.cpp:419
+#: cellular/cellularmodem.cpp:502
 #, kde-format
 msgid "Error removing connection: %1"
 msgstr "შეერთების წაშლის შეცდომა: %1"
 
-#: cellular/cellularmodem.cpp:456
+#: cellular/cellularmodem.cpp:539
 #, kde-format
 msgid "Error updating connection settings for %1: %2."
 msgstr "%1-ის შეერთების პარამეტრების განახლების შეცდომა: %2."
@@ -55,7 +75,7 @@ msgstr "უცნობი"
 msgid "POTS"
 msgstr "POTS"
 
-#: cellular/cellularmodemdetails.cpp:117 editor/connectioneditorbase.cpp:262
+#: cellular/cellularmodemdetails.cpp:117 editor/connectioneditorbase.cpp:283
 #, kde-format
 msgid "GSM"
 msgstr "GSM"
@@ -161,7 +181,7 @@ msgid "Locked"
 msgstr "დაბლოკილია"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: cellular/cellularmodemdetails.cpp:251 editor/settings/ui/ipv6.ui:264
+#: cellular/cellularmodemdetails.cpp:251 editor/settings/ui/ipv6.ui:261
 #, kde-format
 msgid "Disabled"
 msgstr "გამორთულია"
@@ -306,6 +326,7 @@ msgstr "ქსელების სკანირების შეცდო�
 #. i18n: ectx: property (text), item, widget (KComboBox, metered)
 #: cellular/cellularmodemdetails.cpp:435
 #: editor/settings/ui/connectionwidget.ui:169
+#: editorqml/qml/generalSettings/GeneralSettings.qml:131
 #, kde-format
 msgid "Yes"
 msgstr "დიახ"
@@ -313,6 +334,7 @@ msgstr "დიახ"
 #. i18n: ectx: property (text), item, widget (KComboBox, metered)
 #: cellular/cellularmodemdetails.cpp:437
 #: editor/settings/ui/connectionwidget.ui:174
+#: editorqml/qml/generalSettings/GeneralSettings.qml:131
 #, kde-format
 msgid "No"
 msgstr "არა"
@@ -462,317 +484,329 @@ msgstr "PIN-ის გაგზავნის შეცდომა: %1"
 msgid "Error sending the PUK: %1"
 msgstr "PUK-ის გაგზავნის შეცდომა: %1"
 
-#: editor/connectiondetails.cpp:92
+#: editor/connectiondetails.cpp:91
 #, kde-format
 msgid "Connection speed"
 msgstr "შეერთების სიჩქარე"
 
-#: editor/connectiondetails.cpp:94 editor/connectiondetails.cpp:169
-#: editor/connectiondetails.cpp:247 editor/connectiondetails.cpp:257
-#: editor/connectiondetails.cpp:267 editor/connectiondetails.cpp:277
-#: editor/connectiondetails.cpp:288 editor/connectiondetails.cpp:302
+#: editor/connectiondetails.cpp:93 editor/connectiondetails.cpp:168
+#: editor/connectiondetails.cpp:252 editor/connectiondetails.cpp:262
+#: editor/connectiondetails.cpp:272 editor/connectiondetails.cpp:282
+#: editor/connectiondetails.cpp:293 editor/connectiondetails.cpp:307
 #, kde-format
 msgid "MAC Address"
 msgstr "MAC მისამართი"
 
-#: editor/connectiondetails.cpp:97 editor/settings/bondwidget.cpp:36
+#: editor/connectiondetails.cpp:96 editor/settings/bondwidget.cpp:36
 #: editor/settings/bridgewidget.cpp:33 editor/settings/teamwidget.cpp:36
 #, kde-format
 msgid "Ethernet"
 msgstr "Ethernet"
 
-#: editor/connectiondetails.cpp:132
+#: editor/connectiondetails.cpp:131
 #, kde-format
 msgid "Access Point (SSID)"
 msgstr "წვდომის წერტილი (SSID)"
 
-#: editor/connectiondetails.cpp:136
+#: editor/connectiondetails.cpp:135
 #, kde-format
 msgid "Signal Strength"
 msgstr "სიგნალის სიძლიერე"
 
-#: editor/connectiondetails.cpp:136
+#: editor/connectiondetails.cpp:135
 #, kde-format
 msgctxt "Wi-Fi signal strength percentage indicator"
 msgid "%1%"
 msgstr "%1%"
 
-#: editor/connectiondetails.cpp:141 editor/connectiondetails.cpp:151
+#: editor/connectiondetails.cpp:140 editor/connectiondetails.cpp:150
 #, kde-format
 msgid "Security Type"
 msgstr "უსაფრთხოების ტიპი"
 
-#: editor/connectiondetails.cpp:156
+#: editor/connectiondetails.cpp:155
 #, kde-format
 msgid "Connection Speed"
 msgstr "შეერთების სიჩქარე"
 
-#: editor/connectiondetails.cpp:163 editor/connectiondetails.cpp:165
+#: editor/connectiondetails.cpp:162 editor/connectiondetails.cpp:164
 #, kde-format
 msgid "Frequency"
 msgstr "სიხშირე"
 
-#: editor/connectiondetails.cpp:163
+#: editor/connectiondetails.cpp:162
 #, kde-format
 msgctxt "Frequency (Channel)"
 msgid "%1 (Channel %2)"
 msgstr "%1 (არხი %2)"
 
-#: editor/connectiondetails.cpp:167
+#: editor/connectiondetails.cpp:166
 #, kde-format
 msgid "BSSID"
 msgstr "BSSID"
 
-#: editor/connectiondetails.cpp:172 editor/connectioneditorbase.cpp:242
+#: editor/connectiondetails.cpp:171 editor/connectioneditorbase.cpp:262
 #: editor/settings/bridgewidget.cpp:39 editor/settings/teamwidget.cpp:42
-#: editor/uiutils.cpp:226 models/creatableconnectionsmodel.cpp:173
+#: editor/uiutils.cpp:226 editorqml/qml/components/Wireless.qml:33
+#: models/creatableconnectionsmodel.cpp:173
 #, kde-format
 msgid "Wi-Fi"
 msgstr "Wi-Fi"
 
-#: editor/connectiondetails.cpp:187
+#: editor/connectiondetails.cpp:186
 #, kde-format
 msgid "Operator"
 msgstr "ოპერატორი"
 
-#: editor/connectiondetails.cpp:192
+#: editor/connectiondetails.cpp:191
 #, kde-format
 msgid "Network ID"
 msgstr "ქსელის ID"
 
-#: editor/connectiondetails.cpp:196
+#: editor/connectiondetails.cpp:195
 #, kde-format
 msgid "Signal Quality"
 msgstr "სიგნალის ხარისხი"
 
-#: editor/connectiondetails.cpp:197
+#: editor/connectiondetails.cpp:196
 #, kde-format
 msgid "Access Technology"
 msgstr "წვდომის ტექნოლოგია"
 
-#: editor/connectiondetails.cpp:203 models/creatableconnectionsmodel.cpp:149
+#: editor/connectiondetails.cpp:202 models/creatableconnectionsmodel.cpp:149
 #, kde-format
 msgid "Mobile Broadband"
 msgstr "მობილური ინტერნეტი"
 
-#: editor/connectiondetails.cpp:214 editor/connectiondetails.cpp:235
+#: editor/connectiondetails.cpp:219 editor/connectiondetails.cpp:240
 #, kde-format
 msgid "VPN Plugin"
 msgstr "VPN მოდული"
 
-#: editor/connectiondetails.cpp:225
+#: editor/connectiondetails.cpp:230
 #, kde-format
 msgid "Banner"
 msgstr "ბანერი"
 
-#: editor/connectiondetails.cpp:229 editor/connectiondetails.cpp:236
-#: editor/uiutils.cpp:218 networkstatus.cpp:190
+#: editor/connectiondetails.cpp:234 editor/connectiondetails.cpp:241
+#: editor/uiutils.cpp:218 editorqml/qml/components/Vpn.qml:32
+#: networkstatus.cpp:190
 #, kde-format
 msgid "VPN"
 msgstr "VPN"
 
-#: editor/connectiondetails.cpp:235 models/creatableconnectionsmodel.cpp:254
+#: editor/connectiondetails.cpp:240 models/creatableconnectionsmodel.cpp:254
 #: models/creatableconnectionsmodel.cpp:256 networkstatus.cpp:212
 #, kde-format
 msgid "WireGuard"
 msgstr "WireGuard"
 
-#: editor/connectiondetails.cpp:241
+#: editor/connectiondetails.cpp:246
 #, kde-format
 msgid "Name"
 msgstr "სახელი"
 
-#: editor/connectiondetails.cpp:243 editor/connectiondetails.cpp:245
+#: editor/connectiondetails.cpp:248 editor/connectiondetails.cpp:250
 #, kde-format
 msgid "Capabilities"
 msgstr "შესაძლებლობები"
 
-#: editor/connectiondetails.cpp:250 editor/connectioneditorbase.cpp:257
+#: editor/connectiondetails.cpp:255 editor/connectioneditorbase.cpp:278
 #: editor/uiutils.cpp:194
 #, kde-format
 msgid "Bluetooth"
 msgstr "Bluetooth"
 
-#: editor/connectiondetails.cpp:255 editor/connectiondetails.cpp:265
-#: editor/connectiondetails.cpp:275 editor/connectiondetails.cpp:285
-#: editor/connectiondetails.cpp:295 editor/connectiondetails.cpp:300
+#: editor/connectiondetails.cpp:260 editor/connectiondetails.cpp:270
+#: editor/connectiondetails.cpp:280 editor/connectiondetails.cpp:290
+#: editor/connectiondetails.cpp:300 editor/connectiondetails.cpp:305
 #, kde-format
 msgid "Type"
 msgstr "ტიპი"
 
-#: editor/connectiondetails.cpp:255 editor/connectiondetails.cpp:260
-#: editor/connectioneditorbase.cpp:268 editor/settings/teamwidget.cpp:39
+#: editor/connectiondetails.cpp:260 editor/connectiondetails.cpp:265
+#: editor/connectioneditorbase.cpp:289 editor/settings/teamwidget.cpp:39
 #: editor/uiutils.cpp:209 models/creatableconnectionsmodel.cpp:142
 #, kde-format
 msgid "Infiniband"
 msgstr "Infiniband"
 
-#: editor/connectiondetails.cpp:265 editor/connectiondetails.cpp:270
-#: editor/connectioneditorbase.cpp:271 editor/uiutils.cpp:198
+#: editor/connectiondetails.cpp:270 editor/connectiondetails.cpp:275
+#: editor/connectioneditorbase.cpp:292 editor/uiutils.cpp:198
 #: models/creatableconnectionsmodel.cpp:190
 #, kde-format
 msgid "Bond"
 msgstr "ბმა"
 
-#: editor/connectiondetails.cpp:275 editor/connectiondetails.cpp:280
-#: editor/connectioneditorbase.cpp:274 editor/uiutils.cpp:201
+#: editor/connectiondetails.cpp:280 editor/connectiondetails.cpp:285
+#: editor/connectioneditorbase.cpp:295 editor/uiutils.cpp:201
 #: models/creatableconnectionsmodel.cpp:200
 #, kde-format
 msgid "Bridge"
 msgstr "ხიდი"
 
-#: editor/connectiondetails.cpp:285 editor/connectiondetails.cpp:291
-#: editor/connectioneditorbase.cpp:277 models/creatableconnectionsmodel.cpp:220
+#: editor/connectiondetails.cpp:290 editor/connectiondetails.cpp:296
+#: editor/connectioneditorbase.cpp:298 models/creatableconnectionsmodel.cpp:220
 #, kde-format
 msgid "Vlan"
 msgstr "VLAN"
 
-#: editor/connectiondetails.cpp:287
+#: editor/connectiondetails.cpp:292
 #, kde-format
 msgid "Vlan ID"
 msgstr "Vlan ID"
 
-#: editor/connectiondetails.cpp:295 editor/connectiondetails.cpp:296
+#: editor/connectiondetails.cpp:300 editor/connectiondetails.cpp:301
 #, kde-format
 msgid "Adsl"
 msgstr "ADSL"
 
-#: editor/connectiondetails.cpp:300 editor/connectiondetails.cpp:305
-#: editor/connectioneditorbase.cpp:280 editor/uiutils.cpp:230
+#: editor/connectiondetails.cpp:305 editor/connectiondetails.cpp:310
+#: editor/connectioneditorbase.cpp:301 editor/uiutils.cpp:230
 #: models/creatableconnectionsmodel.cpp:210
 #, kde-format
 msgid "Team"
 msgstr "ჯგუფი"
 
-#: editor/connectiondetails.cpp:311 editor/connectiondetails.cpp:315
+#: editor/connectiondetails.cpp:316 editor/connectiondetails.cpp:320
 #, kde-format
 msgid "Device"
 msgstr "მოწყობილობა"
 
-#: editor/connectiondetails.cpp:316
+#: editor/connectiondetails.cpp:321 editorqml/qml/components/Vpn.qml:28
+#: editorqml/qml/components/Wired.qml:30
+#: editorqml/qml/components/Wireless.qml:30
+#: editorqml/qml/ConfigurationDialog.qml:34 editorqml/qml/vpn/ssh/Ssh.qml:30
+#: editorqml/qml/vpn/sstp/Sstp.qml:26
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:238
 #, kde-format
 msgid "General"
 msgstr "ზოგადი"
 
-#: editor/connectiondetails.cpp:325
+#: editor/connectiondetails.cpp:330
 #, kde-format
 msgid "IPv4 Address"
 msgstr "IPv4 მისამართი"
 
-#: editor/connectiondetails.cpp:331
+#: editor/connectiondetails.cpp:336
 #, kde-format
 msgid "IPv4 Default Gateway"
 msgstr "IPv4 ნაგულისხმევი რაუტერი"
 
-#: editor/connectiondetails.cpp:338
+#: editor/connectiondetails.cpp:343
 #, kde-format
 msgid "IPv4 Primary Nameserver"
 msgstr "IPv4 ძირითადი DNS სერვერი"
 
-#: editor/connectiondetails.cpp:342
+#: editor/connectiondetails.cpp:347
 #, kde-format
 msgid "IPv4 Secondary Nameserver"
 msgstr "IPv4 მეორადი DNS სერვერი"
 
-#: editor/connectiondetails.cpp:347 editor/connectioneditorbase.cpp:313
+#: editor/connectiondetails.cpp:352 editor/connectioneditorbase.cpp:334
+#: editorqml/qml/components/Vpn.qml:36 editorqml/qml/components/Wired.qml:39
+#: editorqml/qml/components/Wireless.qml:39
 #, kde-format
 msgid "IPv4"
 msgstr "IPv4"
 
-#: editor/connectiondetails.cpp:357
+#: editor/connectiondetails.cpp:362
 #, kde-format
 msgid "IPv6 Address"
 msgstr "IPv6 მისამართი"
 
-#: editor/connectiondetails.cpp:359
+#: editor/connectiondetails.cpp:364
 #, kde-format
 msgid "IPv6 ULA Address"
 msgstr "IPv6 ULA მისამართი"
 
-#: editor/connectiondetails.cpp:365
+#: editor/connectiondetails.cpp:370
 #, kde-format
 msgid "IPv6 Default Gateway"
 msgstr "IPv4 Default Gateway"
 
-#: editor/connectiondetails.cpp:372
+#: editor/connectiondetails.cpp:377
 #, kde-format
 msgid "IPv6 Primary Nameserver"
 msgstr "IPv6 ძირითადი DNS სერვერი"
 
-#: editor/connectiondetails.cpp:376
+#: editor/connectiondetails.cpp:381
 #, kde-format
 msgid "IPv6 Secondary Nameserver"
 msgstr "IPv6 მეორადი DNS სერვერი"
 
-#: editor/connectiondetails.cpp:381 editor/connectioneditorbase.cpp:331
+#: editor/connectiondetails.cpp:386 editor/connectioneditorbase.cpp:352
+#: editorqml/qml/components/Vpn.qml:43 editorqml/qml/components/Wired.qml:42
+#: editorqml/qml/components/Wireless.qml:42
 #, kde-format
 msgid "IPv6"
 msgstr "IPv6"
 
-#: editor/connectioneditorbase.cpp:209
+#: editor/connectioneditorbase.cpp:228
 #, kde-format
 msgctxt "@title:tab Connection status and details"
 msgid "Status"
 msgstr "სტატუსი"
 
-#: editor/connectioneditorbase.cpp:215
+#: editor/connectioneditorbase.cpp:234
 #, kde-format
 msgctxt "@title:tab General configuration"
 msgid "General"
 msgstr "ზოგადი"
 
-#: editor/connectioneditorbase.cpp:222 editor/connectioneditorbase.cpp:248
+#: editor/connectioneditorbase.cpp:241 editor/connectioneditorbase.cpp:269
+#: editorqml/qml/components/Wired.qml:33
 #, kde-format
 msgid "Wired"
 msgstr "მავთულით"
 
-#: editor/connectioneditorbase.cpp:225
+#: editor/connectioneditorbase.cpp:244 editorqml/qml/components/Wired.qml:36
 #, kde-format
 msgid "802.1x Security"
 msgstr "802.1x-ის დაცვა"
 
-#: editor/connectioneditorbase.cpp:246 editor/uiutils.cpp:190
+#: editor/connectioneditorbase.cpp:267 editor/uiutils.cpp:190
 #: models/creatableconnectionsmodel.cpp:135
 #, kde-format
 msgid "DSL"
 msgstr "DSL"
 
-#: editor/connectioneditorbase.cpp:251 editor/connectioneditorbase.cpp:254
+#: editor/connectioneditorbase.cpp:272 editor/connectioneditorbase.cpp:275
 #, kde-format
 msgid "Mobile Broadband (%1)"
 msgstr "მობილური კავშირი (%1)"
 
-#: editor/connectioneditorbase.cpp:264 editor/connectioneditorbase.cpp:307
+#: editor/connectioneditorbase.cpp:285 editor/connectioneditorbase.cpp:328
 #, kde-format
 msgid "PPP"
 msgstr "PPP"
 
-#: editor/connectioneditorbase.cpp:283
+#: editor/connectioneditorbase.cpp:304
 #, kde-format
 msgid "WireGuard Interface"
 msgstr "WireGuard-ის ინტერფეისი"
 
-#: editor/connectioneditorbase.cpp:296
+#: editor/connectioneditorbase.cpp:317
 #, kde-format
 msgid "VPN (%1)"
 msgstr "VPN (%1)"
 
-#: editor/connectioneditorbase.cpp:520
+#: editor/connectioneditorbase.cpp:541
 #, kde-format
 msgid "Failed to get secrets for %1"
 msgstr "%1-ის საიდუმლო კოდების მიღების შეცდომა"
 
-#: editor/connectioneditordialog.cpp:33
+#: editor/connectioneditordialog.cpp:36
 #, kde-format
 msgid "New Connection (%1)"
 msgstr "ახალი შეერთება (%1)"
 
-#: editor/connectioneditordialog.cpp:35
+#: editor/connectioneditordialog.cpp:38
 #, kde-format
 msgid "Edit Connection '%1'"
 msgstr "შეერთების ჩასწორება (%1)"
 
-#: editor/connectioneditortabwidget.cpp:50
+#: editor/connectioneditortabwidget.cpp:58
 #, kde-format
 msgid "New %1 connection"
 msgstr "ახალი შეერთება (%1)"
@@ -871,6 +905,7 @@ msgid "PAN (personal area network)"
 msgstr "ქსელი პირად სივრცეში (PAN)"
 
 #: editor/settings/connectionstatuswidget.cpp:33
+#: editorqml/qml/wifistatus/ConnectionStatusForm.qml:15
 #, kde-format
 msgid "Disconnected"
 msgstr "გათიშულია"
@@ -912,6 +947,8 @@ msgid "Gateway"
 msgstr "ნაგულისხმევი რაუტერი"
 
 #: editor/settings/ipv4widget.cpp:267 editor/settings/ipv6widget.cpp:258
+#: editorqml/settings/ipv4settings/ipv4settings.cpp:232
+#: editorqml/settings/ipv6settings/ipv6settings.cpp:229
 #, kde-format
 msgid "Other DNS Servers:"
 msgstr "სხვა DNS სერვერები:"
@@ -920,6 +957,8 @@ msgstr "სხვა DNS სერვერები:"
 #: editor/settings/ipv4widget.cpp:306 editor/settings/ipv4widget.cpp:319
 #: editor/settings/ipv6widget.cpp:271 editor/settings/ipv6widget.cpp:284
 #: editor/settings/ipv6widget.cpp:297 editor/settings/ipv6widget.cpp:310
+#: editorqml/settings/ipv4settings/ipv4settings.cpp:232
+#: editorqml/settings/ipv6settings/ipv6settings.cpp:229
 #, kde-format
 msgid "DNS Servers:"
 msgstr "DNS სერვერები:"
@@ -942,13 +981,13 @@ msgstr ""
 msgid "Send hostname:"
 msgstr "ჰოსტის სახელის გაგზავნა:"
 
-#: editor/settings/ipv4widget.cpp:436
+#: editor/settings/ipv4widget.cpp:436 editorqml/qml/ipv4/IPv4Advance.qml:53
 #, kde-format
 msgid "DHCP hostname:"
 msgstr "DHCP-ის ჰოსტის სახელი:"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, privacyCombo)
-#: editor/settings/ipv4widget.cpp:441 editor/settings/ui/ipv6.ui:194
+#: editor/settings/ipv4widget.cpp:441 editor/settings/ui/ipv6.ui:191
 #, kde-format
 msgid "Default"
 msgstr "ნაგულისხმევი"
@@ -959,7 +998,7 @@ msgctxt "Milliseconds"
 msgid " ms"
 msgstr " მწმ"
 
-#: editor/settings/ipv4widget.cpp:445
+#: editor/settings/ipv4widget.cpp:445 editorqml/qml/ipv4/IPv4Advance.qml:63
 #, kde-format
 msgid "DAD timeout:"
 msgstr "DAD-ის ვადა:"
@@ -992,12 +1031,12 @@ msgctxt "Header text for IPv6 gateway"
 msgid "Gateway"
 msgstr "ნაგულისხმევი რაუტერი"
 
-#: editor/settings/security802-1x.cpp:503
+#: editor/settings/security802-1x.cpp:542
 #, kde-format
 msgid "Alternative Subject Matches"
 msgstr "თემის სხვა დამთხვევები"
 
-#: editor/settings/security802-1x.cpp:505
+#: editor/settings/security802-1x.cpp:544
 #, kde-format
 msgid ""
 "<qt>This entry must be one of:<ul><li>DNS: &lt;name or ip address&gt;</"
@@ -1008,7 +1047,7 @@ msgstr ""
 "li><li>ელფოსტა: &lt;ელფოსტა&gt;</li><li>URI: &lt;uri, e.g. https://www.kde."
 "org&gt;</li></ul></qt>"
 
-#: editor/settings/security802-1x.cpp:522
+#: editor/settings/security802-1x.cpp:561
 #, kde-format
 msgid "Connect to these servers only"
 msgstr "მხოლოდ ამ სერვერებთან მიერთება"
@@ -1021,6 +1060,11 @@ msgstr "აირჩიეთ შემოსატანი ფაილი"
 #. i18n: ectx: property (text), widget (QLabel, label)
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: editor/settings/ui/802-1x.ui:33 editor/settings/ui/wifisecurity.ui:174
+#: editorqml/qml/wifisecurity/authentication/enterprise/DynamicWep.qml:51
+#: editorqml/qml/wifisecurity/authentication/enterprise/Wpa3Enterprise192.qml:31
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:53
+#: editorqml/qml/wifisecurity/authentication/WepKey.qml:48
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:34
 #, kde-format
 msgid "Authentication:"
 msgstr "ავთენტიფიკაცია:"
@@ -1034,6 +1078,8 @@ msgstr "MD5"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #: editor/settings/ui/802-1x.ui:58
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:39
 #, kde-format
 msgid "TLS"
 msgstr "TLS"
@@ -1041,30 +1087,40 @@ msgstr "TLS"
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #. i18n: ectx: property (text), item, widget (KComboBox, securityCombo)
 #: editor/settings/ui/802-1x.ui:63 editor/settings/ui/wifisecurity.ui:70
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:26
 #, kde-format
 msgid "LEAP"
 msgstr "LEAP"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #: editor/settings/ui/802-1x.ui:68
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:39
 #, kde-format
 msgid "PWD"
 msgstr "PWD"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #: editor/settings/ui/802-1x.ui:73
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:39
 #, kde-format
 msgid "FAST"
 msgstr "FAST"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #: editor/settings/ui/802-1x.ui:78
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:39
 #, kde-format
 msgid "Tunneled TLS (TTLS)"
 msgstr "TLS გვირაბი (TTLS)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, auth)
 #: editor/settings/ui/802-1x.ui:83
+#: editorqml/qml/wifisecurity/authentication/enterprise/WpaEnterprise.qml:26
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:39
 #, kde-format
 msgid "Protected EAP (PEAP)"
 msgstr "დაცული EAP (PEAP)"
@@ -1081,6 +1137,15 @@ msgstr "დაცული EAP (PEAP)"
 #: editor/settings/ui/802-1x.ui:542 editor/settings/ui/802-1x.ui:684
 #: editor/settings/ui/cdma.ui:37 editor/settings/ui/gsm.ui:41
 #: editor/settings/ui/pppoe.ui:37 editor/settings/ui/wifisecurity.ui:207
+#: editorqml/qml/vpn/sstp/Sstp.qml:43
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:265
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:173
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapLeap.qml:25
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapMd5.qml:22
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:152
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPwd.qml:94
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:141
+#: editorqml/qml/wifisecurity/authentication/Leap.qml:24
 #, kde-format
 msgid "Username:"
 msgstr "მომხმარებელი:"
@@ -1097,13 +1162,14 @@ msgstr "მომხმარებელი:"
 #: editor/settings/ui/802-1x.ui:555 editor/settings/ui/802-1x.ui:697
 #: editor/settings/ui/cdma.ui:50 editor/settings/ui/gsm.ui:54
 #: editor/settings/ui/pppoe.ui:50 editor/settings/ui/wifisecurity.ui:223
-#: editor/settings/ui/wifisecurity.ui:243
+#: editor/settings/ui/wifisecurity.ui:243 editorqml/qml/PasswordField.qml:15
 #, kde-format
 msgid "Password:"
 msgstr "პაროლი:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: editor/settings/ui/802-1x.ui:121
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:23
 #, kde-format
 msgid "Identity:"
 msgstr "იდენტიფიკაცია:"
@@ -1113,12 +1179,16 @@ msgstr "იდენტიფიკაცია:"
 #. i18n: ectx: property (text), widget (QLabel, label_31)
 #: editor/settings/ui/802-1x.ui:134 editor/settings/ui/802-1x.ui:572
 #: editor/settings/ui/802-1x.ui:714
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:101
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:30
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:102
 #, kde-format
 msgid "Domain:"
 msgstr "დომენი:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_5)
 #: editor/settings/ui/802-1x.ui:144
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:49
 #, kde-format
 msgid "User certificate:"
 msgstr "მომხმარებლის სერტიფიკატი:"
@@ -1128,18 +1198,31 @@ msgstr "მომხმარებლის სერტიფიკატი:"
 #. i18n: ectx: property (text), widget (QLabel, label_23)
 #: editor/settings/ui/802-1x.ui:163 editor/settings/ui/802-1x.ui:483
 #: editor/settings/ui/802-1x.ui:595
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:110
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:68
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:111
 #, kde-format
 msgid "CA certificate:"
 msgstr "CA სერტიფიკატი:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_27)
 #: editor/settings/ui/802-1x.ui:182
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:26
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:26
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPwd.qml:24
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:75
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:26
 #, kde-format
 msgid "Subject match:"
 msgstr "სათაურის დამთხვევა:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_28)
 #: editor/settings/ui/802-1x.ui:199
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:48
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:48
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPwd.qml:46
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:95
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:48
 #, kde-format
 msgid "Alternative subject matches:"
 msgstr "თემის სხვა დამთხვევები:"
@@ -1147,12 +1230,22 @@ msgstr "თემის სხვა დამთხვევები:"
 #. i18n: ectx: property (text), widget (QPushButton, btnTlsAltSubjectMatches)
 #. i18n: ectx: property (text), widget (QPushButton, btnTlsConnectToServers)
 #: editor/settings/ui/802-1x.ui:214 editor/settings/ui/802-1x.ui:238
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:74
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:74
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPwd.qml:72
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:118
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:74
 #, kde-format
 msgid "…"
 msgstr "…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_29)
 #: editor/settings/ui/802-1x.ui:223
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:63
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:63
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPwd.qml:61
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:108
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:63
 #, kde-format
 msgid "Connect to these servers:"
 msgstr "მხოლოდ ამ სერვერებთან მიერთება:"
@@ -1161,12 +1254,14 @@ msgstr "მხოლოდ ამ სერვერებთან მიერ
 #. i18n: ectx: property (text), widget (QLabel, privateKeyLabel)
 #: editor/settings/ui/802-1x.ui:247
 #: editor/settings/ui/wireguardinterfacewidget.ui:41
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:152
 #, kde-format
 msgid "Private key:"
 msgstr "პირადი გასაღები:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_8)
 #: editor/settings/ui/802-1x.ui:266
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:159
 #, kde-format
 msgid "Private key password:"
 msgstr "პირადი გასაღების პაროლი:"
@@ -1176,12 +1271,15 @@ msgstr "პირადი გასაღების პაროლი:"
 #. i18n: ectx: property (text), widget (QLabel, label_24)
 #: editor/settings/ui/802-1x.ui:343 editor/settings/ui/802-1x.ui:470
 #: editor/settings/ui/802-1x.ui:582
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:93
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:93
 #, kde-format
 msgid "Anonymous identity:"
 msgstr "ანონიმური იდენტიფიკაცია:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, fastAllowPacProvisioning)
 #: editor/settings/ui/802-1x.ui:356
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:105
 #, kde-format
 msgid "Automatic PAC provisioning"
 msgstr "PAC-ის ავტომატური გაშლა"
@@ -1215,6 +1313,9 @@ msgstr "PAC ფაილი:"
 #. i18n: ectx: property (text), widget (QLabel, label_22)
 #: editor/settings/ui/802-1x.ui:410 editor/settings/ui/802-1x.ui:502
 #: editor/settings/ui/802-1x.ui:649
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:165
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:141
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:130
 #, kde-format
 msgid "Inner authentication:"
 msgstr "შიდა ავთენტიკაცია:"
@@ -1232,6 +1333,7 @@ msgstr "GTC"
 #. i18n: ectx: property (text), item, widget (KComboBox, peapInnerAuth)
 #: editor/settings/ui/802-1x.ui:432 editor/settings/ui/802-1x.ui:529
 #: editor/settings/ui/802-1x.ui:666 editor/settings/ui/ppp.ui:68
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:113
 #, kde-format
 msgid "MSCHAPv2"
 msgstr "MSCHAPv2"
@@ -1239,6 +1341,7 @@ msgstr "MSCHAPv2"
 #. i18n: ectx: property (text), widget (QCheckBox, pap)
 #. i18n: ectx: property (text), item, widget (KComboBox, ttlsInnerAuth)
 #: editor/settings/ui/802-1x.ui:519 editor/settings/ui/ppp.ui:58
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:92
 #, kde-format
 msgid "PAP"
 msgstr "PAP"
@@ -1246,6 +1349,7 @@ msgstr "PAP"
 #. i18n: ectx: property (text), widget (QCheckBox, mschap)
 #. i18n: ectx: property (text), item, widget (KComboBox, ttlsInnerAuth)
 #: editor/settings/ui/802-1x.ui:524 editor/settings/ui/ppp.ui:48
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:106
 #, kde-format
 msgid "MSCHAP"
 msgstr "MSCHAP"
@@ -1253,12 +1357,14 @@ msgstr "MSCHAP"
 #. i18n: ectx: property (text), widget (QCheckBox, chap)
 #. i18n: ectx: property (text), item, widget (KComboBox, ttlsInnerAuth)
 #: editor/settings/ui/802-1x.ui:534 editor/settings/ui/ppp.ui:78
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:99
 #, kde-format
 msgid "CHAP"
 msgstr "CHAP"
 
 #. i18n: ectx: property (text), widget (QLabel, label_26)
 #: editor/settings/ui/802-1x.ui:614
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:130
 #, kde-format
 msgid "PEAP version:"
 msgstr "PEAP-ის ვერსია:"
@@ -1272,12 +1378,14 @@ msgstr "ავტომატური"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, peapVersion)
 #: editor/settings/ui/802-1x.ui:636
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:133
 #, kde-format
 msgid "Version 0"
 msgstr "ვერსია 0"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, peapVersion)
 #: editor/settings/ui/802-1x.ui:641
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:133
 #, kde-format
 msgid "Version 1"
 msgstr "ვერსია 1"
@@ -1313,7 +1421,7 @@ msgstr "ჩასწორება…"
 
 #. i18n: ectx: property (text), widget (QPushButton, btnDelete)
 #: editor/settings/ui/bond.ui:85 editor/settings/ui/bridge.ui:82
-#: editor/settings/ui/team.ui:86
+#: editor/settings/ui/team.ui:86 qml/ConnectionItemDelegate.qml:120
 #, kde-format
 msgid "Delete"
 msgstr "წაშლა"
@@ -1321,6 +1429,7 @@ msgstr "წაშლა"
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #. i18n: ectx: property (text), widget (QLabel, modeLabel)
 #: editor/settings/ui/bond.ui:110 editor/settings/ui/wificonnectionwidget.ui:68
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:70
 #, kde-format
 msgid "Mode:"
 msgstr "რეჟიმი:"
@@ -1443,6 +1552,7 @@ msgstr "რიცხვი:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoconnect)
 #: editor/settings/ui/connectionwidget.ui:17
+#: editorqml/qml/generalSettings/GeneralSettings.qml:24
 #, kde-format
 msgid "Connect automatically with priority"
 msgstr "ავტომატურად შეერთება პრიორიტეტის მიხედვით"
@@ -1463,6 +1573,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, allUsers)
 #: editor/settings/ui/connectionwidget.ui:47
+#: editorqml/qml/generalSettings/GeneralSettings.qml:60
 #, kde-format
 msgid "All users may connect to this network"
 msgstr "ამ ქსელის გამოყენება ყველა მომხმარებელს სეუძლია"
@@ -1485,13 +1596,15 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, pushButtonPermissions)
 #. i18n: ectx: property (text), widget (QPushButton, btnAdvanced)
-#: editor/settings/ui/connectionwidget.ui:69 editor/settings/ui/ipv4.ui:363
+#: editor/settings/ui/connectionwidget.ui:69 editor/settings/ui/ipv4.ui:38
+#: editorqml/qml/generalSettings/GeneralSettings.qml:69
 #, kde-format
 msgid "Advanced…"
 msgstr "დამატებით…"
 
 #. i18n: ectx: property (text), widget (QCheckBox, autoconnectVpn)
 #: editor/settings/ui/connectionwidget.ui:79
+#: editorqml/qml/generalSettings/GeneralSettings.qml:91
 #, kde-format
 msgid "Automatically connect to VPN"
 msgstr "VPN-ზე ავტომატური მიერთბა"
@@ -1508,6 +1621,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, firewallZoneLabel)
 #: editor/settings/ui/connectionwidget.ui:102
+#: editorqml/qml/generalSettings/GeneralSettings.qml:114
 #, kde-format
 msgid "Firewall zone:"
 msgstr "ბრანდმაუერის ზონა:"
@@ -1524,6 +1638,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, meteredLabel)
 #: editor/settings/ui/connectionwidget.ui:134
+#: editorqml/qml/generalSettings/GeneralSettings.qml:128
 #, kde-format
 msgid "Metered:"
 msgstr "დათვლადი:"
@@ -1554,6 +1669,7 @@ msgstr "საწყისი"
 #. i18n: ectx: property (title), widget (QGroupBox, advGroup)
 #. i18n: ectx: property (text), widget (QLabel, advancedSectionLabel)
 #: editor/settings/ui/gsm.ui:84 editor/settings/ui/wificonnectionwidget.ui:112
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:90
 #, kde-format
 msgid "Advanced"
 msgstr "დამატებითი"
@@ -1592,6 +1708,7 @@ msgstr "ტრანსპორტის რეჟიმი:"
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: editor/settings/ui/infiniband.ui:41
 #: editor/settings/ui/wiredconnectionwidget.ui:23
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:21
 #, kde-format
 msgid "Restrict to device:"
 msgstr "მოწყობილობაზე შეზღუდვა:"
@@ -1603,6 +1720,8 @@ msgstr "მოწყობილობაზე შეზღუდვა:"
 #: editor/settings/ui/wificonnectionwidget.ui:301
 #: editor/settings/ui/wiredconnectionwidget.ui:89
 #: editor/settings/ui/wireguardinterfacewidget.ui:89
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:219
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:85
 #, kde-format
 msgid "MTU:"
 msgstr "MTU:"
@@ -1631,14 +1750,105 @@ msgstr " ბაიტი"
 msgid "Advanced IP settings"
 msgstr "IP-ის დამატებითი პარამეტრები"
 
+#. i18n: ectx: property (text), widget (QPushButton, btnRoutes)
+#: editor/settings/ui/ipv4.ui:63 editor/settings/ui/ipv6.ui:323
+#, kde-format
+msgid "Routes…"
+msgstr "მარშრუტები…"
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, dhcpClientId)
+#: editor/settings/ui/ipv4.ui:74
+#, kde-format
+msgid ""
+"Use this field to specify the DHCP client ID which is a string sent to the "
+"DHCP server\n"
+"to identify the local machine that the DHCP server may use to customize the "
+"DHCP\n"
+"lease and options."
+msgstr ""
+"გამოიყენეთ ეს ველი DHCP-ის კლენტის ID-ის მისათითებლად. წარმოადგენს სტრიქონს, "
+"რომელიც\n"
+"DHCO სერვერს ეგზავნება, რათა DHCP სერვერს იჯარებისა და პარამეტრების მორგების "
+"საშუალება \n"
+"მისცეს."
+
+#. i18n: ectx: property (toolTip), widget (KLineEdit, dnsSearch)
+#: editor/settings/ui/ipv4.ui:89 editor/settings/ui/ipv6.ui:277
+#: editorqml/qml/ipv4/IPv4Settings.qml:96
+#: editorqml/qml/ipv6/IPv6Settings.qml:96
+#, kde-format
+msgid ""
+"Use this field to specify one or more DNS domains to search. Use ',' to "
+"separate entries."
+msgstr ""
+"გამოიყენეთ ეს ველი ერთი ან მეტი საძებნი DNS დომენის მისათითებლად. გამყოფად "
+"გამოიყენეთ \",\"."
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, dnsSearchMorePushButton)
+#: editor/settings/ui/ipv4.ui:96 editor/settings/ui/ipv6.ui:284
+#: editorqml/qml/ipv4/IPv4Settings.qml:110
+#: editorqml/qml/ipv6/IPv6Settings.qml:110
+#, kde-format
+msgid "Edit the list of DNS domains being searched"
+msgstr "ძებნადი DNS დომენების სიის ჩასწორება"
+
+#. i18n: ectx: property (text), widget (QLabel, dnsLabel)
+#: editor/settings/ui/ipv4.ui:114 editor/settings/ui/ipv6.ui:164
+#, kde-format
+msgctxt "@info"
+msgid "DNS Servers:"
+msgstr "DNS სერვერები:"
+
 #. i18n: ectx: property (text), widget (QLabel, label)
-#: editor/settings/ui/ipv4.ui:29 editor/settings/ui/ipv6.ui:49
+#: editor/settings/ui/ipv4.ui:152 editor/settings/ui/ipv6.ui:49
+#: editorqml/qml/ipv4/IPv4Settings.qml:26
+#: editorqml/qml/ipv6/IPv6Settings.qml:26
 #, kde-format
 msgid "Method:"
 msgstr "მეთოდი:"
 
+#. i18n: ectx: property (text), widget (QLabel, dnsSearchLabel)
+#: editor/settings/ui/ipv4.ui:171 editor/settings/ui/ipv6.ui:357
+#, kde-format
+msgctxt "@info"
+msgid "Search Domains:"
+msgstr "საძებნი დომენები:"
+
+#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, routeMetric)
+#: editor/settings/ui/ipv4.ui:187 editor/settings/ui/ipv6.ui:392
+#, kde-format
+msgid ""
+"A score that helps choose the best path for data packets to reach their "
+"destination,\n"
+"based on factors like distance, delay, and reliability.\n"
+"\n"
+"Default value -1 means that NetworkManager gets to choose and manage the "
+"actual metric of the route."
+msgstr ""
+"ქულები, რომლებიც გვეხმარება, ავირჩიოთ საუკეთესო ბილიკი მონაცემთა "
+"პაკეტებისთვის, რომ მათ სამიზნე წერტილს მიაღწიონ\n"
+"ისეთი ფაქტორების გათვალისწინებით, როგორიცაა დაშორება, დაყოვნება და "
+"საიმედოობა.\n"
+"\n"
+"ნაგულისხმევი მნიშვნელობა -1, ნიშნავს, რომ NetworkManager აირჩევს და მართავს "
+"რაუტის რეალური მეტრიკა."
+
+#. i18n: ectx: property (text), widget (QLabel, labelDhcpClientId)
+#: editor/settings/ui/ipv4.ui:215 editorqml/qml/ipv4/IPv4Settings.qml:115
+#, kde-format
+msgid "DHCP Client ID:"
+msgstr "DHCP-ის კლიენტის :"
+
+#. i18n: ectx: property (text), widget (QLabel, labelRouteMetric)
+#: editor/settings/ui/ipv4.ui:234 editor/settings/ui/ipv6.ui:376
+#: editorqml/qml/ipv4/IPv4Settings.qml:129
+#: editorqml/qml/ipv6/IPv6Settings.qml:132
+#, kde-format
+msgid "Route Metric:"
+msgstr "მარშრუტის მეტრიკა:"
+
 #. i18n: ectx: property (toolTip), widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:54
+#: editor/settings/ui/ipv4.ui:259 editorqml/qml/ipv4/IPv4Settings.qml:37
 #, kde-format
 msgid ""
 "How to configure the IPv4 address:\n"
@@ -1663,53 +1873,48 @@ msgstr ""
 "• გათიშულია: IPv4-ის გამორთვა"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:58 editor/settings/ui/ipv6.ui:234
+#: editor/settings/ui/ipv4.ui:263 editor/settings/ui/ipv6.ui:231
 #, kde-format
 msgctxt "Method:"
 msgid "Automatic"
 msgstr "ავტომატური"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:63 editor/settings/ui/ipv6.ui:239
+#: editor/settings/ui/ipv4.ui:268 editor/settings/ui/ipv6.ui:236
 #, kde-format
 msgid "Automatic (Only addresses)"
 msgstr "ავტომატური (მხოლოდ მისამართი)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:68 editor/settings/ui/ipv6.ui:249
+#: editor/settings/ui/ipv4.ui:273 editor/settings/ui/ipv6.ui:246
 #, kde-format
 msgid "Link-Local"
 msgstr "Link-Local"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:73 editor/settings/ui/ipv6.ui:254
+#: editor/settings/ui/ipv4.ui:278 editor/settings/ui/ipv6.ui:251
 #, kde-format
 msgctxt "like in use Manual configuration"
 msgid "Manual"
 msgstr "ხელით"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:78
+#: editor/settings/ui/ipv4.ui:283
 #, kde-format
 msgid "Shared to other computers"
 msgstr "გაზიარებული სხვა კომპიუტერებთან"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv4.ui:83
+#: editor/settings/ui/ipv4.ui:288
 #, kde-format
 msgctxt "like in this setting is Disabled"
 msgid "Disabled"
 msgstr "გამორთულია"
 
-#. i18n: ectx: property (text), widget (QLabel, dnsLabel)
-#: editor/settings/ui/ipv4.ui:97 editor/settings/ui/ipv6.ui:167
-#, kde-format
-msgctxt "@info"
-msgid "DNS Servers:"
-msgstr "DNS სერვერები:"
-
 #. i18n: ectx: property (toolTip), widget (KLineEdit, dns)
-#: editor/settings/ui/ipv4.ui:127 editor/settings/ui/ipv6.ui:76
+#: editor/settings/ui/ipv4.ui:310 editor/settings/ui/ipv6.ui:76
+#: editorqml/qml/ipv4/IPv4Settings.qml:59
+#: editorqml/qml/ipv6/IPv6Settings.qml:59
 #, kde-format
 msgid ""
 "Use this field to specify the IP address(es) of one or more DNS servers. Use "
@@ -1719,107 +1924,13 @@ msgstr ""
 "ჩამოთვლის დროს გამყოფად გამოიყენეთ \",\"."
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, dnsMorePushButton)
-#: editor/settings/ui/ipv4.ui:134
+#: editor/settings/ui/ipv4.ui:317
 #, kde-format
 msgid "Edit DNS the list of servers"
 msgstr "DNS სერვერების ჩასწორება"
 
-#. i18n: ectx: property (text), widget (QLabel, dnsSearchLabel)
-#: editor/settings/ui/ipv4.ui:152 editor/settings/ui/ipv6.ui:360
-#, kde-format
-msgctxt "@info"
-msgid "Search Domains:"
-msgstr "საძებნი დომენები:"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, dnsSearch)
-#: editor/settings/ui/ipv4.ui:173 editor/settings/ui/ipv6.ui:280
-#, kde-format
-msgid ""
-"Use this field to specify one or more DNS domains to search. Use ',' to "
-"separate entries."
-msgstr ""
-"გამოიყენეთ ეს ველი ერთი ან მეტი საძებნი DNS დომენის მისათითებლად. გამყოფად "
-"გამოიყენეთ \",\"."
-
-#. i18n: ectx: property (toolTip), widget (QPushButton, dnsSearchMorePushButton)
-#: editor/settings/ui/ipv4.ui:180 editor/settings/ui/ipv6.ui:287
-#, kde-format
-msgid "Edit the list of DNS domains being searched"
-msgstr "ძებნადი DNS დომენების სიის ჩასწორება"
-
-#. i18n: ectx: property (text), widget (QLabel, labelDhcpClientId)
-#: editor/settings/ui/ipv4.ui:198
-#, kde-format
-msgid "DHCP Client ID:"
-msgstr "DHCP-ის კლიენტის :"
-
-#. i18n: ectx: property (toolTip), widget (KLineEdit, dhcpClientId)
-#: editor/settings/ui/ipv4.ui:213
-#, kde-format
-msgid ""
-"Use this field to specify the DHCP client ID which is a string sent to the "
-"DHCP server\n"
-"to identify the local machine that the DHCP server may use to customize the "
-"DHCP\n"
-"lease and options."
-msgstr ""
-"გამოიყენეთ ეს ველი DHCP-ის კლენტის ID-ის მისათითებლად. წარმოადგენს სტრიქონს, "
-"რომელიც\n"
-"DHCO სერვერს ეგზავნება, რათა DHCP სერვერს იჯარებისა და პარამეტრების მორგების "
-"საშუალება \n"
-"მისცეს."
-
-#. i18n: ectx: property (text), widget (QLabel, labelRouteMetric)
-#: editor/settings/ui/ipv4.ui:226 editor/settings/ui/ipv6.ui:379
-#, kde-format
-msgid "Route Metric:"
-msgstr "რაუტის მეტრიკა:"
-
-#. i18n: ectx: property (toolTip), widget (QDoubleSpinBox, routeMetric)
-#: editor/settings/ui/ipv4.ui:261 editor/settings/ui/ipv6.ui:414
-#, kde-format
-msgid ""
-"A score that helps choose the best path for data packets to reach their "
-"destination,\n"
-"based on factors like distance, delay, and reliability.\n"
-"\n"
-"Default value -1 means that NetworkManager gets to choose and manage the "
-"actual metric of the route."
-msgstr ""
-"ქულები, რომლებიც გვეხმარება, ავირჩიოთ საუკეთესო ბილიკი მონაცემთა "
-"პაკეტებისთვის, რომ მათ სამიზნე წერტილს მიაღწიონ\n"
-"ისეთი ფაქტორების გათვალისწინებით, როგორიცაა დაშორება, დაყოვნება და "
-"საიმედოობა.\n"
-"\n"
-"ნაგულისხმევი მნიშვნელობა -1, ნიშნავს, რომ NetworkManager აირჩევს და მართავს "
-"რაუტის რეალური მეტრიკა."
-
-#. i18n: ectx: property (text), widget (QPushButton, btnRemove)
-#: editor/settings/ui/ipv4.ui:270 editor/settings/ui/ipv6.ui:97
-#, kde-format
-msgid "Remove"
-msgstr "წაშლა"
-
-#. i18n: ectx: property (text), widget (QPushButton, btnAdd)
-#: editor/settings/ui/ipv4.ui:280 editor/settings/ui/ipv6.ui:107
-#, kde-format
-msgid "Add"
-msgstr "დამატება"
-
-#. i18n: ectx: property (toolTip), widget (QTableView, tableViewAddresses)
-#: editor/settings/ui/ipv4.ui:297 editor/settings/ui/ipv6.ui:124
-#: editor/widgets/ui/ipv4routes.ui:99 editor/widgets/ui/ipv6routes.ui:39
-#, kde-format
-msgid ""
-"IP addresses identify your computer on the network. Click the \"Add\" button "
-"to add\n"
-"an IP address"
-msgstr ""
-"IP მისამართები თქვენი კომპიუტერის იდენტიფიკაციას ახდენს ქსელში.\n"
-"IP მისამართის დასამატებლად დააჭირეთ ღილაკს \"დამატება\""
-
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ipv4RequiredCB)
-#: editor/settings/ui/ipv4.ui:335
+#: editor/settings/ui/ipv4.ui:330
 #, kde-format
 msgid ""
 "Allows the connection to complete if IPv4 configuration fails\n"
@@ -1829,16 +1940,44 @@ msgstr ""
 "მაგრამ IPv6-ის კონფიგურაცია წარმატებულია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ipv4RequiredCB)
-#: editor/settings/ui/ipv4.ui:338
+#: editor/settings/ui/ipv4.ui:333 editorqml/qml/ipv4/IPv4Settings.qml:302
 #, kde-format
 msgid "IPv4 is required for this connection"
 msgstr "ამ კავშირისთვის საჭიროა IPv4"
 
-#. i18n: ectx: property (text), widget (QPushButton, btnRoutes)
-#: editor/settings/ui/ipv4.ui:388 editor/settings/ui/ipv6.ui:326
+#. i18n: ectx: property (text), widget (QPushButton, btnAdd)
+#: editor/settings/ui/ipv4.ui:345 editor/settings/ui/ipv6.ui:107
+#: editorqml/qml/ipv4/IPv4Settings.qml:281
+#: editorqml/qml/ipv4/SearchDomainList.qml:85
+#: editorqml/qml/ipv6/IPv6Settings.qml:293
+#: editorqml/qml/wifisecurity/AlternativeSubjectMatch.qml:91
+#: editorqml/qml/wifisecurity/DnsList.qml:91
 #, kde-format
-msgid "Routes…"
-msgstr "რაუტები…"
+msgid "Add"
+msgstr "დამატება"
+
+#. i18n: ectx: property (text), widget (QPushButton, btnRemove)
+#: editor/settings/ui/ipv4.ui:355 editor/settings/ui/ipv6.ui:97
+#: editorqml/qml/ipv4/IPv4Settings.qml:289
+#: editorqml/qml/ipv4/SearchDomainList.qml:99
+#: editorqml/qml/ipv6/IPv6Settings.qml:301
+#: editorqml/qml/wifisecurity/AlternativeSubjectMatch.qml:105
+#: editorqml/qml/wifisecurity/DnsList.qml:105
+#, kde-format
+msgid "Remove"
+msgstr "წაშლა"
+
+#. i18n: ectx: property (toolTip), widget (QTableView, tableViewAddresses)
+#: editor/settings/ui/ipv4.ui:385 editor/settings/ui/ipv6.ui:137
+#: editor/widgets/ui/ipv4routes.ui:99 editor/widgets/ui/ipv6routes.ui:39
+#, kde-format
+msgid ""
+"IP addresses identify your computer on the network. Click the \"Add\" button "
+"to add\n"
+"an IP address"
+msgstr ""
+"IP მისამართები თქვენი კომპიუტერის იდენტიფიკაციას ახდენს ქსელში.\n"
+"IP მისამართის დასამატებლად დააჭირეთ ღილაკს \"დამატება\""
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, ipv6RequiredCB)
 #: editor/settings/ui/ipv6.ui:30
@@ -1852,19 +1991,20 @@ msgstr ""
 "IPv6 კონფიგურაცია შეუძლებელია, IPv4 კი წარმატებული"
 
 #. i18n: ectx: property (text), widget (QCheckBox, ipv6RequiredCB)
-#: editor/settings/ui/ipv6.ui:33
+#: editor/settings/ui/ipv6.ui:33 editorqml/qml/ipv6/IPv6Settings.qml:320
 #, kde-format
 msgid "IPv6 is required for this connection"
 msgstr "ამ კავშირისთვის საჭიროა IPv6"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, dnsMorePushButton)
-#: editor/settings/ui/ipv6.ui:83
+#: editor/settings/ui/ipv6.ui:83 editorqml/qml/ipv4/IPv4Settings.qml:73
+#: editorqml/qml/ipv6/IPv6Settings.qml:73
 #, kde-format
 msgid "Edit the list of DNS servers"
 msgstr "DNS სერვერების სიის ჩასწორება"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, privacyCombo)
-#: editor/settings/ui/ipv6.ui:190
+#: editor/settings/ui/ipv6.ui:187
 #, kde-format
 msgid ""
 "Configure IPv6 Privacy Extensions for SLAAC, described in RFC4941. If "
@@ -1878,26 +2018,26 @@ msgstr ""
 "მისამართის გარდა დროებითი IPv6 მისამართიც დააგენერიროს."
 
 #. i18n: ectx: property (text), item, widget (KComboBox, privacyCombo)
-#: editor/settings/ui/ipv6.ui:199
+#: editor/settings/ui/ipv6.ui:196
 #, kde-format
 msgctxt "privacy disabled"
 msgid "Disabled"
 msgstr "გამორთულია"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, privacyCombo)
-#: editor/settings/ui/ipv6.ui:204
+#: editor/settings/ui/ipv6.ui:201
 #, kde-format
 msgid "Enabled (prefer public address)"
 msgstr "ჩართულია (პრიორიტეტი გარე მისამართზე)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, privacyCombo)
-#: editor/settings/ui/ipv6.ui:209
+#: editor/settings/ui/ipv6.ui:206
 #, kde-format
 msgid "Enabled (prefer temporary addresses)"
 msgstr "ჩართულია (პრიორიტეტი დროებით მისამართზე)"
 
 #. i18n: ectx: property (toolTip), widget (KComboBox, method)
-#: editor/settings/ui/ipv6.ui:230
+#: editor/settings/ui/ipv6.ui:227 editorqml/qml/ipv6/IPv6Settings.qml:37
 #, kde-format
 msgid ""
 "How to configure the IPv6 address:\n"
@@ -1925,38 +2065,39 @@ msgstr ""
 "• გათიშულია: IPv6-ის სრულად გამორთვა"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv6.ui:244
+#: editor/settings/ui/ipv6.ui:241
 #, kde-format
 msgid "Automatic (Only DHCP)"
 msgstr "ავტომატური (მხოლოდ DHCP)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, method)
-#: editor/settings/ui/ipv6.ui:259
+#: editor/settings/ui/ipv6.ui:256
 #, kde-format
 msgctxt "like in this setting is Disabled"
 msgid "Ignored"
 msgstr "იგნორირებულია"
 
 #. i18n: ectx: property (text), widget (QLabel, labelPrivacy)
-#: editor/settings/ui/ipv6.ui:341
+#: editor/settings/ui/ipv6.ui:338 editorqml/qml/ipv6/IPv6Settings.qml:115
 #, kde-format
 msgid "Privacy:"
 msgstr "პირადულბა:"
 
 #. i18n: ectx: property (title), widget (QGroupBox, authGroup)
-#: editor/settings/ui/ppp.ui:23
+#: editor/settings/ui/ppp.ui:23 editorqml/qml/vpn/ssh/Ssh.qml:136
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:81
 #, kde-format
 msgid "Authentication"
 msgstr "ავთენტიფიკაცია"
 
 #. i18n: ectx: property (text), widget (QCheckBox, eap)
-#: editor/settings/ui/ppp.ui:38
+#: editor/settings/ui/ppp.ui:38 editorqml/qml/vpn/sstp/SstpAdvanced.qml:120
 #, kde-format
 msgid "EAP"
 msgstr "EAP"
 
 #. i18n: ectx: property (title), widget (QGroupBox, compressionGroup)
-#: editor/settings/ui/ppp.ui:91
+#: editor/settings/ui/ppp.ui:91 editorqml/qml/vpn/sstp/SstpAdvanced.qml:165
 #, kde-format
 msgid "Compression"
 msgstr "შეკუმშვა"
@@ -1998,13 +2139,13 @@ msgid "Use stateful MPPE"
 msgstr "საიმედო MPPE-ის გამოყენება"
 
 #. i18n: ectx: property (title), widget (QGroupBox, echoGroup)
-#: editor/settings/ui/ppp.ui:175
+#: editor/settings/ui/ppp.ui:175 editorqml/qml/vpn/sstp/SstpAdvanced.qml:191
 #, kde-format
 msgid "Echo"
 msgstr "ექო"
 
 #. i18n: ectx: property (text), widget (QCheckBox, senddEcho)
-#: editor/settings/ui/ppp.ui:184
+#: editor/settings/ui/ppp.ui:184 editorqml/qml/vpn/sstp/SstpAdvanced.qml:195
 #, kde-format
 msgid "Send PPP echo packets"
 msgstr "PPP ექოს გაგზავნა"
@@ -2091,12 +2232,14 @@ msgstr "მაგრად მიბმა"
 
 #. i18n: ectx: property (text), widget (QLabel, connectionSectionLabel)
 #: editor/settings/ui/wificonnectionwidget.ui:23
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:27
 #, kde-format
 msgid "Connection"
 msgstr "კავშირი"
 
 #. i18n: ectx: property (text), widget (QLabel, SSIDLabel)
 #: editor/settings/ui/wificonnectionwidget.ui:39
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:34
 #, kde-format
 msgid "SSID:"
 msgstr "SSID:"
@@ -2123,24 +2266,28 @@ msgstr ""
 
 #. i18n: ectx: property (text), item, widget (KComboBox, modeComboBox)
 #: editor/settings/ui/wificonnectionwidget.ui:94
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:73
 #, kde-format
 msgid "Infrastructure"
 msgstr "ინფრასტრუქტურა"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, modeComboBox)
 #: editor/settings/ui/wificonnectionwidget.ui:99
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:73
 #, kde-format
 msgid "Ad-hoc"
 msgstr "Ad-hoc"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, modeComboBox)
 #: editor/settings/ui/wificonnectionwidget.ui:104
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:73
 #, kde-format
 msgid "Access Point"
 msgstr "წვდომის წერტილი"
 
 #. i18n: ectx: property (text), widget (QLabel, BSSIDLabel)
 #: editor/settings/ui/wificonnectionwidget.ui:128
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:97
 #, kde-format
 msgid "Restrict to BSSID:"
 msgstr "BSSID-ზე შეზღუდვა:"
@@ -2157,6 +2304,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, bandLabel)
 #: editor/settings/ui/wificonnectionwidget.ui:163
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:133
 #, kde-format
 msgid "Band:"
 msgstr "სიხშირე:"
@@ -2182,18 +2330,21 @@ msgstr "ავტომატური"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, band)
 #: editor/settings/ui/wificonnectionwidget.ui:192
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:136
 #, kde-format
 msgid "A (5 GHz)"
 msgstr "A (5 GHz)"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, band)
 #: editor/settings/ui/wificonnectionwidget.ui:197
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:136
 #, kde-format
 msgid "B/G (2.4 GHz)"
 msgstr "B/G (2.4 GHz)"
 
 #. i18n: ectx: property (text), widget (QLabel, channelLabel)
 #: editor/settings/ui/wificonnectionwidget.ui:205
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:145
 #, kde-format
 msgid "Channel:"
 msgstr "არხი:"
@@ -2212,6 +2363,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: editor/settings/ui/wificonnectionwidget.ui:232
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:164
 #, kde-format
 msgid "Restrict to network adapter:"
 msgstr "ქსელურ ბარათზე შეზღუდვა:"
@@ -2228,6 +2380,8 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: editor/settings/ui/wificonnectionwidget.ui:258
 #: editor/settings/ui/wiredconnectionwidget.ui:47
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:197
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:60
 #, kde-format
 msgid "Cloned MAC address:"
 msgstr "კლონირებული MAC მისამართი:"
@@ -2243,6 +2397,8 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QPushButton, btnRandomMacAddr)
 #: editor/settings/ui/wificonnectionwidget.ui:292
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:212
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:78
 #, kde-format
 msgid "Random…"
 msgstr "შემთხვევითი…"
@@ -2267,12 +2423,14 @@ msgstr "დამალულ ქსელზე მიერთების შ
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: editor/settings/ui/wificonnectionwidget.ui:345
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:242
 #, kde-format
 msgid "Visibility:"
 msgstr "ხილვადობა:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, hiddenNetwork)
 #: editor/settings/ui/wificonnectionwidget.ui:361
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:243
 #, kde-format
 msgid "Hidden network"
 msgstr "დამალული ქსელი"
@@ -2291,6 +2449,7 @@ msgstr "Wifi-ის უსაფრთხოება"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: editor/settings/ui/wifisecurity.ui:35
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:38
 #, kde-format
 msgid "Security:"
 msgstr "უსაფრთხოება:"
@@ -2316,6 +2475,7 @@ msgstr "WEP გასაღები 128 ბიტი"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, securityCombo)
 #: editor/settings/ui/wifisecurity.ui:75
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:27
 #, kde-format
 msgid "Dynamic WEP (802.1x)"
 msgstr "დინამიკური WEP (802.1x)"
@@ -2334,18 +2494,21 @@ msgstr "WPA2/WPA3 საწარმოო"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, securityCombo)
 #: editor/settings/ui/wifisecurity.ui:90
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:30
 #, kde-format
 msgid "WPA3 Personal"
 msgstr "WPA3 პერსონალური"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, securityCombo)
 #: editor/settings/ui/wifisecurity.ui:95
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:31
 #, kde-format
 msgid "WPA3 Enterprise 192-bit"
 msgstr "WPA3 საწარმოო 192-ბიტიანი"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, securityCombo)
 #: editor/settings/ui/wifisecurity.ui:100
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:32
 #, kde-format
 msgid "Enhanced Open (OWE)"
 msgstr "დამატებითი გახსნა (OWE)"
@@ -2388,12 +2551,14 @@ msgstr "4"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, wepAuth)
 #: editor/settings/ui/wifisecurity.ui:194
+#: editorqml/qml/wifisecurity/authentication/WepKey.qml:44
 #, kde-format
 msgid "Open System"
 msgstr "ღია სისტემა"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, wepAuth)
 #: editor/settings/ui/wifisecurity.ui:199
+#: editorqml/qml/wifisecurity/authentication/WepKey.qml:44
 #, kde-format
 msgid "Shared Key"
 msgstr "ზიარი გასაღები"
@@ -2440,12 +2605,14 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, speedLabel)
 #: editor/settings/ui/wiredconnectionwidget.ui:125
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:128
 #, kde-format
 msgid "Speed:"
 msgstr "სიჩქარე:"
 
 #. i18n: ectx: property (text), widget (QLabel, duplexLabel)
 #: editor/settings/ui/wiredconnectionwidget.ui:132
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:154
 #, kde-format
 msgid "Duplex:"
 msgstr "დუპლექსი:"
@@ -2474,6 +2641,7 @@ msgstr "სრული"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: editor/settings/ui/wiredconnectionwidget.ui:174
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:111
 #, kde-format
 msgid "Link negotiation:"
 msgstr "კავშირის დამყარება:"
@@ -2518,54 +2686,63 @@ msgstr "ამ მოწყობილობისათვის მხოლ�
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:226
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:132
 #, kde-format
 msgid "10 Mb/s"
 msgstr "10 მბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:231
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:133
 #, kde-format
 msgid "100 Mb/s"
 msgstr "100 მბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:236
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:134
 #, kde-format
 msgid "1 Gb/s"
 msgstr "1 გბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:241
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:135
 #, kde-format
 msgid "2.5 Gb/s"
 msgstr "2.5 გბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:246
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:136
 #, kde-format
 msgid "5 Gb/s"
 msgstr "5 გბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:251
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:137
 #, kde-format
 msgid "10 Gb/s"
 msgstr "10 გბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:256
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:138
 #, kde-format
 msgid "40 Gb/s"
 msgstr "40 გბ/წმ"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, speed)
 #: editor/settings/ui/wiredconnectionwidget.ui:261
+#: editorqml/settings/wiredconnectionsettings/wiredsettings.cpp:139
 #, kde-format
 msgid "100 Gb/s"
 msgstr "100 გბ/წმ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, use8021X)
 #: editor/settings/ui/wiredsecurity.ui:17
+#: editorqml/qml/wifisecurity/WiredSecurityForm.qml:28
 #, kde-format
 msgid "Use 802.1x security for this connection"
 msgstr "ამ შეერთებისთვის 802.1x დაცვის გამოყენება"
@@ -2844,7 +3021,14 @@ msgstr "ახალი პარტნიორის დამატება"
 msgid "Remove this Peer"
 msgstr "პარტნიორის წაშლა"
 
-#: editor/settings/wificonnectionwidget.cpp:262
+#: editor/settings/wificonnectionwidget.cpp:237
+#, kde-format
+msgctxt "@action:inmenu automatic wireless channel selection"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editor/settings/wificonnectionwidget.cpp:263
+#: editorqml/settings/wificonnectionsettings/wifisetting.cpp:315
 #, kde-format
 msgid "%1 (%2 MHz)"
 msgstr "%1 (%2 მჰც)"
@@ -3865,22 +4049,23 @@ msgstr "თქვენი გეგმა:"
 msgid "Change the visibility of the password"
 msgstr "პაროლის ხილვადობა"
 
-#: editor/widgets/passwordfield.cpp:41
+#: editor/widgets/passwordfield.cpp:41 editorqml/qml/PasswordField.qml:125
 #, kde-format
 msgid "Store password for this user only (encrypted)"
 msgstr "მხოლოდ ამ მომხმარებლის პაროლის დამახსოვრება (დაშიფრული)"
 
-#: editor/widgets/passwordfield.cpp:43
+#: editor/widgets/passwordfield.cpp:43 editorqml/qml/PasswordField.qml:125
 #, kde-format
 msgid "Store password for all users (not encrypted)"
 msgstr "ყველა მომხმარებლის პაროლების დამახსოვრება (დაუშიფრავი)"
 
 #: editor/widgets/passwordfield.cpp:45 editor/widgets/passwordfield.cpp:91
+#: editorqml/qml/PasswordField.qml:125
 #, kde-format
 msgid "Ask for this password every time"
 msgstr "პაროლის ყოველ ჯერზე მოთხოვნა"
 
-#: editor/widgets/passwordfield.cpp:106
+#: editor/widgets/passwordfield.cpp:106 editorqml/qml/PasswordField.qml:128
 #, kde-format
 msgid "This password is not required"
 msgstr "ეს პაროლი საჭირო არაა"
@@ -3937,13 +4122,14 @@ msgid "Users allowed to activate the connection"
 msgstr "მომხმარებლებს აქვთ უფლება ჩართონ ეს შეერთება"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, RoutesIp4Config)
-#: editor/widgets/ui/ipv4routes.ui:20
+#: editor/widgets/ui/ipv4routes.ui:20 editorqml/qml/ipv4/IPv4Routes.qml:18
 #, kde-format
 msgid "Edit IPv4 Routes"
 msgstr "IPv4 რაუტების ჩასწორება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbNeverDefault)
 #: editor/widgets/ui/ipv4routes.ui:42 editor/widgets/ui/ipv6routes.ui:130
+#: editorqml/qml/ipv4/IPv4Routes.qml:216 editorqml/qml/ipv6/IPv6Routes.qml:237
 #, kde-format
 msgid ""
 "If enabled, this connection will never be used as the default network "
@@ -3953,6 +4139,7 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbNeverDefault)
 #: editor/widgets/ui/ipv4routes.ui:45 editor/widgets/ui/ipv6routes.ui:133
+#: editorqml/qml/ipv4/IPv4Routes.qml:208 editorqml/qml/ipv6/IPv6Routes.qml:229
 #, kde-format
 msgid "Use only for resources on this connection"
 msgstr "მხოლოდ ამ შეერთების რესურსებზე გამოყენება"
@@ -3973,6 +4160,7 @@ msgstr "დამატება"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, cbIgnoreAutoRoutes)
 #: editor/widgets/ui/ipv4routes.ui:136 editor/widgets/ui/ipv6routes.ui:120
+#: editorqml/qml/ipv4/IPv4Routes.qml:202 editorqml/qml/ipv6/IPv6Routes.qml:223
 #, kde-format
 msgid ""
 "If enabled, automatically configured routes are ignored and only routes "
@@ -3983,12 +4171,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QCheckBox, cbIgnoreAutoRoutes)
 #: editor/widgets/ui/ipv4routes.ui:139 editor/widgets/ui/ipv6routes.ui:123
+#: editorqml/qml/ipv4/IPv4Routes.qml:194 editorqml/qml/ipv6/IPv6Routes.qml:215
 #, kde-format
 msgid "Ignore automatically obtained routes"
 msgstr "ავტომატურად მიღებული რაუტების იგნორი"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, RoutesIp6Config)
-#: editor/widgets/ui/ipv6routes.ui:20
+#: editor/widgets/ui/ipv6routes.ui:20 editorqml/qml/ipv6/IPv6Routes.qml:18
 #, kde-format
 msgid "Edit IPv6 Routes"
 msgstr "IPv6 რაუტების ჩასწორება"
@@ -3999,6 +4188,909 @@ msgstr "IPv6 რაუტების ჩასწორება"
 msgctxt "Remove a selected row"
 msgid "R&emove"
 msgstr "&წაშლა"
+
+#: editorqml/qml/AddConnectionDialog.qml:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Choose a Connection Type"
+msgstr "აირჩიეთ კავშირის ტიპი"
+
+#: editorqml/qml/components/Vpn.qml:24 editorqml/qml/components/Wired.qml:27
+#: editorqml/qml/components/Wireless.qml:27
+#, kde-format
+msgid "Status"
+msgstr "სტატუსი"
+
+#: editorqml/qml/components/Wireless.qml:36
+#, kde-format
+msgid "Wi-Fi Security"
+msgstr "Wi-Fi-ის დაცვა"
+
+#: editorqml/qml/ConfigurationDialog.qml:19
+#, kde-format
+msgctxt "@title:window"
+msgid "Configuration"
+msgstr "მორგება"
+
+#: editorqml/qml/ConfigurationDialog.qml:42
+#, kde-format
+msgid "Ask for PIN on modem detection"
+msgstr "მოდემის გამოცნობისას PIN კოდის კითხვა"
+
+#: editorqml/qml/ConfigurationDialog.qml:49
+#, kde-format
+msgid "Show virtual connections"
+msgstr "ვირტუალური შეერთებების ჩვენება"
+
+#: editorqml/qml/ConfigurationDialog.qml:55
+#, kde-format
+msgid "Create new connections as system connections"
+msgstr "ახალი კავშირების შექმნა სისტემური კავშირების სახით"
+
+#: editorqml/qml/generalSettings/AdvancedPermissionsDialog.qml:18
+#, kde-format
+msgid "Allowed Users"
+msgstr "დაშვებული მომხმარებლები"
+
+#: editorqml/qml/generalSettings/GeneralSettings.qml:131
+#, kde-format
+msgctxt "@item metered mode"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:18
+#, kde-format
+msgid "Advanced IPv4 Settings"
+msgstr "IPv4-ის დამატებითი პარამეტრები"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:45
+#, kde-format
+msgid "DHCP:"
+msgstr "DHCP:"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:46
+#, kde-format
+msgid "Send hostname to DHCP server"
+msgstr "ჰოსტის სახელის გაგზავნა DHCP სერვერზე"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:76 editorqml/qml/ipv4/IPv4Advance.qml:83
+#, kde-format
+msgctxt "@item DAD timeout left to NetworkManager"
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:78 editorqml/qml/ipv4/IPv4Advance.qml:85
+#, kde-format
+msgctxt "@item duplicate address detection turned off"
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:79
+#, kde-format
+msgctxt "@item:intext duplicate address detection timeout in milliseconds"
+msgid "%1 ms"
+msgstr "%1 მწმ"
+
+#: editorqml/qml/ipv4/IPv4Advance.qml:94
+#, kde-format
+msgid ""
+"Timeout in milliseconds used to check for the presence of duplicate IP "
+"addresses on the network.\n"
+"\n"
+"0 disables the check, -1 lets NetworkManager decide."
+msgstr ""
+"დრო მილიწამებში, რომელიც საჭიროა ქსელში გამეორებული IP მისამართების "
+"არსებობის შესამოწმებლად.\n"
+"\n"
+"0 გამორთავს შემოწმებას. -1 NetworkManager-ს აძლევს საშუალებას, გადაწყვიტოს."
+
+#: editorqml/qml/ipv4/IPv4Routes.qml:125
+#: editorqml/qml/ipv4/IPv4Settings.qml:254
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "10.0.0.0"
+msgstr "10.0.0.0"
+
+#: editorqml/qml/ipv4/IPv4Routes.qml:127
+#: editorqml/qml/ipv4/IPv4Settings.qml:256
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "255.255.255.0"
+msgstr "255.255.255.0"
+
+#: editorqml/qml/ipv4/IPv4Routes.qml:129
+#: editorqml/qml/ipv4/IPv4Settings.qml:258
+#: editorqml/qml/ipv6/IPv6Routes.qml:133
+#: editorqml/qml/ipv6/IPv6Settings.qml:261
+#, kde-format
+msgctxt "@info:placeholder optional field"
+msgid "Optional"
+msgstr "არასავალდებულო"
+
+#: editorqml/qml/ipv4/IPv4Routes.qml:170 editorqml/qml/ipv6/IPv6Routes.qml:191
+#, kde-format
+msgctxt "@action:button Insert a row"
+msgid "Add"
+msgstr "დამატება"
+
+#: editorqml/qml/ipv4/IPv4Routes.qml:177 editorqml/qml/ipv6/IPv6Routes.qml:198
+#, kde-format
+msgctxt "@action:button Remove a selected row"
+msgid "Remove"
+msgstr "წაშლა"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv4 method"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv4 method"
+msgid "Automatic (Only addresses)"
+msgstr "ავტომატური (მხოლოდ მისამართი)"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv4 method"
+msgid "Link-Local"
+msgstr "Link-Local"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox like in use Manual configuration"
+msgid "Manual"
+msgstr "ხელით"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv4 method"
+msgid "Shared to other computers"
+msgstr "გაზიარებული სხვა კომპიუტერებთან"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:29
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox like in this setting is Disabled"
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:78
+#: editorqml/qml/ipv6/IPv6Settings.qml:78
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Search Domains:"
+msgstr "საძებნი დომენები:"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:126
+#, kde-format
+msgid ""
+"Use this field to specify the DHCP client ID which is a string sent to the "
+"DHCP server to identify the local machine that the DHCP server may use to "
+"customize the DHCP lease and options."
+msgstr ""
+"გამოიყენეთ ეს ველი DHCP-ის კლენტის ID-ის მისათითებლად. წარმოადგენს სტრიქონს, "
+"რომელიც DHCP სერვერს ეგზავნება, რათა DHCP სერვერს იჯარებისა და პარამეტრების "
+"მორგების საშუალება მისცეს."
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:155
+#: editorqml/qml/ipv6/IPv6Settings.qml:158
+#, kde-format
+msgid ""
+"A score that helps choose the best path for data packets to reach their "
+"destination, based on factors like distance, delay, and reliability.\n"
+"\n"
+"Default value -1 means that NetworkManager gets to choose and manage the "
+"actual metric of the route."
+msgstr ""
+"ქულები, რომლებიც გვეხმარება, ავირჩიოთ საუკეთესო ბილიკი მონაცემთა "
+"პაკეტებისთვის, რომ მათ სამიზნე წერტილს მიაღწიონ ისეთი ფაქტორების "
+"გათვალისწინებით, როგორიცაა დაშორება, დაყოვნება და საიმედოობა.\n"
+"\n"
+"ნაგულისხმევი მნიშვნელობა -1, ნიშნავს, რომ NetworkManager აირჩევს და მართავს "
+"მარშრუტის რეალური მეტრიკას."
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:162
+#: editorqml/qml/ipv6/IPv6Settings.qml:165
+#, kde-format
+msgid "Addresses"
+msgstr "მისამართები"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:310
+#, kde-format
+msgid ""
+"Allows the connection to complete if IPv4 configuration fails but IPv6 "
+"configuration succeeds"
+msgstr ""
+"მიერთების დასრულება მაშინაც კი, თუ IPv4 კონფიგურაცია შეცდომით დასრულდება, "
+"მაგრამ IPv6-ის კონფიგურაცია წარმატებულია"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:326 editorqml/qml/vpn/ssh/Ssh.qml:194
+#: editorqml/qml/vpn/sstp/Sstp.qml:106
+#, kde-format
+msgctxt "@action:button"
+msgid "Advanced…"
+msgstr "დამატებით…"
+
+#: editorqml/qml/ipv4/IPv4Settings.qml:332
+#: editorqml/qml/ipv6/IPv6Settings.qml:346
+#, kde-format
+msgctxt "@action:button"
+msgid "Routes…"
+msgstr "მარშრუტები…"
+
+#: editorqml/qml/ipv4/SearchDomainList.qml:16
+#, kde-format
+msgid "Search Domains"
+msgstr "საძებნი დომენები"
+
+#: editorqml/qml/ipv4/SearchDomainList.qml:107
+#: editorqml/qml/wifisecurity/AlternativeSubjectMatch.qml:113
+#: editorqml/qml/wifisecurity/DnsList.qml:113
+#, kde-format
+msgid "Move Up"
+msgstr "აწევა"
+
+#: editorqml/qml/ipv4/SearchDomainList.qml:120
+#: editorqml/qml/wifisecurity/AlternativeSubjectMatch.qml:126
+#: editorqml/qml/wifisecurity/DnsList.qml:126
+#, kde-format
+msgid "Move Down"
+msgstr "ჩამოწევა"
+
+#: editorqml/qml/ipv6/IPv6Routes.qml:129
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "2001:db8::"
+msgstr "2001:db8::"
+
+#: editorqml/qml/ipv6/IPv6Routes.qml:131
+#: editorqml/qml/ipv6/IPv6Settings.qml:259
+#, kde-format
+msgctxt "@info:placeholder IPv6 prefix length"
+msgid "64"
+msgstr "64"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv6 method"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv6 method"
+msgid "Automatic (Only addresses)"
+msgstr "ავტომატური (მხოლოდ მისამართი)"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv6 method"
+msgid "Automatic (Only DHCP)"
+msgstr "ავტომატური (მხოლოდ DHCP)"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox IPv6 method"
+msgid "Link-Local"
+msgstr "Link-Local"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:29
+#, kde-format
+msgctxt "@item:inlistbox like in this setting is Ignored"
+msgid "Ignored"
+msgstr "იგნორირებულია"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:120
+#, kde-format
+msgctxt "@item:inlistbox IPv6 privacy extensions left to NetworkManager"
+msgid "Default"
+msgstr "ნაგულისხმევი"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:120
+#, kde-format
+msgctxt "@item:inlistbox privacy disabled"
+msgid "Disabled"
+msgstr "გამორთულია"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:120
+#, kde-format
+msgctxt "@item:inlistbox IPv6 privacy extensions"
+msgid "Enabled (prefer public address)"
+msgstr "ჩართულია (პრიორიტეტი გარე მისამართზე)"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:120
+#, kde-format
+msgctxt "@item:inlistbox IPv6 privacy extensions"
+msgid "Enabled (prefer temporary addresses)"
+msgstr "ჩართულია (პრიორიტეტი დროებით მისამართზე)"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:128
+#, kde-format
+msgid ""
+"Configure IPv6 Privacy Extensions for SLAAC, described in RFC4941. If "
+"enabled, it makes the kernel generate a temporary IPv6 address in addition "
+"to the public one generated from MAC address via modified EUI-64."
+msgstr ""
+"მოირგეთ IPv6-ის კონფიდენციალობის გაფართოებები SLAAC-სთვის, როგორც ეს RFC4941-"
+"შია აღწერილი. თუ ჩართულია, ის ბირთვს აიძულებს MAC მისამართიდან შეცვლილი "
+"EUI-64-ით შექმნილი საჯარო მისამართის გარდა დროებითი IPv6 მისამართიც "
+"დააგენერიროს."
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:257
+#, kde-format
+msgctxt "@info:placeholder"
+msgid "2001:db8::1"
+msgstr "2001:db8::1"
+
+#: editorqml/qml/ipv6/IPv6Settings.qml:330
+#, kde-format
+msgid ""
+"When connecting to IPv4-capable networks, allows the connection to complete "
+"if IPv6 configuration fails but IPv4 configuration succeeds"
+msgstr ""
+"IPv4 ფუნქციონალის მქონე ქსელებთან მიერთებისას მიერთება წარმატებულია, თუ IPv6 "
+"კონფიგურაცია შეუძლებელია, IPv4 კი წარმატებული"
+
+#: editorqml/qml/PasswordField.qml:106
+#, kde-format
+msgid "Always asked"
+msgstr "ყოველთვის ეკითხებოდა"
+
+#: editorqml/qml/PasswordField.qml:108
+#, kde-format
+msgid "Not required"
+msgstr "აუცილებელი არაა"
+
+#: editorqml/qml/PasswordPromptDialog.qml:24
+#, kde-format
+msgctxt "@action:button Connect to network"
+msgid "Connect"
+msgstr "დაკავშირება"
+
+#: editorqml/qml/PasswordPromptDialog.qml:31
+#, kde-format
+msgctxt "@action:button Cancel connecting to network"
+msgid "Cancel"
+msgstr "გაუქმება"
+
+#: editorqml/qml/PasswordPromptDialog.qml:37
+#, kde-format
+msgctxt "@title:window"
+msgid "Enter Password"
+msgstr "შეიყვანეთ პაროლი"
+
+#: editorqml/qml/PasswordPromptDialog.qml:43
+#, kde-format
+msgctxt "@label %1 is the name of the network the user is connecting to"
+msgid "Network: %1"
+msgstr "ქსელი: %1"
+
+#: editorqml/qml/PasswordPromptDialog.qml:62
+#, kde-format
+msgctxt "@label key is a passcode"
+msgid "Password must be a valid WEP key"
+msgstr "პაროლი სწორი WEP გასაღები უნდა იყოს"
+
+#: editorqml/qml/PasswordPromptDialog.qml:62
+#, kde-format
+msgctxt "@label password invalid length message"
+msgid "Password must be between 8 and 64 characters"
+msgstr "პაროლი 8-დან 64-მდე სიმბოლოს უნდა შეიცავდეს"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:34 editorqml/qml/vpn/sstp/Sstp.qml:30
+#, kde-format
+msgid "Gateway:"
+msgstr "ნაგულისხმევი რაუტერი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:43
+#, kde-format
+msgid "Network Settings"
+msgstr "ქსელის მორგება"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:47 editorqml/qml/vpn/ssh/Ssh.qml:97
+#, kde-format
+msgid "Remote IP Address:"
+msgstr "დაშორებული IP მისამართი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:59 editorqml/qml/vpn/ssh/Ssh.qml:111
+#, kde-format
+msgid "Local IP Address:"
+msgstr "ლოკალური IP მისამართი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:71
+#, kde-format
+msgid "Netmask:"
+msgstr "ქსელური ნიღაბი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:84
+#, kde-format
+msgid "IPv6 Network Settings"
+msgstr "IPv6 ქსელის მორგება"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:90
+#, kde-format
+msgid "Use IPv6"
+msgstr "IPv6-ის გამოყენება"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:125
+#, kde-format
+msgid "Prefix:"
+msgstr "პრეფიქსი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:140
+#, kde-format
+msgid "Type:"
+msgstr "ტიპი:"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:143
+#, kde-format
+msgid "SSH Agent"
+msgstr "SSH  აგენტი"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:143
+#, kde-format
+msgid "Password"
+msgstr "პაროლი"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:143
+#, kde-format
+msgid "Key authentication"
+msgstr "გასაღებით ავთენტიფიკაცია"
+
+#: editorqml/qml/vpn/ssh/Ssh.qml:150
+#, kde-format
+msgid "SSH Key File:"
+msgstr "SSH-ის გასაღების ფაილი:"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:18
+#, kde-format
+msgctxt "@title:window"
+msgid "Advanced"
+msgstr "დამატებით"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:36
+#, kde-format
+msgid "Use custom gateway port:"
+msgstr "გამავალი რაუტერის პორტის ხელით მითითება:"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:60
+#, kde-format
+msgid "Use custom tunnel Maximum Transmission Unit (MTU):"
+msgstr "ტუნელის MTU-ის ხელით მითითება:"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:84
+#, kde-format
+msgid "Extra SSH options:"
+msgstr "SSH-ის დამატებითი პარამეტრები:"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:108
+#, kde-format
+msgid "Remote device number:"
+msgstr "დაშორებული მოწყობილობის ნომერი:"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:128
+#, kde-format
+msgid "Use a TAP device"
+msgstr "TAP მოწყობილობის გამოყენება"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:141
+#, kde-format
+msgid "Remote username"
+msgstr "დაშორებული მომხმარებლის სახელი"
+
+#: editorqml/qml/vpn/ssh/SshAdvanced.qml:161
+#, kde-format
+msgid "Do not replace default route"
+msgstr "ნაგულისხმები რაუტის არ შეცვლა"
+
+#: editorqml/qml/vpn/ssh/SshAuth.qml:23
+#, kde-format
+msgid "SSH VPN"
+msgstr "SSH VPN"
+
+#: editorqml/qml/vpn/sstp/Sstp.qml:39
+#, kde-format
+msgid "Optional"
+msgstr "არასავალდებულო"
+
+#: editorqml/qml/vpn/sstp/Sstp.qml:51
+#, kde-format
+msgid "NT Domain:"
+msgstr "NT დომენი:"
+
+#: editorqml/qml/vpn/sstp/Sstp.qml:59
+#, kde-format
+msgid "CA Certificate:"
+msgstr "CA სერტიფიკატი:"
+
+#: editorqml/qml/vpn/sstp/Sstp.qml:79
+#, kde-format
+msgid "Ignore certificate warnings"
+msgstr "სერტიფიკატის გაფრთხილებების იგნორირება"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:60
+#, kde-format
+msgid "Point-to-Point"
+msgstr "წერტილიდან წერტილამდე"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:64
+#, kde-format
+msgid "Proxy"
+msgstr "პროქსი"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:87
+#, kde-format
+msgid "Allow following authentication methods:"
+msgstr "ავთენტიკაციის შესაძლო მეთოდები:"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:128
+#, kde-format
+msgid "Encryption"
+msgstr "დაშიფვრა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:132
+#, kde-format
+msgid "Use MPPE Encryption"
+msgstr "MPPE დაშიფვრის ჩართვა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:134
+#, kde-format
+msgid "Use Microsoft Point-to-Point Encryption"
+msgstr "წერტილიდან წერტილამდე შიფრაცია (MPPE)"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:143
+#, kde-format
+msgid "Crypto:"
+msgstr "კრიპტო:"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:148
+#, kde-format
+msgctxt "like in use Any configuration"
+msgid "Any"
+msgstr "ნებისმიერი"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:148
+#, kde-format
+msgid "128 bit"
+msgstr "128-ბიტიანი"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:148
+#, kde-format
+msgid "40 bit"
+msgstr "40 ბიტი"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:155
+#, kde-format
+msgid "Use stateful encryption"
+msgstr "სრული მიერთების დაშიფვრის გამოყენება"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:169
+#, kde-format
+msgid "Allow BSD compression"
+msgstr "BSD შეკუმშვის ჩართვა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:176
+#, kde-format
+msgid "Allow Deflate compression"
+msgstr "Deflate შეკუმშვის ჩართვა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:183
+#, kde-format
+msgid "Allow TCP header compression"
+msgstr "TCP თავსართების შეკუმშვის ჩართვა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:203
+#, kde-format
+msgid "Misc"
+msgstr "სხვადასხვა"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:213
+#, kde-format
+msgid "Use custom unit number:"
+msgstr "ერთეულის ხელით მითითება:"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:242
+#, kde-format
+msgid "Address:"
+msgstr "მისამართი:"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:250
+#, kde-format
+msgid "Port:"
+msgstr "პორტი:"
+
+#: editorqml/qml/vpn/sstp/SstpAdvanced.qml:261
+#, kde-format
+msgid "Credentials"
+msgstr "ავტორიზაციის დეტალები"
+
+#: editorqml/qml/vpn/sstp/SstpAuth.qml:22
+#, kde-format
+msgid "SSTP VPN"
+msgstr "SSTP VPN"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:115
+#, kde-format
+msgctxt "@item BSSID (MAC address) followed by signal strength"
+msgid "%1 (%2%)"
+msgstr "%1 (%2%)"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:119
+#, kde-format
+msgid "Frequency: %1 MHz"
+msgstr "სიხშირე: %1 მჰც"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:124
+#, kde-format
+msgid "Channel: %1"
+msgstr "არხი: %1"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:136
+#, kde-format
+msgctxt "@item wireless band"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:229
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:232
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:95
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:98
+#, kde-format
+msgctxt "@item MTU is automatically determined"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/wificonnectionsettings/WifiConnectionSettings.qml:229
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:95
+#, kde-format
+msgctxt "@item:intext MTU size, %1 is the number of bytes"
+msgid "%1 bytes"
+msgstr "%1 ბაიტი"
+
+#: editorqml/qml/wifisecurity/AlternativeSubjectMatch.qml:15
+#, kde-format
+msgid "Alternative subject matches"
+msgstr "თემის სხვა დამთხვევები"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:98
+#, kde-format
+msgctxt "@label:textbox"
+msgid "Anonymous identity:"
+msgstr "ანონიმური იდენტიფიკაცია:"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:116
+#, kde-format
+msgctxt "@item:inlist authentication mode"
+msgid "Anonymous"
+msgstr "ანონიმური"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:116
+#, kde-format
+msgctxt "@item:inlist authentication mode"
+msgid "Authenticated"
+msgstr "ავთენტიფიცირებული"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:116
+#, kde-format
+msgctxt "@item:inlist authentication mode"
+msgid "Both"
+msgstr "ორივე"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:142
+#, kde-format
+msgctxt ""
+"@label PAC stands for Proxy Auto-Configuration and should not be translated"
+msgid "PAC file:"
+msgstr "PAC ფაილი:"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapFast.qml:191
+#, kde-format
+msgctxt "@item:filefilter"
+msgid "PAC files (*.pac)"
+msgstr "PAC ფაილები (*.pac)"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:117
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:39
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:58
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:118
+#, kde-format
+msgid "*.der *.pem *.crt *.cer"
+msgstr "*.der *.pem *.crt *.cer"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:133
+#, kde-format
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapPeap.qml:175
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:170
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:176
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTtls.qml:164
+#, kde-format
+msgid "Certificates (*.der *.pem *.crt *.cer)"
+msgstr "სერტიფიკატები (*.der *.pem *.crt *.cer)"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:142
+#, kde-format
+msgid "*.der *.pem *.p12 *.key"
+msgstr "*.der *.pem *.p12 *.key"
+
+#: editorqml/qml/wifisecurity/authentication/enterprise/eap/EapTls.qml:182
+#, kde-format
+msgid "Keys (*.der *.pem *.p12 *.key)"
+msgstr "გასაღებები (*.der *.pem *.p12 *.key)"
+
+#: editorqml/qml/wifisecurity/authentication/Owe.qml:30
+#, kde-format
+msgid ""
+"Enhanced Open (OWE) provides encryption without authentication. No password "
+"required."
+msgstr ""
+"გაფართოებული ღია (OWE) უზრუნველყოფს დაშიფვრას ავთენტიკაციის გარეშე. პაროლი "
+"საჭირო არაა."
+
+#: editorqml/qml/wifisecurity/authentication/WepKey.qml:38
+#, kde-format
+msgid "Key index:"
+msgstr "გასაღების ინდექსი:"
+
+#: editorqml/qml/wifisecurity/DnsList.qml:15
+#, kde-format
+msgid "DNS Servers"
+msgstr "DNS სერვერები"
+
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:24
+#, kde-format
+msgid "None"
+msgstr "არცერთი"
+
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:25
+#, kde-format
+msgid "WEP 40/128-bit key (Hex)"
+msgstr "WEP გასაღები 40/128 ბიტიანი (თექვსმ)"
+
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:26
+#, kde-format
+msgid "WEP 128-bit Passphrase"
+msgstr "WEP 128-bit Passphrase"
+
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:28
+#, kde-format
+msgid "WPA/WPA2 Personal"
+msgstr "WPA/WPA2 პერსონალური"
+
+#: editorqml/qml/wifisecurity/WifiSecurityForm.qml:29
+#, kde-format
+msgid "WPA/WPA2 Enterprise"
+msgstr "WPA/WPA2 საწარმოო"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:56
+#, kde-format
+msgid ""
+"This option locks this connection to the network device specified by its "
+"permanent MAC address entered here. Example: 00:11:22:33:44:55"
+msgstr ""
+"ეს პარამეტრი ამ შეერთებას აქ მითითებული ქსელური მოწყობილობის MAC მისამართზე "
+"შეზღუდავს. მაგ: 00:11:22:33:44:55"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:74
+#, kde-format
+msgid ""
+"The MAC address entered here will be used as hardware address for the "
+"network device this connection is activated on. This feature is known as MAC "
+"cloning or spoofing. Example: 11:22:33:44:55:66"
+msgstr ""
+"აქ მითითებული MAC მისამართი გამოყენებული იქნება როგორც აპარატურული მისამართი "
+"ქსელური მოწყობილობისა, რომელზეც ეს მიერთება აქტიურდება. ფუნქციას Mac cloning/"
+"spoofing ეწოდება. მაგ: 11:22:33:44:55"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:107
+#, kde-format
+msgid ""
+"Only transmit packets of the specified size or smaller, breaking larger "
+"packets up into multiple Ethernet frames"
+msgstr ""
+"მხოლოდ მითითებულზე ნაკლები ან ტოლი ზომის მქონე პაკეტების გადაცემა. უფრო დიდი "
+"პაკეტები Ethernet-ის Frame-ების მსგავსად დაიხლიჩება"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:114
+#, kde-format
+msgctxt "@item:inlistbox link negotiation"
+msgid "Ignore"
+msgstr "იგნორი"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:114
+#, kde-format
+msgctxt "@item:inlistbox link negotiation"
+msgid "Automatic"
+msgstr "ავტომატური"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:114
+#, kde-format
+msgctxt "@item:inlistbox link negotiation"
+msgid "Manual"
+msgstr "ხელით"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:122
+#, kde-format
+msgid ""
+"Device link negotiation. If “Manual” is chosen, “Speed” and “Duplex” values "
+"will be forced without checking the device compatibility. If unsure, leave "
+"here “Ignore” or pick “Automatic”."
+msgstr ""
+"მოწყობილობის მიერთების მოლაპარაკება. თუ არჩეულია \"ხელით\", \"სიჩქარის\" და "
+"\"დუპლექსის\" მნიშვნელობები მოწყობილობასთან თავსებადობის შემოწმების გარეშე "
+"დადგება. თუ დარწმუნებული არ ბრძანდებით, დატოვეთ \"იგნორირება\" ან აირჩიეთ "
+"\"ავტომატური\"."
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:159
+#, kde-format
+msgctxt "@item:inlistbox duplex mode"
+msgid "Half"
+msgstr "ნახევარი"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:159
+#, kde-format
+msgctxt "@item:inlistbox duplex mode"
+msgid "Full"
+msgstr "სრული"
+
+#: editorqml/qml/wiredconnectionsettings/WiredConnectionSettings.qml:167
+#, kde-format
+msgid ""
+"Request that the device use the specified duplex mode. Either “Half” or "
+"“Full”"
+msgstr ""
+"მოწყობილობისთვის მითითებული დუპლექსის რეჟიმის გამოყენების მოთხოვნა. \"half"
+"\" (ნახევარი) ან \"full\" (სრული)"
+
+#: editorqml/settings/generalSettings/advancedpermissionsmodel.cpp:48
+#, kde-format
+msgctxt "@item real name not available"
+msgid "N/A"
+msgstr "ა/მ"
+
+#: editorqml/settings/ipv4settings/ipv4routetablemodel.cpp:105
+#: editorqml/settings/ipv6settings/ipv6routetablemodel.cpp:107
+#, kde-format
+msgctxt "@title:column"
+msgid "Address"
+msgstr "მისამართი"
+
+#: editorqml/settings/ipv4settings/ipv4routetablemodel.cpp:107
+#, kde-format
+msgctxt "@title:column"
+msgid "Netmask"
+msgstr "ქსელის ნიღაბი"
+
+#: editorqml/settings/ipv4settings/ipv4routetablemodel.cpp:109
+#: editorqml/settings/ipv6settings/ipv6routetablemodel.cpp:111
+#, kde-format
+msgctxt "@title:column"
+msgid "Gateway"
+msgstr "ნაგულისხმევი რაუტერი"
+
+#: editorqml/settings/ipv4settings/ipv4routetablemodel.cpp:111
+#: editorqml/settings/ipv6settings/ipv6routetablemodel.cpp:113
+#, kde-format
+msgctxt "@title:column"
+msgid "Metric"
+msgstr "მეტრული"
+
+#: editorqml/settings/ipv6settings/ipv6routetablemodel.cpp:109
+#, kde-format
+msgctxt "@title:column IPv6 prefix length"
+msgid "Prefix"
+msgstr "პრეფიქსი"
+
+#: editorqml/settings/wificonnectionsettings/wifisetting.cpp:292
+#, kde-format
+msgctxt "@item automatic wireless channel selection"
+msgid "Automatic"
+msgstr "ავტომატური"
 
 #: handler.cpp:140
 #, kde-format
@@ -4065,7 +5157,7 @@ msgstr "%1-ს განახლების შეცდომა"
 msgid "Connection %1 has been updated"
 msgstr "შეერთება %1 განახლებულია"
 
-#: handler.cpp:861
+#: handler.cpp:864
 #, kde-format
 msgid "Failed to create hotspot %1"
 msgstr "%1 hotspot-ის შექმნის შეცდომა"
@@ -4163,19 +5255,19 @@ msgstr "სხვა"
 msgid "Import a saved configuration file"
 msgstr "შენახული კონფიგურაციის ფაილის შემოტანა"
 
-#: models/networkmodelitem.cpp:339
+#: models/networkmodelitem.cpp:342
 #, kde-format
 msgctxt "@title:column header for list of available network connections"
 msgid "Available"
 msgstr "ხელმისაწვდომია"
 
-#: models/networkmodelitem.cpp:345
+#: models/networkmodelitem.cpp:348
 #, kde-format
 msgctxt "@title:column header for list of connected network connections"
 msgid "Connected"
 msgstr "მიერთებულია"
 
-#: models/networkmodelitem.cpp:347
+#: models/networkmodelitem.cpp:350
 #, kde-format
 msgctxt ""
 "@title:column header for list of previously connected network connections"
@@ -4270,145 +5362,37 @@ msgctxt "global connection state"
 msgid "Unknown"
 msgstr "უცნობია"
 
-#~ msgid "Wi-Fi Security"
-#~ msgstr "Wi-Fi-ის დაცვა"
+#: qml/ConnectionItemDelegate.qml:97
+#, kde-format
+msgid "Connect"
+msgstr "დაკავშირება"
 
-#~ msgid "BSSID:"
-#~ msgstr "BSSID:"
+#: qml/ConnectionItemDelegate.qml:104
+#, kde-format
+msgid "Disconnect"
+msgstr "გათიშვა"
 
-#~ msgid ""
-#~ "This option locks this connection to the Wi-Fi access point (AP) "
-#~ "specified by the\n"
-#~ " BSSID entered here. Example: 00:11:22:33:44:55"
-#~ msgstr ""
-#~ "ეს პარამეტრი ბლოკავს ამ შეერთებას Wi-Fi წვდომის წერტილთან, რომელიც\n"
-#~ "აქ შეყვანილი BSSID-ითაა აღწერილი. მაგ: 00:11:22:33:44:55"
+#: qml/ConnectionItemDelegate.qml:111
+#, kde-format
+msgid "Configure"
+msgstr "მორგება"
 
-#~ msgid "Hardware"
-#~ msgstr "აპარატურა"
+#: qml/ConnectionItemDelegate.qml:148
+#, kde-format
+msgid "Connect to"
+msgstr "დაკავშირება"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Unknown"
-#~ msgstr "შეერთების ტიპი უცნობია"
+#: qml/TrafficMonitor.qml:37 qml/TrafficMonitor.qml:112
+#, kde-format
+msgid "/s"
+msgstr "/წმ"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is ADSL"
-#~ msgstr "შეერთების ტიპი: ADSL"
+#: qml/TrafficMonitor.qml:90
+#, kde-format
+msgid "Upload"
+msgstr "ატვირთვა"
 
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Bluetooth"
-#~ msgstr "კავშირის ტიპია Bluetooth"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Bridge"
-#~ msgstr "კავშირის ტიპია Bridge"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is CDMA"
-#~ msgstr "კავშირის ტიპია CDMA"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is GSM"
-#~ msgstr "კავშირის ტიპია GSM"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Infiniband"
-#~ msgstr "კავშირის ტიპია Infiniband"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is OLPC Mesh"
-#~ msgstr "კავშირის ტიპია OLPC Mesh"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is PPOPE"
-#~ msgstr "კავშირის ტიპია PPOPE"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is VLAN"
-#~ msgstr "კავშირის ტიპია VLAN"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is VPN"
-#~ msgstr "კავშირის ტიპია VPN"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Wimax"
-#~ msgstr "კავშირის ტიპი არის Wimax"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Wired"
-#~ msgstr "კავშირის მავთულითაა"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Wireless"
-#~ msgstr "კავშირის ტიპი უსადენოა"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Team"
-#~ msgstr "შეერთების ტიპია Team"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Generic"
-#~ msgstr "შეერთების ტიპია: ზოგადი"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is Tunnel"
-#~ msgstr "შეერთების ტიპია გვირაბი"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is IP Tunnel"
-#~ msgstr "კავშირის ტიპია IP გვირაბი"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "The connection type is WireGuard"
-#~ msgstr "კავშირის ტიპი არის WireGuard"
-
-#~ msgctxt ""
-#~ "Label for last used time for a network connection used in the last hour, "
-#~ "as the number of minutes since usage"
-#~ msgid "One minute ago"
-#~ msgid_plural "%1 minutes ago"
-#~ msgstr[0] "1 წუთის წინ"
-#~ msgstr[1] "%1 წუთის წინ"
-
-#~ msgctxt ""
-#~ "Label for last used time for a network connection used in the last day, "
-#~ "as the number of hours since usage"
-#~ msgid "One hour ago"
-#~ msgid_plural "%1 hours ago"
-#~ msgstr[0] "1 საათის წინ"
-#~ msgstr[1] "%1 საათის წინ"
-
-#~ msgctxt ""
-#~ "Label for last used time for a network connection used the previous day"
-#~ msgid "Yesterday"
-#~ msgstr "გუშინ"
-
-#~ msgctxt ""
-#~ "Label for last used time for a network connection that has never been used"
-#~ msgid "Never"
-#~ msgstr "არასდროს"
-
-#~ msgctxt "General"
-#~ msgid "General configuration"
-#~ msgstr "ზოგადი კონფიგურაცია"
-
-#~ msgid "*.der *.pem *.crt *.cer"
-#~ msgstr "*.der *.pem *.crt *.cer"
-
-#~ msgid "*.der *.pem *.p12 *.key"
-#~ msgstr "*.der *.pem *.p12 *.key"
-
-#~ msgid "*.pac"
-#~ msgstr "*.pac"
-
-#~ msgid ""
-#~ "Plasma is missing support for '%1' VPN connections. Please report this to "
-#~ "your distribution."
-#~ msgstr ""
-#~ "Plasma-ს აკლია \"%1\" ტიპის VPN-ის მხარდაჭერა. შეატყობინეთ თქვენი "
-#~ "დისტრიბუტივის მხარდაჭერის გუნდს."
-
-#~ msgctxt "Error message in VPN import/export dialog"
-#~ msgid "Operation not supported for this VPN type."
-#~ msgstr "ოპერაცია მხარდაუჭერელია VPN-ის ამ ტიპისათვის."
+#: qml/TrafficMonitor.qml:90
+#, kde-format
+msgid "Download"
+msgstr "გადმოწერა"
